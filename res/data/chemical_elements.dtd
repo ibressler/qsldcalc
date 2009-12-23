@@ -1,0 +1,85 @@
+<!ELEMENT chemical_element_list (chemical_element*)>
+
+<!ELEMENT chemical_element (
+	name,
+	abundance,
+	atomic_weight,
+	nucleons?,
+	electrons,
+	neutron_scattering_length?,
+	neutron_scattering_cross_section?,
+	xray_scattering_anomalous_coefficients?
+)>
+<!ATTLIST chemical_element
+	symbol		CDATA			#REQUIRED
+>
+
+<!ELEMENT atomic_weight EMPTY>
+<!ATTLIST atomic_weight
+	val	CDATA	#REQUIRED
+	unit	CDATA	"g/mol"
+>
+
+<!ELEMENT nucleons EMPTY>
+<!ATTLIST nucleons
+	val	CDATA	#REQUIRED
+>
+
+<!ELEMENT name EMPTY>
+<!ATTLIST name
+	val	CDATA	#REQUIRED
+>
+
+<!ELEMENT electrons EMPTY>
+<!ATTLIST electrons
+	val	CDATA	#REQUIRED
+>
+
+<!ELEMENT abundance EMPTY>
+<!ATTLIST abundance
+	val	CDATA	#REQUIRED
+>
+
+<!ELEMENT neutron_scattering_length (coherent?, incoherent?)>
+<!ATTLIST neutron_scattering_length
+	factor	CDATA	"1e-15"
+	unit	CDATA	"m"
+>
+
+<!ELEMENT neutron_scattering_cross_section (coherent?, incoherent?, total?, absorption?)>
+<!ATTLIST neutron_scattering_cross_section
+	factor	CDATA	"1e-24"
+	unit	CDATA	"cm²"
+>
+
+<!ELEMENT coherent EMPTY>
+<!ATTLIST coherent
+	re	CDATA	#REQUIRED
+	im	CDATA	"0.0"
+>
+
+<!ELEMENT incoherent EMPTY>
+<!ATTLIST incoherent
+	re	CDATA	#REQUIRED
+	im	CDATA	"0.0"
+>
+
+<!ELEMENT total EMPTY>
+<!ATTLIST total
+	val	CDATA	#REQUIRED
+>
+
+<!-- absorption cross section for 2200 m/s neutrons -->
+<!ELEMENT absorption EMPTY>
+<!ATTLIST absorption
+	val	CDATA	#REQUIRED
+>
+
+<!ELEMENT xray_scattering_anomalous_coefficients (ev*)>
+<!ELEMENT ev EMPTY>
+<!ATTLIST ev
+	val	CDATA	#REQUIRED
+	unit	CDATA	"keV"
+	fp	CDATA	#REQUIRED
+	fpp	CDATA	#REQUIRED
+>

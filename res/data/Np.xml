@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chemical_element_list SYSTEM "chemical_elements.dtd">
+<chemical_element_list>
+	<chemical_element symbol="Np">
+		<name val="Neptunium"/>
+		<abundance val="100"/>
+		<atomic_weight val="237.0481673"/>
+		<nucleons val="-1"/>
+		<electrons val="93"/>
+		<neutron_scattering_length>
+			<coherent re="10.55"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="14"/>
+			<incoherent re="0.5"/>
+			<total val="14.5"/>
+			<absorption val="175.9"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+	<chemical_element symbol="Np">
+		<name val="Neptunium"/>
+		<abundance val="0"/>
+		<atomic_weight val="237.0481673"/>
+		<nucleons val="237"/>
+		<electrons val="93"/>
+		<neutron_scattering_length>
+			<coherent re="10.55"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="14"/>
+			<incoherent re="0.5"/>
+			<total val="14.5"/>
+			<absorption val="175.9"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+</chemical_element_list>

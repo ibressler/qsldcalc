@@ -1,0 +1,5 @@
+2009-12-23
+
+The first version which is made publicly available. It is approximately 80%
+feature complete, according to the initial idea.
+

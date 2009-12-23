@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chemical_element_list SYSTEM "chemical_elements.dtd">
+<chemical_element_list>
+	<chemical_element symbol="Cm">
+		<name val="Curium"/>
+		<abundance val="100"/>
+		<atomic_weight val="247.070347"/>
+		<nucleons val="-1"/>
+		<electrons val="96"/>
+	</chemical_element>
+	<chemical_element symbol="Cm">
+		<name val="Curium"/>
+		<abundance val="0"/>
+		<atomic_weight val="244.0627463"/>
+		<nucleons val="244"/>
+		<electrons val="96"/>
+		<neutron_scattering_length>
+			<coherent re="9.5"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="11.3"/>
+			<total val="11.3"/>
+			<absorption val="16.2"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+	<chemical_element symbol="Cm">
+		<name val="Curium"/>
+		<abundance val="0"/>
+		<atomic_weight val="246.0672176"/>
+		<nucleons val="246"/>
+		<electrons val="96"/>
+		<neutron_scattering_length>
+			<coherent re="9.3"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="10.9"/>
+			<total val="10.9"/>
+			<absorption val="1.36"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+	<chemical_element symbol="Cm">
+		<name val="Curium"/>
+		<abundance val="0"/>
+		<atomic_weight val="248.072342"/>
+		<nucleons val="248"/>
+		<electrons val="96"/>
+		<neutron_scattering_length>
+			<coherent re="7.7"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="7.5"/>
+			<total val="7.5"/>
+			<absorption val="3"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+</chemical_element_list>

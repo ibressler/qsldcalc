@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE chemical_element_list SYSTEM "chemical_elements.dtd">
+<chemical_element_list>
+	<chemical_element symbol="Pu">
+		<name val="Plutonium"/>
+		<abundance val="100"/>
+		<atomic_weight val="244.064198"/>
+		<nucleons val="-1"/>
+		<electrons val="94"/>
+	</chemical_element>
+	<chemical_element symbol="Pu">
+		<name val="Plutonium"/>
+		<abundance val="0"/>
+		<atomic_weight val="238.0495534"/>
+		<nucleons val="238"/>
+		<electrons val="94"/>
+		<neutron_scattering_length>
+			<coherent re="14.1"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="25"/>
+			<total val="25"/>
+			<absorption val="558"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+	<chemical_element symbol="Pu">
+		<name val="Plutonium"/>
+		<abundance val="0"/>
+		<atomic_weight val="239.0521565"/>
+		<nucleons val="239"/>
+		<electrons val="94"/>
+		<neutron_scattering_length>
+			<coherent re="7.7"/>
+			<incoherent re="1.3"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="7.5"/>
+			<incoherent re="0.2"/>
+			<total val="7.7"/>
+			<absorption val="1017.3"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+	<chemical_element symbol="Pu">
+		<name val="Plutonium"/>
+		<abundance val="0"/>
+		<atomic_weight val="240.0538075"/>
+		<nucleons val="240"/>
+		<electrons val="94"/>
+		<neutron_scattering_length>
+			<coherent re="3.5"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="1.54"/>
+			<total val="1.54"/>
+			<absorption val="289.6"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+	<chemical_element symbol="Pu">
+		<name val="Plutonium"/>
+		<abundance val="0"/>
+		<atomic_weight val="242.0587368"/>
+		<nucleons val="242"/>
+		<electrons val="94"/>
+		<neutron_scattering_length>
+			<coherent re="8.1"/>
+		</neutron_scattering_length>
+		<neutron_scattering_cross_section>
+			<coherent re="8.2"/>
+			<total val="8.2"/>
+			<absorption val="18.5"/>
+		</neutron_scattering_cross_section>
+	</chemical_element>
+</chemical_element_list>

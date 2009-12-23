@@ -1,0 +1,87 @@
+<!--
+ src/datavisualizer.ui
+
+ Copyright (c) 2009 Technische Universität Berlin, 
+ Stranski-Laboratory for Physical und Theoretical Chemistry
+
+ This file is part of qSLDcalc.
+
+ qSLDcalc is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ qSLDcalc is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with qSLDcalc. If not, see <http://www.gnu.org/licenses/>.
+
+ Author(s) of this file:
+  Ingo Bressler (ingo at cs.tu-berlin.de)
+-->
+<ui version="4.0" >
+ <class>DataVisualizer</class>
+ <widget class="QWidget" name="DataVisualizer" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>visualize element data</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" >
+   <item row="0" column="2" >
+    <widget class="QComboBox" name="cbCharacteristic" >
+     <property name="sizeAdjustPolicy" >
+      <enum>QComboBox::AdjustToContents</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" >
+    <spacer name="horizontalSpacer" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="1" >
+    <widget class="QLabel" name="lblSelectCharacteristic" >
+     <property name="text" >
+      <string>select characteristic to show:</string>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="3" >
+    <widget class="QGraphicsView" name="gvDisplay" />
+   </item>
+   <item row="1" column="0" colspan="3" >
+    <widget class="QLabel" name="lblPlotType" >
+     <property name="text" >
+      <string/>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
