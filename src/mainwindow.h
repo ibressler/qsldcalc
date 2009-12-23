@@ -83,12 +83,6 @@
  * </td><td>
  * \image html logo_tub.png
  * \image latex logo_tub.png width=2cm
- * </td></tr><tr><td>
- * - It is hosted by <a href="http://developer.berlios.de">BerliOS</a>.
- * </td><td>
- * \htmlonly
- * <a href="http://developer.berlios.de" title="BerliOS Developer"><img src="http://developer.berlios.de/bslogo.php?group_id=11424" width="124px" height="32px" border="0" alt="BerliOS Developer Logo"></a>
- * \endhtmlonly
  * </td></tr>
  * </table>
  *

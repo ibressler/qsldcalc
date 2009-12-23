@@ -11,7 +11,7 @@
 	xray_scattering_anomalous_coefficients?
 )>
 <!ATTLIST chemical_element
-	symbol		CDATA			#REQUIRED
+	symbol	CDATA	#REQUIRED
 >
 
 <!ELEMENT atomic_weight EMPTY>
