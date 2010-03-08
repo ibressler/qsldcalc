@@ -213,7 +213,7 @@ std::operator<<(std::ostream& o, const Element& e)
 	edb::Element::PropertyValueIteratorConst pit = e.beginConst();
 	for(; pit != e.endConst(); pit++)
 	{
-		o << *pit;
+		o << *pit << " ";
 	}
 	o << std::endl;
 	const edb::MapTriple& map = e.xrayCoefficients();

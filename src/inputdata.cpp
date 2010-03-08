@@ -222,21 +222,21 @@ sldXray(double electrons, double fp, double fpp, double vol)
 }
 
 bool 
-InputData::calcXrayCoefficients(double&                      fp, 
-                                double&                      fpp,
-                                CompleteList::const_iterator elemIt,
-                                double                       energy)
+InputData::calcXrayCoefficients(double&           fp, 
+                                double&           fpp,
+                                edb::Element::Ptr ep,
+                                double            coeff,
+                                double            energy)
 {
 	typedef edb::MapTriple::const_iterator Iter;
-	edb::Element::Ptr ep = elemIt->second;
 	Iter end = ep->xrayCoefficients().end();
 	Iter begin = ep->xrayCoefficients().begin();
 	Iter it = ep->xrayCoefficients().find(energy);
 	fp = 0.0, fpp = 0.0;
 	// energy already in the map
 	if (it != end) {
-		fp = (elemIt->first.coefficient() * it->second.first);
-		fpp = (elemIt->first.coefficient() * it->second.second);
+		fp = (coeff * it->second.first);
+		fpp = (coeff * it->second.second);
 	} else {
 		// interpolate missing energy
 		ep->addXrayCoefficient(energy, 0.0, 0.0);
@@ -300,7 +300,8 @@ InputData::calcXrayEnergies(const CompleteList& cl,
 			continue;
 		}
 		double fp = 0.0, fpp = 0.0;
-		bool ok = calcXrayCoefficients(fp, fpp, elemIt, energy);
+		bool ok = calcXrayCoefficients(fp, fpp, ep, 
+		                        elemIt->first.coefficient(), energy);
 		if (!ok) {
 			std::cerr << "InputData::calcXrayEnergies, "
 				<< "Specified energy is out of bounds!"

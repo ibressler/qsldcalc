@@ -225,10 +225,11 @@ private:
 	/// \param[in] energy User specified Xray energy.
 	/// \returns True, on success. False, if the given energy value is out
 	///          of range.
-	bool calcXrayCoefficients(double&                      fp, 
-	                          double&                      fpp,
-	                          CompleteList::const_iterator elemIt,
-	                          double                       energy);
+	bool calcXrayCoefficients(double&           fp, 
+	                          double&           fpp,
+	                          edb::Element::Ptr ep,
+	                          double            coeff,
+	                          double            energy);
 
 private:
 	/// A reference to the element database.
