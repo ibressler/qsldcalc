@@ -337,11 +337,11 @@ void MainWindow::fillResultTable()
 {
 	setFormattedFormula();
 
-	resultAddData("number of electrons");
-	resultAddData("molecular mass g/mol");
-	resultAddData("molecular volume nm^3");
-	resultAddData("neutron scattering");
-	resultAddData("xray scattering");
+	resultAddData("number of electrons", false);
+	resultAddData("molecular mass g/mol", false);
+	resultAddData("molecular volume nm^3", false);
+	resultAddData("neutron scattering", true);
+	resultAddData("xray scattering", true);
 	resultAddInput();
 
 	QStringList headerLabels;
@@ -460,11 +460,23 @@ void MainWindow::appendVariant(QStandardItem * parent, const QString& name, cons
 	} 
 }
 
-void MainWindow::resultAddData(const char * key)
+void MainWindow::resultAddData(const char * key, bool expand)
 {
 	if (!key) return;
 
 	appendVariant(mModel.invisibleRootItem(), tr(key), mInputData.get(key));
+	if (expand) {
+		QStandardItem * root = mModel.invisibleRootItem();
+		if (root) {
+			int idx = root->rowCount()-1;
+			if (idx >= 0) {
+				QStandardItem * item = mModel.item(idx);
+				if (item) {
+					tblResult->expand(item->index());
+				}
+			}
+		}
+	}
 }
 
 void MainWindow::resultAddInput()

@@ -251,7 +251,9 @@ private:
 	/// Inserts a new item to the tabular result widget.
 	/// Helper for fillResultTable()
 	/// \param[in] key Key of the dataset within InputData.
-	void resultAddData(const char * key);
+	/// \param[in] expand If true, this entry will be expanded in the
+	///            underlying QTreeView.
+	void resultAddData(const char * key, bool expand);
 
 	/// Appends a \e QVariant to the tabular result widget.
 	/// This is the most generic case. Helper for fillResultTable()
