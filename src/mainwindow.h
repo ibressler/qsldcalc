@@ -199,6 +199,8 @@ private slots:
 	/// i.e. formula parsing.
 	void rebuildResultTable();
 
+	void useSystemLocaleTriggered();
+
 	/// Displays detailed information of a chemical element in the tabular 
 	/// result widget. Is connected to
 	/// \e MainWindow::lblFormattedFormula.linkActivated() and
@@ -308,6 +310,7 @@ private:
 
 	/// Directory path to search for translations
 	QDir               mLangPath; 
+	QString            mLangFile; /// Currently loaded language file
 
 	QString	                  mAboutTitle;
 	QString                   mAboutText;

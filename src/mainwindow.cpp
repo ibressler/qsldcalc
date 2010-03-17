@@ -64,7 +64,7 @@ MainWindow::MainWindow(QApplication &app, edb::ElementDatabase& db)
 	connect(actionAbout_Qt, SIGNAL(triggered()), &app, SLOT(aboutQt()));
 	connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
 	connect(actionVisualizeData, SIGNAL(triggered()), &mDataVisualizer, SLOT(show()));
-	connect(actionUseSystemLocale, SIGNAL(triggered()), this, SLOT(rebuildResultTable()));
+	connect(actionUseSystemLocale, SIGNAL(triggered()), this, SLOT(useSystemLocaleTriggered()));
 	selectDefaultLang();
 
 	// action setup result table
@@ -91,6 +91,9 @@ MainWindow::MainWindow(QApplication &app, edb::ElementDatabase& db)
 		mCompleter = new FormulaCompleter(db, ntrFormula->lineEdit(), btnCalc);
 		connect(ntrFormula->lineEdit(), SIGNAL(returnPressed()), btnCalc, SLOT(animateClick()));
 	}
+	connect(ntrDensity, SIGNAL(editingFinished()), btnCalc, SLOT(animateClick()));
+	connect(ntrXrayEn, SIGNAL(editingFinished()), btnCalc, SLOT(animateClick()));
+	connect(ntrNeutronWl, SIGNAL(editingFinished()), btnCalc, SLOT(animateClick()));
 
 	connect(lblFormattedFormula, SIGNAL(linkActivated(const QString&)), 
 		this, SLOT(showElementData(const QString&)));
@@ -124,12 +127,14 @@ void MainWindow::loadLanguage(const QString& filename)
 		std::cerr << "Could not load translation file '"
 			<< filename.toStdString() << "' !";
 	}
+	mLangFile = filename;
 	retranslateUi();
 }
 
 void MainWindow::retranslateUi()
 {
 	Ui::MainWindow::retranslateUi(this);
+
 	setWindowTitle(tr(PROGRAM_NAME));
 	menuFile->setTitle(tr("&File"));
 	menuTools->setTitle(tr("&Tools"));
@@ -166,6 +171,24 @@ void MainWindow::retranslateUi()
 	mDataVisualizer.retranslateUi();
 }
 
+void MainWindow::useSystemLocaleTriggered()
+{
+	// reformat spinbox values
+	if (actionUseSystemLocale->isChecked()) {
+		// use system settings for decimal operator
+		ntrDensity->setLocale(QLocale::system());
+		ntrXrayEn->setLocale(QLocale::system());
+		ntrNeutronWl->setLocale(QLocale::system());
+	} else  {
+		// force . decimal operator
+		ntrDensity->setLocale(QLocale::c());
+		ntrXrayEn->setLocale(QLocale::c());
+		ntrNeutronWl->setLocale(QLocale::c());
+	}
+	// reload the current language file
+	loadLanguage(mLangFile);
+}
+
 void MainWindow::about()
 {
 	QMessageBox::about(this, mAboutTitle, mAboutText);
@@ -189,6 +212,8 @@ void MainWindow::updateLangActions(QMenu * menuLang)
 	mLangActionList.clear();
 	QStringList::const_iterator fit = langFiles.begin();
 	while(fit != langFiles.end()) {
+		// the display name equals the filename directly
+		// (but is Qtranslated to a more beautiful name)
 		LangAction * act = new LangAction(this, *fit);
 		menuLang->addAction(act);
 		connect(act, SIGNAL(triggered(const QString&)), this, SLOT(loadLanguage(const QString&)));
@@ -327,8 +352,7 @@ void MainWindow::fillResultTable()
 
 QString MainWindow::qstringFromDouble(double d) const
 {
-	if (actionUseSystemLocale->isChecked())
-	{
+	if (actionUseSystemLocale->isChecked()) {
 		return QLocale::system().toString(d);
 	} else  {
 		return QString::number(d);
