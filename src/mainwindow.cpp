@@ -65,6 +65,7 @@ MainWindow::MainWindow(QApplication &app, edb::ElementDatabase& db)
 	connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
 	connect(actionVisualizeData, SIGNAL(triggered()), &mDataVisualizer, SLOT(show()));
 	connect(actionUseSystemLocale, SIGNAL(triggered()), this, SLOT(useSystemLocaleTriggered()));
+	actionUseSystemLocale->setChecked(true);
 	selectDefaultLang();
 
 	// action setup result table
@@ -176,15 +177,17 @@ void MainWindow::useSystemLocaleTriggered()
 	// reformat spinbox values
 	if (actionUseSystemLocale->isChecked()) {
 		// use system settings for decimal operator
-		ntrDensity->setLocale(QLocale::system());
-		ntrXrayEn->setLocale(QLocale::system());
-		ntrNeutronWl->setLocale(QLocale::system());
+		mLocale = QLocale::system();
 	} else  {
 		// force . decimal operator
-		ntrDensity->setLocale(QLocale::c());
-		ntrXrayEn->setLocale(QLocale::c());
-		ntrNeutronWl->setLocale(QLocale::c());
+		mLocale = QLocale::c();
 	}
+	// disable decimal grouping
+	mLocale.setNumberOptions(QLocale::OmitGroupSeparator|QLocale::RejectGroupSeparator);
+	// reconfigure input fields
+	ntrDensity->setLocale(mLocale);
+	ntrXrayEn->setLocale(mLocale);
+	ntrNeutronWl->setLocale(mLocale);
 	// reload the current language file
 	loadLanguage(mLangFile);
 }
@@ -352,11 +355,7 @@ void MainWindow::fillResultTable()
 
 QString MainWindow::qstringFromDouble(double d) const
 {
-	if (actionUseSystemLocale->isChecked()) {
-		return QLocale::system().toString(d);
-	} else  {
-		return QString::number(d);
-	}
+	return mLocale.toString(d);
 }
 
 QString MainWindow::qstringFromComplex(edb::complex c) const

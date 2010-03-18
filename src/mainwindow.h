@@ -313,6 +313,7 @@ private:
 	/// Directory path to search for translations
 	QDir               mLangPath; 
 	QString            mLangFile; /// Currently loaded language file
+	QLocale            mLocale; /// Current locale for double -> string
 
 	QString	                  mAboutTitle;
 	QString                   mAboutText;
