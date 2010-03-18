@@ -65,8 +65,8 @@ MainWindow::MainWindow(QApplication &app, edb::ElementDatabase& db)
 	connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
 	connect(actionVisualizeData, SIGNAL(triggered()), &mDataVisualizer, SLOT(show()));
 	connect(actionUseSystemLocale, SIGNAL(triggered()), this, SLOT(useSystemLocaleTriggered()));
-	actionUseSystemLocale->setChecked(true);
 	selectDefaultLang();
+	actionUseSystemLocale->trigger();
 
 	// action setup result table
 	connect(actionExpandAll, SIGNAL(triggered()), this, SLOT(expandAll()));
