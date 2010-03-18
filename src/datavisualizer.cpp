@@ -95,7 +95,7 @@ DataVisualizer::display(int index)
 	edb::ElementDatabase::Iterator end = mDB->end();
 	edb::ElementDatabase::Iterator it = begin;
 	// copy elements to sorted container first
-	typedef QMap<edb::Element::PropertyVariant, edb::Element::Ptr> ElementMap;
+	typedef QMultiMap<edb::Element::PropertyVariant, edb::Element::Ptr> ElementMap;
 	ElementMap elemMap;
 	for(; it != end; it++) 
 	{
@@ -187,7 +187,9 @@ DataVisualizer::draw(SceneType scene, qreal& lastXPos, edb::Element::Ptr e, int 
 	    type == edb::Element::STRING_TYPE) {
 		// no stacking for 2D drawing
 		// item positions are stretched in X direction
-		if (lastXPos > pos.x()) pos.setX(lastXPos);
+		if (lastXPos > pos.x()) {
+		       	pos.setX(lastXPos);
+		}
 		rect->setPos(pos);
 		// update drawing position for the next item
 		lastXPos = pos.x() + rect->boundingRect().width() + itemMargin;
