@@ -34,7 +34,7 @@
 #include "mainwindow.h"
 #include "aliasnamedialog.h"
 
-MainWindow::MainWindow(QApplication &app, edb::ElementDatabase& db)
+MainWindow::MainWindow(QApplication &app, ElementDatabase& db)
 	: QMainWindow(),
 	  Ui::MainWindow(),
 	  mApp(&app), 
@@ -164,6 +164,8 @@ void MainWindow::retranslateUi()
 	mAboutText.append("<br><br>");
 	mAboutText.append(tr("Written by:"));
 	mAboutText.append("<br>Ingo Bressler (ingo at cs.tu-berlin.de)");
+	mAboutText.append("<br>");
+	mAboutText.append(tr("(Comments, suggestions or corrections are welcome!)"));
 	mAboutText.append("<br>");
 	updateLangActions(menuLang);
 
@@ -358,7 +360,7 @@ QString MainWindow::qstringFromDouble(double d) const
 	return mLocale.toString(d);
 }
 
-QString MainWindow::qstringFromComplex(edb::complex c) const
+QString MainWindow::qstringFromComplex(complex c) const
 {
 	QString str;
 	if (c.real() != 0.0) str.append(qstringFromDouble(c.real()));
@@ -386,7 +388,7 @@ QString MainWindow::qstringFromVariant(const QVariant& var) const
 		{
 			QVariantList list = var.toList();
 			if (list.size() == 2) {
-				edb::complex c(list.front().toDouble(),
+				complex c(list.front().toDouble(),
 				          list.back().toDouble());
 				result = qstringFromComplex(c);
 			}
@@ -583,9 +585,9 @@ void addModelEntry(QStandardItem * item,
 	item->appendRow(itemList);
 }
 
-QString MainWindow::toString(const edb::Element::PropertyVariant& var) const
+QString MainWindow::toString(const Element::PropertyVariant& var) const
 {
-	if (edb::Element::isValidVariant(var)) {
+	if (Element::isValidVariant(var)) {
 		return QString(boost::apply_visitor(QStringFromBoostVariant(this), var));
 	} else {
 		return QString(tr("invalid"));
@@ -596,7 +598,7 @@ void MainWindow::showElementData(const QString& key)
 {
 //	std::cerr << "key: " << key.toStdString() << std::endl;
 	clearResultTable();
-	edb::Element::Ptr ep = mDB->getElement(key);
+	Element::Ptr ep = mDB->getElement(key);
 	if (ep.isNull()) {
 		cfp::Compound comp = mDB->getAlias(key);
 		if (comp.size() > 0) {
@@ -612,31 +614,31 @@ void MainWindow::showElementData(const QString& key)
 	QStandardItem * root = mModel.invisibleRootItem();
 	QStandardItem * item = root;
 	QStringFromBoostVariant qstringFromBoostVariant(this);
-	edb::Element::PropertyValueIteratorConst it = ep->beginConst();
-	int propCount = edb::Element::propertyCount() - 1;
+	Element::PropertyValueIteratorConst it = ep->beginConst();
+	int propCount = Element::propertyCount() - 1;
 	for(int i=0; i < propCount; i++)
 	{
-		edb::Element::Property prop = edb::Element::getProperty(i);
+		Element::Property prop = Element::getProperty(i);
 		QString valueStr = toString(ep->propertyConst(prop));
-		if (prop == edb::Element::NUCLEONS_PROPERTY)
+		if (prop == Element::NUCLEONS_PROPERTY)
 		{
 			if (!ep->isIsotope()) {
 				valueStr = tr("natural mixture");
 			}
 		}
-		if (prop == edb::Element::NS_L_COHERENT_PROPERTY) // first one
+		if (prop == Element::NS_L_COHERENT_PROPERTY) // first one
 		{
 			item = new QStandardItem(tr("neutron scattering"));
 			root->appendRow(item);
 		}
 		addModelEntry(item,
-		              tr(edb::Element::propertyName(prop)), valueStr);
+		              tr(Element::propertyName(prop)), valueStr);
 	}
 
 	if (ep->isIsotope()) { 
 		// has no xray-scattering data, 
 		// use that of the natural element (without nucleon number)
-		ep = mDB->getElement(edb::ElementDatabase::KeyType(ep->symbol().c_str()));
+		ep = mDB->getElement(ElementDatabase::KeyType(ep->symbol().c_str()));
 		if (ep.isNull()) 
 		{
 			std::cerr << "MainWindow::showElementData: '"
@@ -653,8 +655,8 @@ void MainWindow::showElementData(const QString& key)
 		root->appendRow(item);
 		addModelEntry(item, tr("anomalous scattering coefficients"));
 		addModelEntry(item, tr("energy"), tr("fp"), tr("fpp"));
-		edb::MapTriple::const_iterator it = ep->xrayCoefficients().begin();
-		edb::MapTriple::const_iterator end = ep->xrayCoefficients().end();
+		MapTriple::const_iterator it = ep->xrayCoefficients().begin();
+		MapTriple::const_iterator end = ep->xrayCoefficients().end();
 		while(it != end) {
 			addModelEntry(item, 
 				qstringFromDouble(it->first), 

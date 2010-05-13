@@ -28,7 +28,7 @@
 #include <QScrollBar>
 #include "mainwindow.h"
 
-DataVisualizer::DataVisualizer(MainWindow * parent, edb::ElementDatabase& db)
+DataVisualizer::DataVisualizer(MainWindow * parent, ElementDatabase& db)
 	: QWidget(parent, Qt::Window),
 	  Ui::DataVisualizer(),
 	  mDB(&db),
@@ -47,7 +47,7 @@ outputRect(const QString& str, const QRectF& r)
 		<< r.width() << "," << r.height() << ")" << std::endl;
 }
 
-/// Prepares edb::PropertyVariant data for sorting before drawing to a
+/// Prepares PropertyVariant data for sorting before drawing to a
 /// graphics scene. Complex values are drawn in a 2-dimensional scene by
 /// ignoring their absolute X value. Only the order of the elements is
 /// maintained while their Y coordinate keeps its absolute value. Distances of
@@ -60,8 +60,8 @@ public:
 	void operator()(double& d) const {}
 	/// Special care for std::complex. It is required to be compared by 
 	/// X (.real()) values only in drawing related context.
-	void operator()(edb::complex& c) const {
-		c = edb::complex(c.real(), 0.0);
+	void operator()(complex& c) const {
+		c = complex(c.real(), 0.0);
 	}
 };
 
@@ -71,15 +71,15 @@ DataVisualizer::display(int index)
 	if (!mDB || !cbCharacteristic) return;
 
 	int propertyIndex(cbCharacteristic->itemData(index).toInt());
-	if (propertyIndex < 0 || propertyIndex > edb::Element::propertyCount())
+	if (propertyIndex < 0 || propertyIndex > Element::propertyCount())
 		return;
 
 	// see if item should be drawn
-	edb::Element::Property p(edb::Element::getProperty(propertyIndex));
-	edb::Element::PropertyType type(edb::Element::propertyType(p));
+	Element::Property p(Element::getProperty(propertyIndex));
+	Element::PropertyType type(Element::propertyType(p));
 
-	if (type == edb::Element::COMPLEX_TYPE ||
-	    type == edb::Element::STRING_TYPE) {
+	if (type == Element::COMPLEX_TYPE ||
+	    type == Element::STRING_TYPE) {
 		lblPlotType->setText(tr("[ Horizontal distances are <b>not</b> proportional to the values. ]"));
 	} else {
 		lblPlotType->setText(tr("[ Horizontal distances are proportional to the values. ]"));
@@ -91,17 +91,17 @@ DataVisualizer::display(int index)
 	gvDisplay->setScene(scene);
 	if (oldScene) delete oldScene;
 
-	edb::ElementDatabase::Iterator begin = mDB->begin();
-	edb::ElementDatabase::Iterator end = mDB->end();
-	edb::ElementDatabase::Iterator it = begin;
+	ElementDatabase::Iterator begin = mDB->begin();
+	ElementDatabase::Iterator end = mDB->end();
+	ElementDatabase::Iterator it = begin;
 	// copy elements to sorted container first
-	typedef QMultiMap<edb::Element::PropertyVariant, edb::Element::Ptr> ElementMap;
+	typedef QMultiMap<Element::PropertyVariant, Element::Ptr> ElementMap;
 	ElementMap elemMap;
 	for(; it != end; it++) 
 	{
-		edb::Element::Ptr elem(it.value());
+		Element::Ptr elem(it.value());
 		if (elem.isNull()) continue;
-		edb::Element::PropertyVariant prop = elem->propertyConst(p);
+		Element::PropertyVariant prop = elem->propertyConst(p);
 		boost::apply_visitor(PreparePropertyVariantForSorting(), prop);
 		elemMap.insert(prop, elem);
 	}
@@ -142,7 +142,7 @@ public:
 	QPointF operator()(const double& d) const {
 		return QPointF(qreal(d)*mScale, 0.0);
 	}
-	QPointF operator()(const edb::complex& c) const {
+	QPointF operator()(const complex& c) const {
 		static const qreal scale = 10.0;
 		return QPointF(qreal(c.real())*mScale, 
 			       qreal(c.imag())*mScale*-1.0);
@@ -150,17 +150,17 @@ public:
 };
 
 void 
-DataVisualizer::draw(SceneType scene, qreal& lastXPos, edb::Element::Ptr e, int propertyIndex)
+DataVisualizer::draw(SceneType scene, qreal& lastXPos, Element::Ptr e, int propertyIndex)
 {
 	if (e.isNull()) return;
 
 	// see if item should be drawn
-	edb::Element::Property p(edb::Element::getProperty(propertyIndex));
-	edb::Element::PropertyType type(edb::Element::propertyType(p));
-	edb::Element::PropertyVariant var(e->propertyConst(p));
+	Element::Property p(Element::getProperty(propertyIndex));
+	Element::PropertyType type(Element::propertyType(p));
+	Element::PropertyVariant var(e->propertyConst(p));
 
-	if (p == edb::Element::NUCLEONS_PROPERTY && !e->isIsotope()) return;
-	if (!edb::Element::isValidVariant(var)) return;
+	if (p == Element::NUCLEONS_PROPERTY && !e->isIsotope()) return;
+	if (!Element::isValidVariant(var)) return;
 
 	// build the text item
 	QGraphicsItem * item(0);
@@ -183,8 +183,8 @@ DataVisualizer::draw(SceneType scene, qreal& lastXPos, edb::Element::Ptr e, int 
 	scene->addItem(rect);
 
 	QPointF pos(boost::apply_visitor(DrawingPositionFromPropertyVariant(), var));
-	if (type == edb::Element::COMPLEX_TYPE ||
-	    type == edb::Element::STRING_TYPE) {
+	if (type == Element::COMPLEX_TYPE ||
+	    type == Element::STRING_TYPE) {
 		// no stacking for 2D drawing
 		// item positions are stretched in X direction
 		if (lastXPos > pos.x()) {
@@ -272,7 +272,7 @@ DataVisualizer::getLinkText(const cfp::ChemicalElementInterface& e)
 {
 	QString s;
 	s.append("<style>a{text-decoration:none;}</style><a href=\"");
-	s.append(edb::ElementDatabase::makeKey(e));
+	s.append(ElementDatabase::makeKey(e));
 	s.append("\">");
 	s.append(e.toMarkup().c_str());
 	s.append("</a>");
@@ -287,12 +287,12 @@ DataVisualizer::retranslateUi()
 	int selectedIndex = cbCharacteristic->currentIndex();
 	// remove all characteristics items first, add the retranslated again
 	cbCharacteristic->clear();
-	int count = edb::Element::propertyCount()-1;
+	int count = Element::propertyCount()-1;
 	for(int i=0; i < count; i++)
 	{
 		cbCharacteristic->insertItem(
 			cbCharacteristic->count(), 
-			tr(edb::Element::propertyName(edb::Element::getProperty(i))), 
+			tr(Element::propertyName(Element::getProperty(i))), 
 			QVariant(i));
 	}
 

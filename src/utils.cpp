@@ -26,14 +26,12 @@
 
 #include "utils.h"
 
-using namespace edb;
-
-double edb::avogadro(void)
+double avogadro(void)
 {
 	return 6.02214179;
 }
 
-double edb::electronRadius(void)
+double electronRadius(void)
 {
 	return 2.8179402894;
 }

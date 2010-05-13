@@ -29,11 +29,9 @@
 #include "elementdatabase.h"
 #include "xmlparser.h"
 
-using namespace edb;
-
 ElementDatabase::~ElementDatabase()
 {
-	foreach(edb::Element::Ptr ep, mElementHash) {
+	foreach(Element::Ptr ep, mElementHash) {
 		delete ep;
 	}
 }
@@ -42,7 +40,7 @@ void
 ElementDatabase::addFromFile(const QString& fn)
 {
 	XmlParser p;
-	foreach(edb::Element::Ptr ep, p.read(fn)) {
+	foreach(Element::Ptr ep, p.read(fn)) {
 		if (ep.isNull() || !ep->isValid()) return;
 		mElementHash.insert(makeKey(*ep), ep);
 	}
@@ -95,7 +93,7 @@ ElementDatabase::getSymbolList() const
 }
 
 std::ostream& 
-std::operator<<(std::ostream& o, const edb::ElementDatabase& db)
+operator<<(std::ostream& o, const ElementDatabase& db)
 {
 	o << "elements("<<db.mElementHash.size()<<"): ";
 	foreach(QString str, db.getSymbolList()) {

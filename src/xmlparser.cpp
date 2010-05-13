@@ -80,10 +80,10 @@ void XmlParser::handleStartElement(void)
 			if (mXml.name() == "chemical_element") 
 			{
 				mCurSection = ELEMENT_CONFIG_SECTION;
-				mElement = new edb::Element();
+				mElement = new Element();
 				if (!mElement.isNull())
 					mElement->setProperty(
-						edb::Element::SYMBOL_PROPERTY,
+						Element::SYMBOL_PROPERTY,
 						ATTR(mXml, symbol, StdString)
 					);
 			}
@@ -92,27 +92,27 @@ void XmlParser::handleStartElement(void)
 			if (mElement.isNull()) break;
 			if (mXml.name() == "name") {
 				mElement->setProperty(
-					edb::Element::NAME_PROPERTY,
+					Element::NAME_PROPERTY,
 					ATTR(mXml, val, StdString)
 				);
 			} else if (mXml.name() == "abundance") {
 				mElement->setProperty(
-					edb::Element::ABUNDANCE_PROPERTY,
+					Element::ABUNDANCE_PROPERTY,
 					ATTR(mXml, val, Double)
 				);
 			} else if (mXml.name() == "atomic_weight") {
 				mElement->setProperty(
-					edb::Element::ATOMIC_MASS_PROPERTY,
+					Element::ATOMIC_MASS_PROPERTY,
 					ATTR(mXml, val, Double)
 				);
 			} else if (mXml.name() == "nucleons") {
 				mElement->setProperty(
-					edb::Element::NUCLEONS_PROPERTY,
+					Element::NUCLEONS_PROPERTY,
 					ATTR(mXml, val, Int)
 				);
 			} else if (mXml.name() == "electrons") {
 				mElement->setProperty(
-					edb::Element::ELECTRONS_PROPERTY,
+					Element::ELECTRONS_PROPERTY,
 					ATTR(mXml, val, Int)
 				);
 			} else if (mXml.name() == "neutron_scattering_length") {
@@ -128,16 +128,16 @@ void XmlParser::handleStartElement(void)
 			if (mXml.name() == "coherent") 
 			{
 				mElement->setProperty(
-					edb::Element::NS_L_COHERENT_PROPERTY, 
-					edb::complex(
+					Element::NS_L_COHERENT_PROPERTY, 
+					complex(
 						ATTR(mXml, re, Double),
 						ATTR(mXml, im, Double)
 				));
 			} else if (mXml.name() == "incoherent") 
 			{
 				mElement->setProperty(
-					edb::Element::NS_L_INCOHERENT_PROPERTY, 
-					edb::complex(
+					Element::NS_L_INCOHERENT_PROPERTY, 
+					complex(
 						ATTR(mXml, re, Double), 
 						ATTR(mXml, im, Double)
 				));
@@ -147,19 +147,19 @@ void XmlParser::handleStartElement(void)
 			if (mElement.isNull()) break;
 			if (mXml.name() == "coherent") {
 				mElement->setProperty(
-					edb::Element::NS_CS_COHERENT_PROPERTY,
+					Element::NS_CS_COHERENT_PROPERTY,
 					ATTR(mXml, re, Double)); 
 			} else if (mXml.name() == "incoherent") {
 				mElement->setProperty(
-					edb::Element::NS_CS_INCOHERENT_PROPERTY,
+					Element::NS_CS_INCOHERENT_PROPERTY,
 					ATTR(mXml, re, Double));
 			} else if (mXml.name() == "total") {
 				mElement->setProperty(
-					edb::Element::NS_CS_TOTAL_PROPERTY,
+					Element::NS_CS_TOTAL_PROPERTY,
 					ATTR(mXml, val, Double) );
 			} else if (mXml.name() == "absorption") {
 				mElement->setProperty(
-					edb::Element::NS_CS_ABSORPTION_PROPERTY,
+					Element::NS_CS_ABSORPTION_PROPERTY,
 					ATTR(mXml, val, Double) );
 			}
 			break;
@@ -254,7 +254,7 @@ const XmlParser::ElementPtrList& XmlParser::read(const QString& filename)
 		std::cerr << std::endl;
 		// delete dangling memory
 		delete mElement;
-		foreach(edb::Element::Ptr ep, mResultList) {
+		foreach(Element::Ptr ep, mResultList) {
 			if (!ep.isNull()) delete ep;
 		}
 		mResultList.clear();

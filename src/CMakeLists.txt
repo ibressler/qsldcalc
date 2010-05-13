@@ -29,7 +29,7 @@
 #   set(QT_USE_OPENGL TRUE)
 ####
 # btw, note, lupdate call in src path:
-# lupdate *.h *.cpp *.ui -ts ../res/lang/language_de_DE.ts
+# lupdate-qt4 *.h *.cpp *.ui -ts ../res/lang/language_de_DE.ts
 ####
 
 include(${QT_USE_FILE}) # includes qt4 cmake module

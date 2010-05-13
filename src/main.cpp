@@ -32,7 +32,7 @@
 int main(int argc, char *argv[])
 {
 	// loading data from embedded ressource file system
-	edb::ElementDatabase db;
+	ElementDatabase db;
 	db.addFromDirectory(":/data");
 
 	// create, show and execute the main window

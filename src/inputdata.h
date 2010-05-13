@@ -47,7 +47,7 @@ namespace std {
  * Stores GUI input data and performs compound calculations. User input from 
  * the GUI is stored in hash tables with QVariant data type. It is parsed on 
  * request by interpretFormula() which gets detailed chemical element 
- * characteristics from the associated edb::ElementDatabase, calculates all 
+ * characteristics from the associated ElementDatabase, calculates all 
  * total and partial compound characteristics and stores the results in the 
  * hash table where it can be retrieved on request by get().
  *
@@ -100,7 +100,7 @@ class InputData
 
 	/// Combined type for the chemical element signature from a formula and
 	/// the element dataset from the database.
-	typedef QPair<cfp::CompoundElement, edb::Element::Ptr> ElemPair;
+	typedef QPair<cfp::CompoundElement, Element::Ptr> ElemPair;
 
 	/// A List of combined element types. Can be interpreted as a compound 
 	/// (from formula parsing) extended by pointers to the according 
@@ -108,7 +108,7 @@ class InputData
 	typedef QList<ElemPair> CompleteList;
 public:
 	/// Constructor.
-	InputData(edb::ElementDatabase& db);
+	InputData(ElementDatabase& db);
 
 	/// Adds data.
 	/// \param[in] key Name of the entry.
@@ -140,7 +140,7 @@ public:
 	const cfp::Compound& empiricalFormula() const;
 
 	/// Adds a new alias to the element database of type 
-	/// edb::ElementDatabase.
+	/// ElementDatabase.
 	/// \param[in] name Alias name.
 	void addAlias(const QString& name);
 
@@ -196,14 +196,14 @@ private:
 	/// \param[in] totalVolume The total volume of the compound.
 	/// \param[in,out] neutron A Map which contains all neutron scattering
 	///                related data finally.
-	/// \param[in] func Member function of edb::Element to retrieve the 
+	/// \param[in] func Member function of Element to retrieve the 
 	///            neutron scattering length (coherent or incoherent).
 	/// \param[in] slText Key for storing the total neutron scattering length.
 	/// \param[in] sldText Key for storing the partial neutron scattering densities.
 	void calcNSL(const CompleteList& cl, 
 		     double              totalVolume,
 	             QVariantMap&        neutron,
-	             edb::complex (edb::Element::*func)(void) const,
+	             complex (Element::*func)(void) const,
 	             const char        * slText,
                      const char        * sldText);
 
@@ -227,13 +227,13 @@ private:
 	///          of range.
 	bool calcXrayCoefficients(double&           fp, 
 	                          double&           fpp,
-	                          edb::Element::Ptr ep,
+	                          Element::Ptr ep,
 	                          double            coeff,
 	                          double            energy);
 
 private:
 	/// A reference to the element database.
-	edb::ElementDatabase::Ptr mDB;
+	ElementDatabase::Ptr mDB;
 	/// Initial input data (used for reset).
 	QHashType                 mInitData;
 	/// Input data and intermediate calculation results (buffer).

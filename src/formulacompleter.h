@@ -44,13 +44,13 @@ class FormulaCompleter: public QObject
 	Q_OBJECT
 public:
 	/// Constructs this Completer.
-	/// \param[in] db An edb::ElementDatabase which provides a list of
+	/// \param[in] db An ElementDatabase which provides a list of
 	///            possible tokens to complete (in this case, chemical 
-	///            element names). Calls edb::ElementDatabase::getSymbolList().
+	///            element names). Calls ElementDatabase::getSymbolList().
 	/// \param[in,out] ntr A QLineEdit which gets this completion.
 	/// \param[in,out] btn A QPushButton which is to the QLineEdit::returnPressed() 
 	///                signal connected, if any.
-	FormulaCompleter(const edb::ElementDatabase & db, 
+	FormulaCompleter(const ElementDatabase & db, 
 	                 QLineEdit                  * ntr, 
                          QPushButton                * btn);
 private slots:

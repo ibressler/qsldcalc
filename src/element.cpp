@@ -26,8 +26,6 @@
 
 #include "element.h"
 
-using namespace edb;
-
 const int    Element::INVALID_PROPERTY_VALUE = -2;
 
 const char * Element::mPropertyNames[] = {
@@ -208,16 +206,16 @@ Element::nslIncoherent() const
 }
 
 std::ostream& 
-std::operator<<(std::ostream& o, const Element& e)
+operator<<(std::ostream& o, const Element& e)
 {
-	edb::Element::PropertyValueIteratorConst pit = e.beginConst();
+	Element::PropertyValueIteratorConst pit = e.beginConst();
 	for(; pit != e.endConst(); pit++)
 	{
 		o << *pit << " ";
 	}
 	o << std::endl;
-	const edb::MapTriple& map = e.xrayCoefficients();
-	edb::MapTriple::const_iterator it = map.begin();
+	const MapTriple& map = e.xrayCoefficients();
+	MapTriple::const_iterator it = map.begin();
 	while (it != map.end() )
 	{
 		o << it->first << "\t" << it->second.first << "\t" << it->second.second
@@ -228,7 +226,7 @@ std::operator<<(std::ostream& o, const Element& e)
 }
 
 bool 
-std::operator<(const edb::complex& a, const edb::complex& b)
+std::operator<(const ::complex& a, const ::complex& b)
 {
 	return
 	(a.real()*a.real() + a.imag()*a.imag()) < 

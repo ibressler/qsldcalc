@@ -27,16 +27,13 @@
 #ifndef EDB_UTILS_H
 #define EDB_UTILS_H
 
-namespace edb
-{
-	/// Returns the Avogadro number 
-	/// in \f$ 10^{23} \frac{1}{mol} \f$
-	double avogadro(void);
+/// Returns the Avogadro number 
+/// in \f$ 10^{23} \frac{1}{mol} \f$
+double avogadro(void);
 
-	/// Classical radius of the electron in fm 
-	/// (femto meter, \f$ 10^{-15} m \f$)
-	double electronRadius(void);
-}
+/// Classical radius of the electron in fm 
+/// (femto meter, \f$ 10^{-15} m \f$)
+double electronRadius(void);
 
 #endif // this file
 

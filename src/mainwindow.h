@@ -64,7 +64,7 @@
  *
  * \section data_src Data Sources
  *
- * - for a description of the backend data sources, see the edb::Element
+ * - for a description of the backend data sources, see the Element
  *   documentation.
  *
  * \section license License and Copyright Information
@@ -132,7 +132,7 @@ typedef QList<QAction *> LangActionList;
  * \see qstringFromVariant(), qstringFromComplex(), qstringFromDouble()
  * 
  * \todo Eventually, rewrite the GUI with python to avoid the hassle with memory
- * management. Keep the backend in C++ (InputData, edb::ElementDatabase).
+ * management. Keep the backend in C++ (InputData, ElementDatabase).
  */
 class MainWindow: public QMainWindow, private Ui::MainWindow
 {
@@ -150,20 +150,20 @@ class MainWindow: public QMainWindow, private Ui::MainWindow
 		QString operator()(const int& i) const          { return QString::number(i); }
 		QString operator()(const std::string& s) const  { return QString(tr(s.c_str())); }
 		QString operator()(const double& d) const       { return mParent->qstringFromDouble(d); }
-		QString operator()(const edb::complex& c) const { return mParent->qstringFromComplex(c); }
+		QString operator()(const complex& c) const { return mParent->qstringFromComplex(c); }
 	};
 
 public:
 	/// Creates the main window.
 	/// \param[in,out] app QApplication object we are associated with
 	/// \param[in,out] db Entirely populated chemical element database.
-	MainWindow(QApplication &app, edb::ElementDatabase& db);
+	MainWindow(QApplication &app, ElementDatabase& db);
 
 	/// Converts any property of a chemical element to a localization
 	/// aware character string. \see QStringFromBoostVariant
 	/// \param[in] var Property of an database element to convert.
 	/// \returns The generated character string.
-	QString toString(const edb::Element::PropertyVariant& var) const;
+	QString toString(const Element::PropertyVariant& var) const;
 
 private slots:
 	/// Raises a message box with general information about the program.
@@ -209,7 +209,7 @@ private slots:
 	/// as regular data entries in the database and are not processed
 	/// further, atm.
 	/// \param[in] key Database key for the chemical element to query. See
-	///                edb::ElementDatabase::KeyType for details.
+	///                ElementDatabase::KeyType for details.
 	void showElementData(const QString& key);
 
 	/// Expands an item in the tabular result widget.
@@ -287,7 +287,7 @@ private:
 
 	/// Converts a complex number to a character string. Accounts for the 
 	/// locale settings of the MainWindow.
-	QString qstringFromComplex(edb::complex c) const;
+	QString qstringFromComplex(complex c) const;
 
 	/// Displays the HTML formatted formula with links for detailed
 	/// information of every chemical element.
@@ -322,7 +322,7 @@ private:
 	InputData                 mInputData;
 
 	/// Database of all known chemical elements.
-	edb::ElementDatabase::Ptr mDB;
+	ElementDatabase::Ptr mDB;
 
 	/// Visualizes selected characteristics of all known chemical elements.
 	DataVisualizer            mDataVisualizer;

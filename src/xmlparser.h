@@ -46,7 +46,7 @@ private:
 	typedef void (XmlParser::*XmlTokenHandler) (void);
 public:
 	/// List of guarded pointers to database elements.
-	typedef std::list<edb::Element::Ptr> ElementPtrList;
+	typedef std::list<Element::Ptr> ElementPtrList;
 public:
 	XmlParser();  //!< Default constructor.
 	~XmlParser(); //!< Destructor.
@@ -117,9 +117,9 @@ private:
 	std::vector<XmlTokenHandler> mHandlers;
 	/// The last section processed.
 	SectionType                  mCurSection;
-	/// The current edb::Element being configured.
-	edb::Element::Ptr            mElement;
-	/// All edb::Element Objects created by the current read() call.
+	/// The current Element being configured.
+	Element::Ptr            mElement;
+	/// All Element Objects created by the current read() call.
 	ElementPtrList               mResultList;
 };
 

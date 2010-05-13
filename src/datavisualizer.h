@@ -52,7 +52,7 @@ public:
 	/// \param[in,out] db Database of all known chemical elements. Uses
 	///                read access only. Because of QPointer it's
 	///                read/write formally.
-	DataVisualizer(MainWindow * parent, edb::ElementDatabase& db);
+	DataVisualizer(MainWindow * parent, ElementDatabase& db);
 
 	/// Generate a link text for the specified element to display detailed
 	/// element data in the mainwindow.
@@ -87,7 +87,7 @@ private slots:
 	/// Displays and draws all chemical elements sorted by their property
 	/// specified by \e index.
 	/// \param[in] index Property to sort all chemical elements by.
-	/// \see edb::Element::getProperty(int index)
+	/// \see Element::getProperty(int index)
 	void display(int index);
 
 	/// Signal forwarder to display element details in the mainwindow. Is
@@ -104,8 +104,8 @@ private:
 	///                the selected property in ascending order.
 	/// \param[in] e The Element whose property should be drawn.
 	/// \param[in] propertyIndex The index of the element property to
-	///            draw. \see edb::Element::getProperty(int index)
-	void draw(SceneType scene, qreal& lastXPos, edb::Element::Ptr e, int propertyIndex);
+	///            draw. \see Element::getProperty(int index)
+	void draw(SceneType scene, qreal& lastXPos, Element::Ptr e, int propertyIndex);
 
 	/// Sets the position of an item in a graphics scene in a way it
 	/// doesn't collide or overlap with other items.
@@ -116,7 +116,7 @@ private:
 
 	/// Selects another Element characteristic and rebuilds the graphics scene.
 	/// \param[in] index The index of the element property to draw.
-	///            \see edb::Element::getProperty(int index)
+	///            \see Element::getProperty(int index)
 	void selectIndex(int index);
 
 	/// Adjusts the height of the data visualization window to show
@@ -124,7 +124,7 @@ private:
 	void adjustSize(void);
 private:
 	/// A link to the data base with all known chemical elements
-	edb::ElementDatabase::Ptr mDB;
+	ElementDatabase::Ptr mDB;
 	/// Margin around items to not contact each other or the graphics view
 	/// boundary.
 	static const qreal itemMargin = 5.0;

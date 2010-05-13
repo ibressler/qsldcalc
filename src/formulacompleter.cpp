@@ -29,7 +29,7 @@
 #include <QPushButton>
 #include "formulacompleter.h"
 
-FormulaCompleter::FormulaCompleter(const edb::ElementDatabase & db, 
+FormulaCompleter::FormulaCompleter(const ElementDatabase & db, 
                                    QLineEdit                  * ntr,
                                    QPushButton                * btn)
 	: mCompleter(NULL),

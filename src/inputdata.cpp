@@ -29,7 +29,7 @@
 #include "utils.h"
 #include "inputdata.h"
  
-InputData::InputData(edb::ElementDatabase& db)
+InputData::InputData(ElementDatabase& db)
 	: mDB(&db)
 {
 }
@@ -62,8 +62,8 @@ void
 InputData::addAlias(const QString& name)
 {
 	mDB->addAlias(name, empiricalFormula());
-//	edb::Element newElem;
-//	newElem.setProperty<int>(edb::Element::ELECTRONS_PROPERTY,
+//	Element newElem;
+//	newElem.setProperty<int>(Element::ELECTRONS_PROPERTY,
 //	                         get("number of electrons").toInt());
 }
 
@@ -91,7 +91,7 @@ InputData::buildCompleteList(CompleteList& list, const cfp::Compound& comp)
 {
 	foreach(cfp::CompoundElement e, comp) 
 	{
-		edb::Element::Ptr ep = mDB->getElement(e);
+		Element::Ptr ep = mDB->getElement(e);
 		if (!ep.isNull()) {
 			list.append(ElemPair(e, ep));
 		} else {
@@ -107,7 +107,7 @@ InputData::buildCompleteList(CompleteList& list, const cfp::Compound& comp)
 }
 
 void 
-addComplex2Map(QVariantMap& map, const char * key, edb::complex c)
+addComplex2Map(QVariantMap& map, const char * key, complex c)
 {
 	QVariantList list;
 	list.append(QVariant(c.real()));
@@ -147,7 +147,7 @@ InputData::calcMassAndVolume(const CompleteList& cl,
 	for(;it != cl.end(); it++) {
 		// calculate partial values
 		double weight = (it->first.coefficient() * it->second->atomicMass());
-		double volume = 1e-2 * weight / (edb::avogadro() * compoundDensity);
+		double volume = 1e-2 * weight / (avogadro() * compoundDensity);
 
 		// create element name from nucleon number and symbol
 		QString name(it->first.uniqueName().c_str());
@@ -159,7 +159,7 @@ InputData::calcMassAndVolume(const CompleteList& cl,
 		totalVolume += volume;
 	}
 
-	// volume ratios does not make sense here, as the density is entered manually
+	// volume ratios do not make sense here, as the density is entered manually
 
 	// calculate mass percentages
 	QVariantMap massComposition;
@@ -184,17 +184,17 @@ void
 InputData::calcNSL(const CompleteList& cl, 
                    double              totalVolume,
                    QVariantMap&        neutron,
-                   edb::complex (edb::Element::*func)(void) const,
+                   complex (Element::*func)(void) const,
                    const char        * slText,
                    const char        * sldText)
 {
-	edb::complex totalSL(0.0, 0.0);
-	edb::complex totalSLD(0.0, 0.0);
+	complex totalSL(0.0, 0.0);
+	complex totalSLD(0.0, 0.0);
 	QVariantMap partialSLD;
 	CompleteList::const_iterator it = cl.begin();
 	for(;it != cl.end(); it++) {
-		edb::complex sl = (it->first.coefficient() * ((*it->second).*func)());
-		edb::complex sld = 1e8 * (sl / totalVolume);
+		complex sl = (it->first.coefficient() * ((*it->second).*func)());
+		complex sld = 1e8 * (sl / totalVolume);
 		addComplex2Map(partialSLD, it->first.uniqueName().c_str(), sld);
 		totalSL += sl;
 		totalSLD += sld;
@@ -211,24 +211,24 @@ interpolate(double x1, double y1, double x2, double y2, double x3)
 	return (x3-x1) * (y2-y1)/(x2-x1) + y1;
 }
 
-edb::complex 
+complex 
 sldXray(double electrons, double fp, double fpp, double vol)
 {
-	edb::complex sld(
+	complex sld(
 		(electrons - pow(electrons/82.5, 2.37) + fp)
-			* edb::electronRadius() / vol,
-		fpp * edb::electronRadius() / vol);
+			* electronRadius() / vol,
+		fpp * electronRadius() / vol);
 	return sld;
 }
 
 bool 
 InputData::calcXrayCoefficients(double&           fp, 
                                 double&           fpp,
-                                edb::Element::Ptr ep,
+                                Element::Ptr ep,
                                 double            coeff,
                                 double            energy)
 {
-	typedef edb::MapTriple::const_iterator Iter;
+	typedef MapTriple::const_iterator Iter;
 	Iter end = ep->xrayCoefficients().end();
 	Iter begin = ep->xrayCoefficients().begin();
 	Iter it = ep->xrayCoefficients().find(energy);
@@ -281,9 +281,9 @@ InputData::calcXrayEnergies(const CompleteList& cl,
 	CompleteList::const_iterator elemIt = cl.begin();
 	for(;elemIt != cl.end(); elemIt++) 
 	{
-		edb::Element::Ptr ep = elemIt->second;
+		Element::Ptr ep = elemIt->second;
 		if (ep->isIsotope()) {
-			ep = mDB->getElement(edb::ElementDatabase::KeyType(ep->symbol().c_str()));
+			ep = mDB->getElement(ElementDatabase::KeyType(ep->symbol().c_str()));
 			if (ep.isNull())
 			{
 				std::cerr << "InputData::calcXrayEnergies: '"
@@ -322,7 +322,7 @@ InputData::calcXrayEnergies(const CompleteList& cl,
 		if (partialVolumes.contains(name)) {
 			double volume = 1e-8 * partialVolumes.value(name).toDouble();
 			double electrons = elemIt->first.coefficient() * ep->electrons();
-			edb::complex sld = sldXray(electrons, fp, fpp, volume);
+			complex sld = sldXray(electrons, fp, fpp, volume);
 			addComplex2Map(partialSLD, nameStd.c_str(), sld);
 		} else {
 			std::cerr << "partialVolumes empty!" << std::endl;
@@ -334,7 +334,7 @@ InputData::calcXrayEnergies(const CompleteList& cl,
 	xray.insert("f'", QVariant(partialFp));
 	xray.insert("f''", QVariant(partialFpp));
 	// calculate SLD
-	edb::complex totalSLD = sldXray(totalElectrons, totalFp, totalFpp, totalVolume);
+	complex totalSLD = sldXray(totalElectrons, totalFp, totalFpp, totalVolume);
 	addComplex2Map(partialSLD, "value", totalSLD);
 	xray.insert("SLD cm^-2", QVariant(partialSLD));
 	set("xray scattering", QVariant(xray));
@@ -352,8 +352,8 @@ InputData::calcData(const CompleteList& cl)
 	calcMassAndVolume(cl, partialVolumes, totalMass, totalVolume);
 
 	QVariantMap neutron;
-	calcNSL(cl, totalVolume, neutron, &edb::Element::nslCoherent, "coherent scattering length 1e-15m", "SLD coherent 1/cm^2");
-	calcNSL(cl, totalVolume, neutron, &edb::Element::nslIncoherent, "incoherent scattering length 1e-15m", "SLD incoherent 1/cm^2");
+	calcNSL(cl, totalVolume, neutron, &Element::nslCoherent, "coherent scattering length 1e-15m", "SLD coherent 1/cm^2");
+	calcNSL(cl, totalVolume, neutron, &Element::nslIncoherent, "incoherent scattering length 1e-15m", "SLD incoherent 1/cm^2");
 	set("neutron scattering", QVariant(neutron));
 
 	calcXrayEnergies(cl, partialVolumes, partialElectrons);
