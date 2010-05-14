@@ -76,10 +76,13 @@
 >
 
 <!ELEMENT xray_scattering_anomalous_coefficients (ev*)>
+<!ATTLIST xray_scattering_anomalous_coefficients
+	unit	CDATA	"keV"
+>
+
 <!ELEMENT ev EMPTY>
 <!ATTLIST ev
 	val	CDATA	#REQUIRED
-	unit	CDATA	"keV"
 	fp	CDATA	#REQUIRED
 	fpp	CDATA	#REQUIRED
 >
