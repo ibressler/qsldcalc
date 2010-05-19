@@ -10,11 +10,12 @@ closeElemTag = ")"
 prefixTag = "!"
 
 # maps given data types to Cish data types and default values
-mapDataTypes = {"integer":  ("int",             "0"),
-                "text":     ("const char *",    "0"),
-                "complex":  ("complex",         ("0.0", "0.0")),
-                "real":     ("double",          "0.0"),
-                "bool":     ("bool",            "0")
+mapDataTypes = {"integer":  ("int",       "0"),
+                "text":     ("text_t *",  "0"),
+                "complex":  ("complex_t", ["0.0", "0.0"]),
+                "real":     ("double",    "0.0"),
+                "bool":     ("bool",      "0"),
+                "ev_t *":   ("ev_t *",    "0")
                }
 
 class MyError(StandardError):
@@ -33,18 +34,35 @@ class Output:
         s.defi = ""
         s.dVal = dict()
         s.lits = []
+        s.curElemName = ""
+
+        s.startStruct("complex")
+        s.appendStruct("real", "real", "0.0")
+        s.appendStruct("real", "imag", "0.0")
+        s.endStruct()
+        s.startStruct("text")
+        s.appendStruct("int", "len", "0")
+        s.appendStruct("const char *", "str", "0")
+        s.endStruct()
 
     def startStruct(s, ename):
+        s.curElemName = ename
         s.decl += "\n\ntypedef struct {"
-        if ename != "ev":
-            s.appendStruct(ename, "bool", "valid", "0")
+        if ename not in ["ev", "complex", "text"]:
+            s.appendStruct("bool", "valid", "0")
 
-    def endStruct(s, ename):
-        s.decl += "\n} %s_t;" % (ename)
-        # defValues[$1]="{ ${defValues[$1]} }"
+    def endStruct(s):
+        if not len(s.curElemName):
+            raise MyError("Output.endStruct() called without "+\
+                          "preceeding Output.startStruct() !")
+        s.decl += "\n} %s_t;" % (s.curElemName)
+        s.curElemName = ""
 
     # input is string
-    def appendStruct(s, ename, type, name, value):
+    def appendStruct(s, type, name, value):
+        if not len(s.curElemName):
+            raise MyError("Output.appendStruct() called without "+\
+                          "preceeding Output.startStruct() !")
         declType = type
         if mapDataTypes.has_key(type):
             declType, defValue = mapDataTypes[type]
@@ -56,22 +74,25 @@ class Output:
         s.decl += "\n    %-16s%-2s%s;" % (declType, ptr, name)
         # set default definition data, handle complex type
         if isinstance(value, types.ListType) and len(value) == 2 and \
-           isinstance(defValue, types.TupleType) and len(defValue) == 2:
+           isinstance(defValue, types.ListType) and len(defValue) == 2:
             if value[0] == "#REQUIRED": value[0] = defValue[0]
             if value[1] == "#REQUIRED": value[1] = defValue[1]
         # handle various default cases
         if not len(value): # custom type
-            value = "/*"+name+"*/"
+            if name[-2:] == "[]":
+                value = ["/*"+name[:-2]+"*/"]
+            else:
+                value = "/*"+name+"*/"
         elif value == "#REQUIRED":
             value = defValue
         elif type == "text":
             idx = s.addStringLiteral(value)
             value = "&string_literals["+str(idx)+"]"
         # add this field to default data definition
-        if s.dVal.has_key(ename):
-            s.dVal[ename].append(value)
+        if s.dVal.has_key(s.curElemName):
+            s.dVal[s.curElemName].append(value)
         else:
-            s.dVal[ename] = [value]
+            s.dVal[s.curElemName] = [value]
 
     def addStringLiteral(s, lit):
         try:
@@ -83,11 +104,10 @@ class Output:
             return i
 
     def declaration(s):
-        prefix = "\ntypedef int bool;\n"+ \
-                 "\ntypedef struct {"+ \
-                 "\n    double real;"+ \
-                 "\n    double imag;"+ \
-                 "\n} complex;"
+        prefix = \
+                 "\n#include <stdio.h>\n"+\
+                 "\n#define STR_LIT(name) { sizeof(name)-1, name }\n"+\
+                 "\ntypedef int bool;\n"
 #        postfix = "\n\nconst char * string_literals["+str(len(s.lits))+"];"
         postfix = ""
         return prefix+s.decl+postfix
@@ -97,13 +117,58 @@ class Output:
         for lit in s.lits:
             if len(prefix):
                 prefix += ", "
-            prefix += "\n    \""+lit+"\""
-        prefix = "\nconst char * string_literals["+ \
-                 str(len(s.lits))+"] = {"+prefix+"\n};"
-        return prefix+s.defi
+            prefix += "\n    STR_LIT(\""+lit+"\")"
+        prefix = "\ntext_t string_literals["+ \
+                 str(len(s.lits))+"] = {"+prefix+"\n};"+\
+                 "\n\n// #undef STR_LIT"
+        postfix = \
+            "\n\nint main(int argc, const char * argv[])\n"+\
+            "{\n"+\
+            "    printf(\"chemical_element_t size: %ld\\n\",sizeof(chemical_element_t));\n"+\
+            "    return 0;\n"+\
+            "}\n"
+        return prefix+s.defi+s.defaultDefinition()+postfix
 
     def defaultDefinition(s):
-        pass
+#        print s.dVal
+        res = "\n\n"
+        name = "chemical_element"
+        type = name+"_t"
+        res += type+" "+name+" = {\n"
+        res += s.__stringifyValueList(s.__getValueList(name), 0)
+        res += "\n};"
+        return res
+
+    def __getValueList(s, key):
+        if isinstance(key, types.StringType):
+            if key[0] == "/" and key[-1] == "/":
+                key = key.strip("/*")
+
+        result = []
+        if isinstance(key, types.ListType):
+            for item in key:
+                result.append(s.__getValueList(item))
+        elif s.dVal.has_key(key):
+            for item in s.dVal[key]:
+                result.append(s.__getValueList(item))
+        else:
+            result = key
+        return result
+
+    def __stringifyValueList(s, list, lvl):
+        lvl+=1
+        res = ""
+        for item in list:
+            if len(res):
+                res += ", "
+                if lvl == 1: res += "\n"
+            if lvl == 1: res += "    "
+            if isinstance(item, types.ListType):
+                res += "{ "+s.__stringifyValueList(item, lvl)+" }"
+            else:
+                res += str(item)
+        lvl-=1
+        return res
 
 class State:
 
@@ -192,17 +257,19 @@ class State:
                     if name == "val" or name == "im" or name == "re":
                         name = "value"
                     # add field finally
-                    out.appendStruct(s.elementName, lastType, name, value)
+                    out.appendStruct(lastType, name, value)
             lastName = name
         # add custom data fields
         for name in s.elementMembers:
             type = name+"_t"
+            value = ""
             if name[-1] == "*":
                 type = name[:-1]+"_t *"
                 name = name[:-1]
-            out.appendStruct(s.elementName, type, name, "")
+                value = "0"
+            out.appendStruct(type, name, value)
         # close this block
-        out.endStruct(s.elementName)
+        out.endStruct()
         # cleanup
         s.attributeMembers = []
         s.elementMembers = []
@@ -242,8 +309,8 @@ def parseDtd(filename):
     fd.close()
     print out.declaration()
     print out.definition()
-    print ""
-    print out.dVal
+#    print out.dVal
+
 
 out = Output()
 
