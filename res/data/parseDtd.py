@@ -1,7 +1,7 @@
 import sys
 import os
 import getopt
-import types
+from types import *
 
 import xml.etree.ElementTree
 from xml.etree.ElementTree import ElementTree
@@ -12,14 +12,31 @@ startElemTag = "("
 closeElemTag = ")"
 prefixTag = "!"
 
-# maps given data types to Cish data types and default values
-mapDataTypes = {"integer":  ("int",       "0"),
-                "text":     ("text_t *",  "0"),
-                "complex":  ("complex_t", ["0.0", "0.0"]),
-                "real":     ("double",    "0.0"),
-                "bool":     ("bool",      "0"),
-                "ev":       ("ev_t *",    "0")
-               }
+
+def clampAttrName(name):
+    if name in ["val", "im", "re"]:
+        name = "value"
+    return name
+
+# input is string but contains numbers
+def beautifyConstants(template, value):
+    print "template",template, template.find("."), template.lower().find("e")
+    print "value",value, value.find("."), value.lower().find("e")
+    if (template.find(".") >= 0 or template.lower().find("e") >= 0) and \
+       (value.find(".") < 0 or value.lower().find("e") < 0):
+        value += ".0"
+    elif template.find(".") < 0 and template.lower().find("e") < 0 and \
+       (value.find(".") >= 0 or value.lower().find("e") >= 0):
+        num = float(value)
+        value = string(int(floor(num)))
+    return value
+
+def formatDeclaration(declType, name):
+        ptr = ""
+        if declType[-1] == "*": # list of structures
+            ptr = "*"
+            declType = declType[:-1].strip()
+        return "\n    %-16s%-2s%s;" % (declType, ptr, name)
 
 class MyError(StandardError):
     def __init__(s, msg = ""):
@@ -30,21 +47,63 @@ class MyError(StandardError):
     def __repr__(s):
         return repr(s.msg)
 
+# maps given data types to Cish data types and default values
+class DataTypes:
+    __default = FloatType
+    __fallback = NoneType
+    __map = {"integer": IntType,
+             "text":    StringTypes,
+             "complex": ComplexType,
+             "real":    FloatType,
+             "bool":    BooleanType
+            }
+    __data = { IntType:     ("int",       "0"),
+               StringTypes: ("text_t *",  "0"),
+               ComplexType: ("complex_t", ["0.0", "0.0"]),
+               FloatType:   ("double",    "0.0"),
+               BooleanType: ("bool",      "0")
+             }
+
+    def default(): return DataTypes.__default
+    default = staticmethod(default)
+
+    def get(key):
+        if DataTypes.__map.has_key(key):
+            return DataTypes.__map[key]
+        else:
+            return DataTypes.__fallback
+    get = staticmethod(get)
+
+    def decl(type):
+        if DataTypes.__data.has_key(type):
+            return DataTypes.__data[type][0]
+        else:
+            return str(type)
+    decl = staticmethod(decl)
+
+    def defValue(type):
+        if DataTypes.__data.has_key(type):
+            return DataTypes.__data[type][1]
+        else:
+            return "0"
+    defValue = staticmethod(defValue)
+
 class Template:
 
     def __init__(s):
         s.decl = ""
         s.defi = ""
         s.lits = []
+        # finally: C-valid default element with data from DTD
         s.defElem = dict()
         s.curElement = None
 
         s.newElement("complex")
-        s.addAttribute("real", "real", "0.0")
-        s.addAttribute("real", "imag", "0.0")
+        s.addAttribute(FloatType, "real", "0.0")
+        s.addAttribute(FloatType, "imag", "0.0")
         s.closeElement()
         s.newElement("text")
-        s.addAttribute("int", "len", "0")
+        s.addAttribute(IntType, "len", "0")
         s.addAttribute("const char *", "str", "0")
         s.closeElement()
 
@@ -52,7 +111,7 @@ class Template:
         s.curElement = xml.etree.ElementTree.Element(ename)
         s.decl += "\n\ntypedef struct {"
         if ename not in ["ev", "complex", "text"]:
-            s.addAttribute("bool", "valid", "0")
+            s.addAttribute(BooleanType, "valid", "0")
 
     def closeElement(s):
         if s.curElement == None:
@@ -68,17 +127,16 @@ class Template:
             raise MyError("Template.addAttribute() called without "+\
                           "preceeding Template.newElement() !")
         # set declaration
-        isList = False
         ptr = ""
         if name[-1] == "*": # list of structures
-            isList = True
-            ptr = "*"
+            ptr = " *"
             name = name[:-1].strip()
-        # add the new subelement to the current one and add it to the dict
-        if isList: # add attribute only
-            s.addAttribute(name, name, "")
+        type = name+"_t"+ptr
+        if len(ptr): # is list
+            s.addAttribute(type, name, "")
         else:
-            s.decl += "\n    %-16s%-2s%s;" % (name+"_t", ptr, name)
+            # add the new subelement to the current one and add it to the dict
+            s.decl += formatDeclaration(type, name)
             if s.defElem.has_key(name):
                 s.curElement.append(s.defElem[name])
             else:
@@ -89,28 +147,25 @@ class Template:
         if s.curElement == None:
             raise MyError("Template.addAttribute() called without "+\
                           "preceeding Template.newElement() !")
-        declType = type
-        if mapDataTypes.has_key(type):
-            declType, defValue = mapDataTypes[type]
         # set declaration
-        ptr = ""
-        if declType[-1] == "*": # list of structures
-            ptr = "*"
-            declType = declType[:-1].strip()
-        s.decl += "\n    %-16s%-2s%s;" % (declType, ptr, name)
-        # set default definition data, handle complex type
-        if isinstance(value, types.ListType) and len(value) == 2 and \
-           isinstance(defValue, types.ListType) and len(defValue) == 2:
+        declType = DataTypes.decl(type)
+        s.decl += formatDeclaration(declType, name)
+
+        # set default definition data
+        defValue = DataTypes.defValue(type)
+        if not len(value) or value == "#REQUIRED":
+            value = defValue
+        # handle complex type
+        elif type is ComplexType: # value is list [re, im]
             if value[0] == "#REQUIRED": value[0] = defValue[0]
             if value[1] == "#REQUIRED": value[1] = defValue[1]
         # handle various default value cases
-        if not len(value) or value == "#REQUIRED":
-            value = defValue
-        elif type == "text":
+        elif type is StringTypes:
             value = s.addStringLiteral(value)
         # add this field to default data definition
-        # save tuple (position, value)
-        s.curElement.set(name, (len(s.curElement.keys()), value))
+        # save list [index, type, value], tuple can not be modified later
+        idx = len(s.curElement.keys())
+        s.curElement.set(name, [idx, type, value])
 
     def addStringLiteral(s, lit):
         i = -1
@@ -145,22 +200,20 @@ class Template:
             "    printf(\"chemical_element_t size: %ld\\n\",sizeof(chemical_element_t));\n"+\
             "    return 0;\n"+\
             "}\n"
-        return prefix+s.defi+s.defaultDefinition()+postfix
+        return prefix+s.defi+s.elemDefinition()+postfix
 
-    def defaultDefinition(s):
+    def elemDefinition(s):
         res = "\n\n"
         name = "chemical_element"
         type = name+"_t"
         res += type+" "+name+" = {"
-        res += s.__test(s.defElem["chemical_element"], 0)
-#        s.__resolvePlaceholders()
-#        res += s.__stringifyValueList(s.__getValueList(name), 0)
+        res += s.__elemDefinition(s.defElem[name], 0)
         res += "\n};"
         return res
 
     def __stringify(s, l):
         res = ""
-        if isinstance(l, types.ListType):
+        if isinstance(l, ListType):
             for e in l:
                 if len(res): res += ", "
                 res += s.__stringify(e)
@@ -169,7 +222,7 @@ class Template:
             res = str(l)
         return res
 
-    def __test(s, elem, lvl):
+    def __elemDefinition(s, elem, lvl):
         lvl += 1
         res = ""
         prefix = ""
@@ -181,56 +234,41 @@ class Template:
         # stringify attributes
         for item in attr:
             if len(res): res += ", "
-            res += prefix + s.__stringify(item[1][1])
+            # convert the value: [index, type, value] -> string
+            res += prefix + s.__stringify(item[1][2])
         # stringify subelements
         for child in elem.getchildren():
             if len(res): res += ", "
-            res += prefix + "{ "+s.__test(child, lvl)+" }"
+            res += prefix + "{ "+s.__elemDefinition(child, lvl)+" }"
         lvl -= 1
         return res
 
-    # resolve references to elements which were read in later
-    def __resolvePlaceholders(s):
-        for elem in s.defElem.values():
-            # we have xml.etree.ElementTree.Element inside
-            print elem.tag
-            for a in elem.items():
-                print a[0], a[1]
-            if name[-2:] == "[]":
-                value = ["/*"+name[:-2]+"*/"]
+    def update(s, e):
+        print "update",e.tag
+        if not s.defElem.has_key(e.tag): return
+        s.updateAttributes(s.defElem[e.tag], e)
+
+        for esub in e.getchildren():
+            s.update(esub)
+
+    def updateAttributes(s, defElem, newElem):
+        print "updateAttributes",defElem.tag,newElem.tag
+        for attr in newElem.items():
+            key = clampAttrName(attr[0])
+            # see if this attribute was declared
+            defAttr = defElem.get(key)
+            print "def Attr", key, str(defAttr), attr[1], str(type(attr[1]))
+            if not defAttr: continue
+            # attribute exists, update it
+            if isinstance(defAttr[1], types.ListType):
+                if attr[0] == "re":
+                    defAttr[1][0] = beautifyConstants(defAttr[1][0], attr[1])
+                elif attr[0] == "im": 
+                    defAttr[1][1] = beautifyConstants(defAttr[1][1], attr[1])
             else:
-                value = "/*"+name+"*/"
-
-    def __getValueList1(s, key):
-        if isinstance(key, types.StringType):
-            if key[0] == "/" and key[-1] == "/":
-                key = key.strip("/*")
-
-        result = []
-        if isinstance(key, types.ListType):
-            for item in key:
-                result.append(s.__getValueList(item))
-        elif s.dVal.has_key(key):
-            for item in s.dVal[key]:
-                result.append(s.__getValueList(item))
-        else:
-            result = key
-        return result
-
-    def __stringifyValueList1(s, list, lvl):
-        lvl+=1
-        res = ""
-        for item in list:
-            if len(res):
-                res += ", "
-                if lvl == 1: res += "\n"
-            if lvl == 1: res += "    "
-            if isinstance(item, types.ListType):
-                res += "{ "+s.__stringifyValueList(item, lvl)+" }"
-            else:
-                res += str(item)
-        lvl-=1
-        return res
+                defAttr[1] = beautifyConstants(defAttr[1], attr[1])
+            defElem.set(key, defAttr) ## TODO complex, ev, ...
+            print "aft Attr", key, str(defElem.get(key))
 
 class State:
 
@@ -300,12 +338,12 @@ class State:
         if not s.attributeFlag: return
         s.attributeFlag = False
         # finished reading in attributes, now processing them
-        lastType = "double"
+        lastType = DataTypes.default()
         lastName = None
         lastValue = None
         for [name, dummy, value] in s.attributeMembers:
             if name[0:4] == "type":
-                lastType = value
+                lastType = DataTypes.get(value)
             else:
                 # handle complex fields eventually
                 if name == "re" and lastName != "im" or \
@@ -316,9 +354,8 @@ class State:
                         value = [value, lastValue]
                     elif name == "im" and lastName == "re": 
                         value = [lastValue, value]
-                    # rename value field
-                    if name == "val" or name == "im" or name == "re":
-                        name = "value"
+                    # rename value field eventually
+                    name = clampAttrName(name)
                     # add field finally
                     tem.addAttribute(lastType, name, value)
             lastName = name
@@ -366,33 +403,22 @@ def parseDtd(filename):
     fd.close()
     print tem.declaration()
     print tem.definition()
-#    print tem.dVal
 
-def parseElement(elem):
-    if elem.tag != "chemical_element":
-        return
-
-    for attrib in elem.attrib.items():
-        # see if this attribute was declared
-        print "a:",attrib[0]
-        if not tem.dVal.has_key(attrib[0]): continue
-        print "bla:",attrib, "def:", tem.dVal[attrib[0]]
-
-    for prop in elem.getchildren():
-        # if has_key !!
-        print prop.tag, tem.dVal[prop.tag]
 
 def parseXml(filename):
     filename = os.path.abspath(filename);
     if not os.path.exists(filename):
         raise IOError("File not found!")
 
-#    print "parseXml",filename
     etree = ElementTree(file=filename)
-    eroot = etree.getroot()
-#    print eroot.tag
-#    for esub in eroot.getchildren():
-#        parseElement(esub)
+    eroot = etree.getroot() # chemical_element_list
+    for esub in eroot.getchildren():
+        if esub.tag != "chemical_element": continue
+        # we care only about single chemical_elements
+        tem.update(esub)
+        break
+
+#    print tem.definition()
 
 
 
