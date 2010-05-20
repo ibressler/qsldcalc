@@ -3,6 +3,9 @@ import os
 import getopt
 import types
 
+import xml.etree.ElementTree
+from xml.etree.ElementTree import ElementTree
+
 startTag = "<"
 closeTag = ">"
 startElemTag = "("
@@ -15,7 +18,7 @@ mapDataTypes = {"integer":  ("int",       "0"),
                 "complex":  ("complex_t", ["0.0", "0.0"]),
                 "real":     ("double",    "0.0"),
                 "bool":     ("bool",      "0"),
-                "ev_t *":   ("ev_t *",    "0")
+                "ev":       ("ev_t *",    "0")
                }
 
 class MyError(StandardError):
@@ -27,81 +30,96 @@ class MyError(StandardError):
     def __repr__(s):
         return repr(s.msg)
 
-class Output:
+class Template:
 
     def __init__(s):
         s.decl = ""
         s.defi = ""
-        s.dVal = dict()
         s.lits = []
-        s.curElemName = ""
+        s.defElem = dict()
+        s.curElement = None
 
-        s.startStruct("complex")
-        s.appendStruct("real", "real", "0.0")
-        s.appendStruct("real", "imag", "0.0")
-        s.endStruct()
-        s.startStruct("text")
-        s.appendStruct("int", "len", "0")
-        s.appendStruct("const char *", "str", "0")
-        s.endStruct()
+        s.newElement("complex")
+        s.addAttribute("real", "real", "0.0")
+        s.addAttribute("real", "imag", "0.0")
+        s.closeElement()
+        s.newElement("text")
+        s.addAttribute("int", "len", "0")
+        s.addAttribute("const char *", "str", "0")
+        s.closeElement()
 
-    def startStruct(s, ename):
-        s.curElemName = ename
+    def newElement(s, ename):
+        s.curElement = xml.etree.ElementTree.Element(ename)
         s.decl += "\n\ntypedef struct {"
         if ename not in ["ev", "complex", "text"]:
-            s.appendStruct("bool", "valid", "0")
+            s.addAttribute("bool", "valid", "0")
 
-    def endStruct(s):
-        if not len(s.curElemName):
-            raise MyError("Output.endStruct() called without "+\
-                          "preceeding Output.startStruct() !")
-        s.decl += "\n} %s_t;" % (s.curElemName)
-        s.curElemName = ""
+    def closeElement(s):
+        if s.curElement == None:
+            raise MyError("Template.closeElement() called without "+\
+                          "preceeding Template.newElement() !")
+        s.decl += "\n} %s_t;" % (s.curElement.tag)
+        # add this element to the default element definition
+        s.defElem[s.curElement.tag] = s.curElement
+        s.curElement = None
+
+    def addElement(s, name):
+        if s.curElement == None:
+            raise MyError("Template.addAttribute() called without "+\
+                          "preceeding Template.newElement() !")
+        # set declaration
+        isList = False
+        ptr = ""
+        if name[-1] == "*": # list of structures
+            isList = True
+            ptr = "*"
+            name = name[:-1].strip()
+        # add the new subelement to the current one and add it to the dict
+        if isList: # add attribute only
+            s.addAttribute(name, name, "")
+        else:
+            s.decl += "\n    %-16s%-2s%s;" % (name+"_t", ptr, name)
+            if s.defElem.has_key(name):
+                s.curElement.append(s.defElem[name])
+            else:
+                s.defElem[name] = xml.etree.ElementTree.SubElement(s.curElement)
 
     # input is string
-    def appendStruct(s, type, name, value):
-        if not len(s.curElemName):
-            raise MyError("Output.appendStruct() called without "+\
-                          "preceeding Output.startStruct() !")
+    def addAttribute(s, type, name, value):
+        if s.curElement == None:
+            raise MyError("Template.addAttribute() called without "+\
+                          "preceeding Template.newElement() !")
         declType = type
         if mapDataTypes.has_key(type):
             declType, defValue = mapDataTypes[type]
         # set declaration
         ptr = ""
-        if declType[-1] == "*":
-            declType = declType[:-1].strip()
+        if declType[-1] == "*": # list of structures
             ptr = "*"
+            declType = declType[:-1].strip()
         s.decl += "\n    %-16s%-2s%s;" % (declType, ptr, name)
         # set default definition data, handle complex type
         if isinstance(value, types.ListType) and len(value) == 2 and \
            isinstance(defValue, types.ListType) and len(defValue) == 2:
             if value[0] == "#REQUIRED": value[0] = defValue[0]
             if value[1] == "#REQUIRED": value[1] = defValue[1]
-        # handle various default cases
-        if not len(value): # custom type
-            if name[-2:] == "[]":
-                value = ["/*"+name[:-2]+"*/"]
-            else:
-                value = "/*"+name+"*/"
-        elif value == "#REQUIRED":
+        # handle various default value cases
+        if not len(value) or value == "#REQUIRED":
             value = defValue
         elif type == "text":
-            idx = s.addStringLiteral(value)
-            value = "&string_literals["+str(idx)+"]"
+            value = s.addStringLiteral(value)
         # add this field to default data definition
-        if s.dVal.has_key(s.curElemName):
-            s.dVal[s.curElemName].append(value)
-        else:
-            s.dVal[s.curElemName] = [value]
+        # save tuple (position, value)
+        s.curElement.set(name, (len(s.curElement.keys()), value))
 
     def addStringLiteral(s, lit):
+        i = -1
         try:
             i = s.lits.index(lit)
         except ValueError:
             s.lits.append(lit)
-            return len(s.lits)-1
-        else:
-            return i
+            i = len(s.lits)-1
+        return "&string_literals[%d]" % i
 
     def declaration(s):
         prefix = \
@@ -130,16 +148,60 @@ class Output:
         return prefix+s.defi+s.defaultDefinition()+postfix
 
     def defaultDefinition(s):
-#        print s.dVal
         res = "\n\n"
         name = "chemical_element"
         type = name+"_t"
-        res += type+" "+name+" = {\n"
-        res += s.__stringifyValueList(s.__getValueList(name), 0)
+        res += type+" "+name+" = {"
+        res += s.__test(s.defElem["chemical_element"], 0)
+#        s.__resolvePlaceholders()
+#        res += s.__stringifyValueList(s.__getValueList(name), 0)
         res += "\n};"
         return res
 
-    def __getValueList(s, key):
+    def __stringify(s, l):
+        res = ""
+        if isinstance(l, types.ListType):
+            for e in l:
+                if len(res): res += ", "
+                res += s.__stringify(e)
+            res = "{ "+res+" }"
+        else:
+            res = str(l)
+        return res
+
+    def __test(s, elem, lvl):
+        lvl += 1
+        res = ""
+        prefix = ""
+        if lvl == 1: prefix = "\n    "
+        # sort attribute list by saved position (insert time)
+        # (first element of value field)
+        attr = elem.items()
+        if len(attr) > 1: attr.sort(None, lambda item: item[1][0])
+        # stringify attributes
+        for item in attr:
+            if len(res): res += ", "
+            res += prefix + s.__stringify(item[1][1])
+        # stringify subelements
+        for child in elem.getchildren():
+            if len(res): res += ", "
+            res += prefix + "{ "+s.__test(child, lvl)+" }"
+        lvl -= 1
+        return res
+
+    # resolve references to elements which were read in later
+    def __resolvePlaceholders(s):
+        for elem in s.defElem.values():
+            # we have xml.etree.ElementTree.Element inside
+            print elem.tag
+            for a in elem.items():
+                print a[0], a[1]
+            if name[-2:] == "[]":
+                value = ["/*"+name[:-2]+"*/"]
+            else:
+                value = "/*"+name+"*/"
+
+    def __getValueList1(s, key):
         if isinstance(key, types.StringType):
             if key[0] == "/" and key[-1] == "/":
                 key = key.strip("/*")
@@ -155,7 +217,7 @@ class Output:
             result = key
         return result
 
-    def __stringifyValueList(s, list, lvl):
+    def __stringifyValueList1(s, list, lvl):
         lvl+=1
         res = ""
         for item in list:
@@ -217,6 +279,7 @@ class State:
             raise MyError("No '"+prefixTag+"' after '"+startTag
                           +"'! (line "+str(s.nLine)+")")
         s.nextPos()
+        # split the whole line
         wordList = s.line[s.pos:].rstrip(closeTag).split()
         if len(wordList) < 2:
             raise MyError("Missing element name at line "
@@ -227,7 +290,7 @@ class State:
             s.elementMembers = [] # reset
         elif wordList[0] == "ATTLIST":
             s.attributeFlag = True # entering attribute scope
-            out.startStruct(s.elementName)
+            tem.newElement(s.elementName)
         else:
             raise MyError("Tag type '"+wordList[0]
                           +"' is neither 'ELEMENT' nor 'ATTLIST'!"
@@ -257,19 +320,13 @@ class State:
                     if name == "val" or name == "im" or name == "re":
                         name = "value"
                     # add field finally
-                    out.appendStruct(lastType, name, value)
+                    tem.addAttribute(lastType, name, value)
             lastName = name
         # add custom data fields
         for name in s.elementMembers:
-            type = name+"_t"
-            value = ""
-            if name[-1] == "*":
-                type = name[:-1]+"_t *"
-                name = name[:-1]
-                value = "0"
-            out.appendStruct(type, name, value)
+            tem.addElement(name)
         # close this block
-        out.endStruct()
+        tem.closeElement()
         # cleanup
         s.attributeMembers = []
         s.elementMembers = []
@@ -307,10 +364,39 @@ def parseDtd(filename):
         state.processLine(line)
 
     fd.close()
-    print out.declaration()
-    print out.definition()
-#    print out.dVal
+    print tem.declaration()
+    print tem.definition()
+#    print tem.dVal
+
+def parseElement(elem):
+    if elem.tag != "chemical_element":
+        return
+
+    for attrib in elem.attrib.items():
+        # see if this attribute was declared
+        print "a:",attrib[0]
+        if not tem.dVal.has_key(attrib[0]): continue
+        print "bla:",attrib, "def:", tem.dVal[attrib[0]]
+
+    for prop in elem.getchildren():
+        # if has_key !!
+        print prop.tag, tem.dVal[prop.tag]
+
+def parseXml(filename):
+    filename = os.path.abspath(filename);
+    if not os.path.exists(filename):
+        raise IOError("File not found!")
+
+#    print "parseXml",filename
+    etree = ElementTree(file=filename)
+    eroot = etree.getroot()
+#    print eroot.tag
+#    for esub in eroot.getchildren():
+#        parseElement(esub)
 
 
-out = Output()
+
+###################################################
+
+tem = Template()
 
