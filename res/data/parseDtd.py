@@ -1,6 +1,9 @@
 import sys
 import os
 import getopt
+import copy
+import math
+import inspect
 from types import *
 
 import xml.etree.ElementTree
@@ -18,25 +21,34 @@ def clampAttrName(name):
         name = "value"
     return name
 
-# input is string but contains numbers
-def beautifyConstants(template, value):
-    print "template",template, template.find("."), template.lower().find("e")
-    print "value",value, value.find("."), value.lower().find("e")
-    if (template.find(".") >= 0 or template.lower().find("e") >= 0) and \
-       (value.find(".") < 0 or value.lower().find("e") < 0):
-        value += ".0"
-    elif template.find(".") < 0 and template.lower().find("e") < 0 and \
-       (value.find(".") >= 0 or value.lower().find("e") >= 0):
-        num = float(value)
-        value = string(int(floor(num)))
-    return value
-
 def formatDeclaration(declType, name):
         ptr = ""
         if declType[-1] == "*": # list of structures
             ptr = "*"
             declType = declType[:-1].strip()
         return "\n    %-16s%-2s%s;" % (declType, ptr, name)
+
+def stringifyElement(elem, lvl):
+    lvl += 1
+    res = ""
+    prefix = ""
+    if lvl == 1: prefix = "\n    "
+    # sort attribute list by saved position (insert time)
+    # (first element of value field)
+    attributes = elem.items()
+    if len(attributes) > 1: 
+        attributes.sort(None, lambda item: item[1].sortKey())
+    # stringify attributes
+    for item in attributes:
+        if len(res): res += ", "
+        # convert the value: [index, type, value] -> string
+        res += prefix + item[1].stringify()
+    # stringify subelements
+    for child in elem.getchildren():
+        if len(res): res += ", "
+        res += prefix + "{ "+stringifyElement(child, lvl)+" }"
+    lvl -= 1
+    return res
 
 class MyError(StandardError):
     def __init__(s, msg = ""):
@@ -49,7 +61,7 @@ class MyError(StandardError):
 
 # maps given data types to Cish data types and default values
 class DataTypes:
-    __default = FloatType
+    __defaultType = FloatType
     __fallback = NoneType
     __map = {"integer": IntType,
              "text":    StringTypes,
@@ -64,8 +76,8 @@ class DataTypes:
                BooleanType: ("bool",      "0")
              }
 
-    def default(): return DataTypes.__default
-    default = staticmethod(default)
+    def defaultType(): return DataTypes.__defaultType
+    defaultType = staticmethod(defaultType)
 
     def get(key):
         if DataTypes.__map.has_key(key):
@@ -81,12 +93,96 @@ class DataTypes:
             return str(type)
     decl = staticmethod(decl)
 
-    def defValue(type):
+    def default(type):
         if DataTypes.__data.has_key(type):
             return DataTypes.__data[type][1]
         else:
-            return "0"
-    defValue = staticmethod(defValue)
+            return "0" # NULL pointer for lists/arrays of custom types
+    default = staticmethod(default)
+
+    def verify(type, default, value): # helper
+        if value == None:    return default
+
+        # transform the new value accordingly
+        if type is FloatType:
+            if value.find(".") < 0 and \
+               value.lower().find("e") < 0:
+                value += ".0"
+        elif type is IntType:
+            if value.find(".") >= 0 and \
+               value.lower().find("e") >= 0:
+                num = float(value)
+                value = int(math.floor(num))
+        elif type is StringTypes:
+            value = tem.addStringLiteral(str(value))
+        elif type is BooleanType:
+            if isinstance(value, BooleanType):
+                value = str(int(value))
+        elif type is ComplexType:
+            # complex consists of two floats
+            value[0] = DataTypes.verify(FloatType, default[0], value[0])
+            value[1] = DataTypes.verify(FloatType, default[1], value[1])
+        return value
+    verify = staticmethod(verify)
+
+class Attribute(object):
+
+    def __init__(s, parentElem, name, type, value):
+        s.name = name
+        s.__initValue(type, value)
+        s.index = len(parentElem.keys())
+        parentElem.set(name, s)
+
+    def __initValue(s, type, value):
+        s.type = type
+        s.__setValue(value)
+
+    # There are several levels of default data values:
+    # - the ones specified in the DTD 'value', will be overwritten
+    # - the ones within this script which are required
+    #   for a C structure definition to be valid 'default'
+    def __setValue(s, value):
+
+        # get default definition data
+        default = DataTypes.default(s.type)
+
+        # retreive the new value
+        if isinstance(value, StringTypes):
+            if not len(value) or value == "#REQUIRED":
+                value = None # fixed in DataTypes.verify()
+        elif isinstance(value, ListType):
+            # handle complex type
+            if s.type is ComplexType: # value is list [re, im] (has to)
+                if value[0] == "#REQUIRED": value[0] = default[0]
+                if value[1] == "#REQUIRED": value[1] = default[1]
+
+        s.value = DataTypes.verify(s.type, default, value)
+
+    def setValue(s, value):
+        res = copy.deepcopy(s)
+        res.__setValue(value)
+        return res
+
+    def stringify(s):
+        def stringifyList(lst):
+            res = ""
+            if isinstance(lst, ListType):
+                for e in lst:
+                    if len(res): res += ", "
+                    res += stringifyList(e)
+                res = "{ "+res+" }"
+            else:
+                res = str(lst)
+            return res
+        return stringifyList(s.value)
+
+    def sortKey(s): return s.index
+
+    # returns a deep copy if this attribute is a valid flag
+    def makeValid(s):
+        if not s.type is BooleanType or s.name != "valid":
+            return None
+        return s.setValue(True)
 
 class Template:
 
@@ -94,7 +190,7 @@ class Template:
         s.decl = ""
         s.defi = ""
         s.lits = []
-        # finally: C-valid default element with data from DTD
+        # a dict: to be order independent, in DTD element order is arbitrary
         s.defElem = dict()
         s.curElement = None
 
@@ -122,7 +218,7 @@ class Template:
         s.defElem[s.curElement.tag] = s.curElement
         s.curElement = None
 
-    def addElement(s, name):
+    def addSubElement(s, name):
         if s.curElement == None:
             raise MyError("Template.addAttribute() called without "+\
                           "preceeding Template.newElement() !")
@@ -150,30 +246,18 @@ class Template:
         # set declaration
         declType = DataTypes.decl(type)
         s.decl += formatDeclaration(declType, name)
-
-        # set default definition data
-        defValue = DataTypes.defValue(type)
-        if not len(value) or value == "#REQUIRED":
-            value = defValue
-        # handle complex type
-        elif type is ComplexType: # value is list [re, im]
-            if value[0] == "#REQUIRED": value[0] = defValue[0]
-            if value[1] == "#REQUIRED": value[1] = defValue[1]
-        # handle various default value cases
-        elif type is StringTypes:
-            value = s.addStringLiteral(value)
         # add this field to default data definition
-        # save list [index, type, value], tuple can not be modified later
-        idx = len(s.curElement.keys())
-        s.curElement.set(name, [idx, type, value])
+        Attribute(s.curElement, name, type, value)
 
     def addStringLiteral(s, lit):
-        i = -1
-        try:
-            i = s.lits.index(lit)
-        except ValueError:
+        if lit == "0": bla
+        i = 0
+        for item in s.lits:
+            if item == lit:
+                break
+            i += 1
+        if i == len(s.lits):
             s.lits.append(lit)
-            i = len(s.lits)-1
         return "&string_literals[%d]" % i
 
     def declaration(s):
@@ -194,81 +278,25 @@ class Template:
         prefix = "\ntext_t string_literals["+ \
                  str(len(s.lits))+"] = {"+prefix+"\n};"+\
                  "\n\n// #undef STR_LIT"
-        postfix = \
-            "\n\nint main(int argc, const char * argv[])\n"+\
-            "{\n"+\
-            "    printf(\"chemical_element_t size: %ld\\n\",sizeof(chemical_element_t));\n"+\
-            "    return 0;\n"+\
-            "}\n"
-        return prefix+s.defi+s.elemDefinition()+postfix
+        return prefix+s.defi+s.elemDefinition()
 
     def elemDefinition(s):
         res = "\n\n"
         name = "chemical_element"
         type = name+"_t"
         res += type+" "+name+" = {"
-        res += s.__elemDefinition(s.defElem[name], 0)
+        res += stringifyElement(s.defElem[name], 0)
         res += "\n};"
         return res
 
-    def __stringify(s, l):
-        res = ""
-        if isinstance(l, ListType):
-            for e in l:
-                if len(res): res += ", "
-                res += s.__stringify(e)
-            res = "{ "+res+" }"
-        else:
-            res = str(l)
-        return res
-
-    def __elemDefinition(s, elem, lvl):
-        lvl += 1
-        res = ""
-        prefix = ""
-        if lvl == 1: prefix = "\n    "
-        # sort attribute list by saved position (insert time)
-        # (first element of value field)
-        attr = elem.items()
-        if len(attr) > 1: attr.sort(None, lambda item: item[1][0])
-        # stringify attributes
-        for item in attr:
-            if len(res): res += ", "
-            # convert the value: [index, type, value] -> string
-            res += prefix + s.__stringify(item[1][2])
-        # stringify subelements
-        for child in elem.getchildren():
-            if len(res): res += ", "
-            res += prefix + "{ "+s.__elemDefinition(child, lvl)+" }"
-        lvl -= 1
-        return res
-
-    def update(s, e):
-        print "update",e.tag
-        if not s.defElem.has_key(e.tag): return
-        s.updateAttributes(s.defElem[e.tag], e)
-
-        for esub in e.getchildren():
-            s.update(esub)
-
-    def updateAttributes(s, defElem, newElem):
-        print "updateAttributes",defElem.tag,newElem.tag
-        for attr in newElem.items():
-            key = clampAttrName(attr[0])
-            # see if this attribute was declared
-            defAttr = defElem.get(key)
-            print "def Attr", key, str(defAttr), attr[1], str(type(attr[1]))
-            if not defAttr: continue
-            # attribute exists, update it
-            if isinstance(defAttr[1], types.ListType):
-                if attr[0] == "re":
-                    defAttr[1][0] = beautifyConstants(defAttr[1][0], attr[1])
-                elif attr[0] == "im": 
-                    defAttr[1][1] = beautifyConstants(defAttr[1][1], attr[1])
-            else:
-                defAttr[1] = beautifyConstants(defAttr[1], attr[1])
-            defElem.set(key, defAttr) ## TODO complex, ev, ...
-            print "aft Attr", key, str(defElem.get(key))
+    def testCode(s):
+        postfix = \
+            "\n\nint main(int argc, const char * argv[])\n"+\
+            "{\n"+\
+            "    printf(\"chemical_element_t size: %ld\\n\",sizeof(chemical_element_t));\n"+\
+            "    return 0;\n"+\
+            "}\n"
+        return postfix
 
 class State:
 
@@ -338,7 +366,7 @@ class State:
         if not s.attributeFlag: return
         s.attributeFlag = False
         # finished reading in attributes, now processing them
-        lastType = DataTypes.default()
+        lastType = DataTypes.defaultType()
         lastName = None
         lastValue = None
         for [name, dummy, value] in s.attributeMembers:
@@ -361,7 +389,7 @@ class State:
             lastName = name
         # add custom data fields
         for name in s.elementMembers:
-            tem.addElement(name)
+            tem.addSubElement(name)
         # close this block
         tem.closeElement()
         # cleanup
@@ -402,7 +430,61 @@ def parseDtd(filename):
 
     fd.close()
     print tem.declaration()
-    print tem.definition()
+
+
+def updateAttributes(template, elem, newElem):
+
+    isValid = False # True: non-default value, data was read in
+    for item in template.items(): # process attributes
+        key = item[0]
+        tempAttr = item[1]
+        newAttr = None
+
+        if tempAttr.type is ComplexType:
+            reValue = elem.get("re")
+            imValue = elem.get("im")
+            if reValue != None or imValue != None:
+                newAttr = tempAttr.setValue([reValue, imValue])
+                isValid = True
+        else:
+            value = elem.get(key)
+            if value != None: 
+                if isinstance(value, ListType): # probably from template
+                    value = value[2]
+                # update attribute
+                newAttr = tempAttr.setValue(value)
+                isValid = True
+        # set the default value (even) if there was no data
+        if newAttr != None:
+            newElem.set(key, newAttr)
+
+    # toggles the valid flag, to signal there was an data update from file
+    if isValid:
+        newAttr = template.get("valid").makeValid() # copy default data again
+        newElem.set("valid", newAttr)
+
+
+def update(elem):
+    if not tem.defElem.has_key(elem.tag): return None
+    # maintain element&attrib order from template
+    # attributes are not ordered anyway and carry an position index
+    newElem = xml.etree.ElementTree.Element(elem.tag) # modified
+    template = tem.defElem[elem.tag]                  # must not be modified
+    updateAttributes(template, elem, newElem)
+
+    for child in template.getchildren(): # process subelements
+        subElem = elem.find(child.tag) # data from file
+        newSubElem = None
+        if subElem != None:
+            # add element with data from file
+            newSubElem = update(subElem)
+        else:
+            # add element with default data from template
+            newSubElem = child
+        if newSubElem != None:
+            newElem.append(newSubElem)
+
+    return newElem
 
 
 def parseXml(filename):
@@ -412,13 +494,16 @@ def parseXml(filename):
 
     etree = ElementTree(file=filename)
     eroot = etree.getroot() # chemical_element_list
-    for esub in eroot.getchildren():
-        if esub.tag != "chemical_element": continue
+    for elem in eroot.getchildren():
         # we care only about single chemical_elements
-        tem.update(esub)
-        break
+        if elem.tag != "chemical_element": continue
+        finalElem = update(elem)
+        if finalElem == None: continue
+        print stringifyElement(finalElem, 0)
 
-#    print tem.definition()
+#    print tem.elemDefinition()
+    print tem.definition()
+#    print tem.testCode()
 
 
 
