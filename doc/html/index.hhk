@@ -1,0 +1,606 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="about"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="ABUNDANCE_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="activated"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="addActions"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="addAlias"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementDatabase"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="InputData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="MainWindow"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8cpp.html"><param name="Name" value="addComplex2Map"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="addFromDirectory"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="addFromFile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="mainwindow_8cpp.html"><param name="Name" value="addModelEntry"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="addXrayCoefficient"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="adjustSize"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="AliasHash"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="AliasNameDialog"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="AliasNameDialog"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="mValidator"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="name"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="~AliasNameDialog"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasValidator.html"><param name="Name" value="AliasValidator"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasValidator.html"><param name="Name" value="AliasValidator"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasValidator.html"><param name="Name" value="fixup"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasValidator.html"><param name="Name" value="validate"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="mainwindow_8cpp.html"><param name="Name" value="appendSubItems"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="appendVariant"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="appendVariantMap"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="ATOMIC_MASS_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="atomicMass"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="ATTR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8cpp.html"><param name="Name" value="avogadro"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8cpp.html"><param name="Name" value="utils.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8h.html"><param name="Name" value="utils.h"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="begin"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Element"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementDatabase"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="beginConst"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="buildCompleteList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcElectrons"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcMassAndVolume"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcNSL"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcXrayCoefficients"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcXrayEnergies"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="clearResultTable"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="collapseAll"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="complete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="CompleteList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="complex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="COMPLEX_TYPE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="copyResultTableSelection"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="DataVisualizer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="datavisualizer_8cpp.html"><param name="Name" value="datavisualizer.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="DataVisualizer"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="adjustSize"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="DataVisualizer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="display"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="draw"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="elementLinkActivated"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="emitElementLinkActivated"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="getLinkText"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="initialSelection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="itemMargin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="mDB"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="mMainWindow"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="retranslateUi"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="SceneType"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="selectIndex"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="setItemPos"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="show"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="ViewType"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="DBG"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="defaultValue"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="display"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="doCalc"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doNucleons"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doSetNucleons"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doSetSymbol"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doSymbol"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="DOUBLE_TYPE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="DoublePair"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="draw"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDrawingPositionFromPropertyVariant.html"><param name="Name" value="DrawingPositionFromPropertyVariant"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDrawingPositionFromPropertyVariant.html"><param name="Name" value="mScale"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDrawingPositionFromPropertyVariant.html"><param name="Name" value="operator()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8cpp.html"><param name="Name" value="electronRadius"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8cpp.html"><param name="Name" value="utils.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8h.html"><param name="Name" value="utils.h"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="electrons"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="ELECTRONS_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Element"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8cpp.html"><param name="Name" value="element.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="element.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="complex"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="DoublePair"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="MapTriple"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="operator<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="operator<<"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Element"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="ABUNDANCE_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="addXrayCoefficient"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="ATOMIC_MASS_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="atomicMass"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="begin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="beginConst"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="COMPLEX_TYPE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="defaultValue"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doNucleons"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doSetNucleons"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doSetSymbol"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="doSymbol"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="DOUBLE_TYPE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="electrons"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="ELECTRONS_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Element"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="end"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="endConst"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="getProperty"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="getValue"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INT_TYPE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INVALID_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INVALID_PROPERTY_VALUE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INVALID_TYPE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="isValid"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="isValidType"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="isValidVariant"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="mProperties"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="mPropertyNames"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="mXrayCoefficients"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NAME_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_ABSORPTION_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_COHERENT_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_INCOHERENT_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_TOTAL_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_L_COHERENT_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_L_INCOHERENT_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="nslCoherent"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="nslIncoherent"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NUCLEONS_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyConst"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyCount"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyType"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyValueIterator"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyValueIteratorConst"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyVariant"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyVariantVector"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyVector"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Ptr"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="setProperty"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="STRING_TYPE"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="SYMBOL_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="XRAY_ENERGY_PROPERTY"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="xrayCoefficients"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="~Element"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="ELEMENT_CONFIG_SECTION"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementDatabase"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="elementdatabase_8cpp.html"><param name="Name" value="elementdatabase.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="elementdatabase_8h.html"><param name="Name" value="elementdatabase.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementDatabase"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="addAlias"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="addFromDirectory"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="addFromFile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="AliasHash"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="begin"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementHash"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="end"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="getAlias"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="getElement"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="getSymbolList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="Iterator"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="KeyType"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="makeKey"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="mAliasHash"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="mElementHash"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="operator<<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="Ptr"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="~ElementDatabase"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementHash"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="elementLinkActivated"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="ElementPtrList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="ElemPair"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="emitElementLinkActivated"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="empiricalFormula"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="end"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Element"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementDatabase"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="endConst"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classErrorUnknownElement.html"><param name="Name" value="ErrorUnknownElement"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classErrorUnknownElement.html"><param name="Name" value="ErrorUnknownElement"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="expandAll"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="expandItem"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="fillResultTable"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasValidator.html"><param name="Name" value="fixup"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="FormEntry"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="FormulaCompleter"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="activated"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="complete"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="FormulaCompleter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="highlighted"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mBtn"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mCompleter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mCurText"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mLineEdit"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mToken"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mTokenEnd"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mTokenStart"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="formulaIsEmpty"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="get"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="getAlias"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="getElement"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="getInit"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="getLinkText"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="getProperty"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="getSymbolList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="getValue"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleCharacters"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleDTD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleEndDocument"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleEndElement"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleInvalid"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleNoToken"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleStartDocument"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleStartElement"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="highlighted"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="IGNORED_SECTION"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="initialSelection"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="InputData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8cpp.html"><param name="Name" value="inputdata.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8cpp.html"><param name="Name" value="addComplex2Map"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8cpp.html"><param name="Name" value="interpolate"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8cpp.html"><param name="Name" value="sldXray"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8h.html"><param name="Name" value="inputdata.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="InputData"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="addAlias"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="buildCompleteList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcElectrons"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcMassAndVolume"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcNSL"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcXrayCoefficients"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="calcXrayEnergies"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="CompleteList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="ElemPair"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="empiricalFormula"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="get"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="getInit"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="InputData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="interpretFormula"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="mData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="mDB"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="mFormulaParser"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="mInitData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="QHashType"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="set"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="setInit"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="std::operator<<"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INT_TYPE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8cpp.html"><param name="Name" value="interpolate"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="interpretFormula"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INVALID_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INVALID_PROPERTY_VALUE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="INVALID_TYPE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="isValid"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="isValidType"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="isValidVariant"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="itemMargin"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="Iterator"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="KeyType"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="label"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="LangAction"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="LangAction"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="langFilename"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="triggered"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="triggeredSlot"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="mainwindow_8h.html"><param name="Name" value="LangActionList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="langFilename"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="loadLanguage"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mAboutText"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mAboutTitle"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="MainWindow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="mainwindow_8cpp.html"><param name="Name" value="mainwindow.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="mainwindow_8cpp.html"><param name="Name" value="addModelEntry"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="mainwindow_8cpp.html"><param name="Name" value="appendSubItems"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="mainwindow_8h.html"><param name="Name" value="mainwindow.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="MainWindow::FormEntry"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="FormEntry"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="label"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="propertyName"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="widget"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow_1_1QStringFromBoostVariant.html"><param name="Name" value="MainWindow::QStringFromBoostVariant"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow_1_1QStringFromBoostVariant.html"><param name="Name" value="mParent"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow_1_1QStringFromBoostVariant.html"><param name="Name" value="operator()"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow_1_1QStringFromBoostVariant.html"><param name="Name" value="QStringFromBoostVariant"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="MainWindow"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="about"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="addActions"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="addAlias"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="appendVariant"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="appendVariantMap"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="clearResultTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="collapseAll"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="copyResultTableSelection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="doCalc"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="expandAll"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="expandItem"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="fillResultTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="formulaIsEmpty"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="loadLanguage"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mAboutText"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mAboutTitle"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="MainWindow"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mApp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mCompleter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mDataVisualizer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mDB"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuFile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuHelp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuLang"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuTools"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mFormEntries"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mFormulaDefaultPalette"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mInputData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLangActionList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLangFile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLangPath"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLocale"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mModel"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mTranslator"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="qstringFromComplex"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="qstringFromDouble"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="qstringFromVariant"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="rebuildResultTable"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="resetInput"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="resultAddData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="resultAddInput"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="retranslateUi"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="saveInitialInput"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="saveInput"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="selectDefaultLang"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="setFormattedFormula"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="showElementData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="toString"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="updateLangActions"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="useSystemLocaleTriggered"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="makeKey"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="mAliasHash"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mApp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="MapTriple"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mBtn"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mCompleter"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="FormulaCompleter"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="MainWindow"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mCurSection"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mCurText"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="mData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mDataVisualizer"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="mDB"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="DataVisualizer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="InputData"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="MainWindow"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mElement"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="mElementHash"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuFile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuHelp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuLang"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="menuTools"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mFormEntries"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mFormulaDefaultPalette"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="mFormulaParser"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mHandlers"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="mInitData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mInputData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLangActionList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLangFile"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLangPath"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mLineEdit"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mLocale"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="mMainWindow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mModel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow_1_1QStringFromBoostVariant.html"><param name="Name" value="mParent"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="mProperties"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="mPropertyNames"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mResultList"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDrawingPositionFromPropertyVariant.html"><param name="Name" value="mScale"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mToken"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mTokenEnd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classFormulaCompleter.html"><param name="Name" value="mTokenStart"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="mTranslator"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="mValidator"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mXml"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="mXrayCoefficients"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="name"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NAME_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="NS_C_SECTION"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_ABSORPTION_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_COHERENT_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_INCOHERENT_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_CS_TOTAL_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_L_COHERENT_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NS_L_INCOHERENT_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="NS_L_SECTION"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="nslCoherent"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="nslIncoherent"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="NUCLEONS_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDrawingPositionFromPropertyVariant.html"><param name="Name" value="operator()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDrawingPositionFromPropertyVariant.html"><param name="Name" value="DrawingPositionFromPropertyVariant"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow_1_1QStringFromBoostVariant.html"><param name="Name" value="MainWindow::QStringFromBoostVariant"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPreparePropertyVariantForSorting.html"><param name="Name" value="PreparePropertyVariantForSorting"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8cpp.html"><param name="Name" value="operator<<"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8cpp.html"><param name="Name" value="element.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="element_8h.html"><param name="Name" value="element.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementDatabase"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="elementdatabase_8cpp.html"><param name="Name" value="elementdatabase.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="elementdatabase_8h.html"><param name="Name" value="elementdatabase.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="inputdata.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="std"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="operator<"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="element.h"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="std"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="datavisualizer_8cpp.html"><param name="Name" value="outputRect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classPreparePropertyVariantForSorting.html"><param name="Name" value="PreparePropertyVariantForSorting"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classPreparePropertyVariantForSorting.html"><param name="Name" value="operator()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyConst"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyCount"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyName"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Element"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="MainWindow::FormEntry"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="propertyType"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyValueIterator"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyValueIteratorConst"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyVariant"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyVariantVector"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="PropertyVector"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Ptr"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="Element"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="ElementDatabase"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="QHashType"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow_1_1QStringFromBoostVariant.html"><param name="Name" value="QStringFromBoostVariant"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="qstringFromComplex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="qstringFromDouble"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="qstringFromVariant"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="read"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="rebuildResultTable"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="resetInput"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="resultAddData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="resultAddInput"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="retranslateUi"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="DataVisualizer"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="MainWindow"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="saveInitialInput"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="saveInput"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="SceneType"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="selectDefaultLang"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="selectIndex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="set"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="setFormattedFormula"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="setInit"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="setItemPos"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="setProperty"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="show"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="showElementData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="inputdata_8cpp.html"><param name="Name" value="sldXray"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="std"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classInputData.html"><param name="Name" value="std::operator<<"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="std"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="operator<"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespacestd.html"><param name="Name" value="operator<<"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="STD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="STDR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="STRING_TYPE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="SYMBOL_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="todo.html"><param name="Name" value="Todo List"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="toString"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="triggered"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classLangAction.html"><param name="Name" value="triggeredSlot"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="updateLangActions"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classMainWindow.html"><param name="Name" value="useSystemLocaleTriggered"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8cpp.html"><param name="Name" value="utils.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8cpp.html"><param name="Name" value="avogadro"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8cpp.html"><param name="Name" value="electronRadius"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8h.html"><param name="Name" value="utils.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8h.html"><param name="Name" value="avogadro"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="utils_8h.html"><param name="Name" value="electronRadius"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasValidator.html"><param name="Name" value="validate"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classDataVisualizer.html"><param name="Name" value="ViewType"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structMainWindow_1_1FormEntry.html"><param name="Name" value="widget"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="XmlParser"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="xmlparser.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="ATTR"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="DBG"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="STD"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="xmlparser_8cpp.html"><param name="Name" value="STDR"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="XmlParser"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="ELEMENT_CONFIG_SECTION"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="ElementPtrList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleCharacters"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleDTD"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleEndDocument"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleEndElement"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleInvalid"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleNoToken"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleStartDocument"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="handleStartElement"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="IGNORED_SECTION"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mCurSection"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mElement"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mHandlers"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mResultList"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="mXml"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="NS_C_SECTION"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="NS_L_SECTION"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="read"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="XmlParser"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="XmlTokenHandler"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="XRAY_COEFFICIENTS_SECTION"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="~XmlParser"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="XmlTokenHandler"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="XRAY_COEFFICIENTS_SECTION"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="XRAY_ENERGY_PROPERTY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="xrayCoefficients"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classAliasNameDialog.html"><param name="Name" value="~AliasNameDialog"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElement.html"><param name="Name" value="~Element"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classElementDatabase.html"><param name="Name" value="~ElementDatabase"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="classXmlParser.html"><param name="Name" value="~XmlParser"></OBJECT>
+</UL>
+</BODY>
+</HTML>
