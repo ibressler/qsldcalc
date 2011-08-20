@@ -126,14 +126,14 @@ void MainWindow::selectDefaultLang()
 void MainWindow::loadLanguage(const QString& filename)
 {
 	QString absFilePath(mLangPath.absoluteFilePath(filename));
-#if DEBUG
 	if ( !QFile::exists(absFilePath) ||
 	     !mTranslator.load(filename, mLangPath.canonicalPath()) )
 	{
+#if DEBUG
 		std::cerr << "Could not load translation file '"
 			<< filename.toStdString() << "' !";
-	}
 #endif
+	}
 	mLangFile = filename;
 	retranslateUi();
 }
