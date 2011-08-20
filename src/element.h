@@ -256,7 +256,9 @@ T Element::getValue(Property p) const
 {
 	try {	return boost::get<T>(propertyConst(p));
 	} catch(boost::bad_get e) {
+#ifdef DEBUG
 		std::cerr << "exec " << propertyName(p) << std::endl;
+#endif
 		return defaultValue(T(), p);
 	}
 }
