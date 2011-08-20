@@ -34,6 +34,27 @@
 
 include(${QT_USE_FILE}) # includes qt4 cmake module
 
+# compiler related settings
+set(BUILD_FLAGS "-Wall")
+if(DEBUG)
+	set(CMAKE_BUILD_TYPE Debug)
+	add_definitions(-DDEBUG)
+	set(CMAKE_CXX_FLAGS_DEBUG "${BUILD_FLAGS} -g")
+else(DEBUG)
+	set(CMAKE_BUILD_TYPE Release)
+	#set(CMAKE_CXX_FLAGS_RELEASE "-O3 -mfpmath=sse -msse -m3dnow -msse2 -msse3")
+	set(CMAKE_CXX_FLAGS_RELEASE "${BUILD_FLAGS} -O2")
+endif(DEBUG)
+message(STATUS ":: Configuring for >${CMAKE_BUILD_TYPE}< build")
+
+# determine build date, expects unix ENV (mingw on win)
+EXECUTE_PROCESS(COMMAND "date" "+%Y;%_m;%_d;" OUTPUT_VARIABLE DATE_LIST)
+list(GET DATE_LIST 0 BUILD_YEAR)
+list(GET DATE_LIST 1 BUILD_MONTH)
+list(GET DATE_LIST 2 BUILD_DAY)
+message(STATUS "Build Date: ${BUILD_YEAR} ${BUILD_MONTH} ${BUILD_DAY}")
+add_definitions(-D'BUILD_YEAR=${BUILD_YEAR}' -D'BUILD_MONTH=${BUILD_MONTH}' -D'BUILD_DAY=${BUILD_DAY}')
+
 # the variable "qsldcalc_SRCS" contains all .cpp files of this project
 set(qsldcalc_SRC
 	main.cpp

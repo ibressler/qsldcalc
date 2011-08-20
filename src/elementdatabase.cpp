@@ -58,8 +58,10 @@ ElementDatabase::addFromDirectory(const QString& path)
         foreach(const QString file, dirList) {
 		addFromFile(path + "/" + file);
         }
+#if DEBUG
 	std::cerr << "element data directory read time: " 
 		<< timer.elapsed() << "ms" << std::endl;
+#endif
 }
 
 const 

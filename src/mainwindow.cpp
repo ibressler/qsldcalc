@@ -107,7 +107,9 @@ MainWindow::MainWindow(QApplication &app, ElementDatabase& db)
 void MainWindow::selectDefaultLang()
 {
 	QString locale = QLocale::system().name();
+#if DEBUG
 	std::cerr << "locale: " << locale.toAscii().data() << std::endl;
+#endif
 	QStringList filters;
 	filters << "language_*"+locale+".qm";
 	QStringList langFiles(mLangPath.entryList(filters, QDir::Files));
@@ -148,24 +150,24 @@ void MainWindow::retranslateUi()
 	mAboutTitle = tr("about %1").arg(PROGRAM_NAME);
 	mAboutText  = tr("This version of %1 was build on %2-%3-%4.")
 	                      .arg(PROGRAM_NAME)
-	                      .arg(d.year(), 4, 10, QLatin1Char('0'))
-	                      .arg(d.month(), 2, 10, QLatin1Char('0'))
-	                      .arg(d.day(), 2, 10, QLatin1Char('0'));
+	                      .arg(int(BUILD_YEAR), 4, 10, QLatin1Char('0'))
+	                      .arg(int(BUILD_MONTH), 2, 10, QLatin1Char('0'))
+	                      .arg(int(BUILD_DAY), 2, 10, QLatin1Char('0'));
 	mAboutText.append("<br><br>");
 	mAboutText.append(tr("This program is released under the GNU General Public License (GPL). For details, see LICENSE.txt or"));
 	mAboutText.append("<br><a href=\"http://www.gnu.org/licenses/gpl.html\">http://www.gnu.org/licenses/gpl.html</a>");
 	mAboutText.append("<br><br>");
 	mAboutText.append(tr("For documentation and source code see:"));
-	mAboutText.append("<br><a href=\"https://developer.berlios.de/projects/qsldcalc/\">https://developer.berlios.de/projects/qsldcalc/</a>");
+	mAboutText.append("<br><a href=\"http://developer.berlios.de/projects/qsldcalc/\">https://developer.berlios.de/projects/qsldcalc/</a>");
 	mAboutText.append("<br><br>");
 	mAboutText.append(tr("The backend data sources are:"));
 	mAboutText.append("<br><a href=\"http://www.ncnr.nist.gov/resources/n-lengths/list.html\">http://www.ncnr.nist.gov/resources/n-lengths/list.html</a>");
 	mAboutText.append("<br><a href=\"http://skuld.bmsc.washington.edu/scatter/AS_periodic.html\">http://skuld.bmsc.washington.edu/scatter/AS_periodic.html</a>");
 	mAboutText.append("<br><br>");
 	mAboutText.append(tr("Written by:"));
-	mAboutText.append("<br>Ingo Bressler (ingo at cs.tu-berlin.de)");
+	mAboutText.append("<br>Ingo Bressler (qsldcalc at ingobressler.net)");
 	mAboutText.append("<br>");
-	mAboutText.append(tr("(Comments, suggestions or corrections are welcome!)"));
+	mAboutText.append(tr("[ Comments, suggestions or corrections are welcome! ]"));
 	mAboutText.append("<br>");
 	updateLangActions(menuLang);
 

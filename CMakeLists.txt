@@ -27,38 +27,23 @@ cmake_minimum_required(VERSION 2.6)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${qsldcalc_SOURCE_DIR}/bin)
 
-### .<adjust here start>. ###
-### v                   v ###
+### <adjust here> ###
 
 # libcfp library related settings
 find_path(libcfp_INCLUDE_DIR cfp/cfp.h
 	PATHS
-	${qsldcalc_SOURCE_DIR}/../libcfp/include
-	${qsldcalc_SOURCE_DIR}/../libcfp/trunk/include
-	${qsldcalc_SOURCE_DIR}/../../libcfp/include
-	${qsldcalc_SOURCE_DIR}/../../libcfp/trunk/include
+	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/include
+	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/trunk/include
 )
 find_library(libcfp_LIBRARY libcfp_static${CMAKE_STATIC_LIBRARY_SUFFIX}
 	PATHS
-	${qsldcalc_SOURCE_DIR}/../libcfp/lib/
-	${qsldcalc_SOURCE_DIR}/../libcfp/trunk/lib/
-	${qsldcalc_SOURCE_DIR}/../../libcfp/lib/
-	${qsldcalc_SOURCE_DIR}/../../libcfp/trunk/lib/
+	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/lib/
+	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/trunk/lib/
 )
 
-# compiler related settings
-set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CXX_FLAGS_DEBUG -g)
-#set(CMAKE_CXX_FLAGS_RELEASE "-O3 -mfpmath=sse -msse -m3dnow -msse2 -msse3")
-set(CMAKE_CXX_FLAGS_RELEASE "-O2")
-#message("CMAKE_EXE_LINKER_FLAGS: ${CMAKE_EXE_LINKER_FLAGS}")
-#set(CMAKE_EXE_LINKER_FLAGS "-static")
-message(STATUS ":: Configuring for >${CMAKE_BUILD_TYPE}< build")
+set(qsldcalc_version 0.6)
 
-set(qsldcalc_version 0.5)
-
-### ^                  ^ ###
-### `<adjust here stop>´ ###
+### </adjust here> ###
 
 find_package(Qt4 REQUIRED)
 
