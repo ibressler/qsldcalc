@@ -19,7 +19,7 @@
 # along with qSLDcalc. If not, see <http://www.gnu.org/licenses/>.
 
 # Author(s) of this file:
-# Ingo Bressler (ingo at cs.tu-berlin.de)
+# Ingo Bressler (qsldcalc at ingobressler.net)
 
 
 # the next line sets up include and link directories and defines some
@@ -35,15 +35,18 @@
 include(${QT_USE_FILE}) # includes qt4 cmake module
 
 # compiler related settings
-set(BUILD_FLAGS "-Wall")
+set(CXX_FLAGS "-Wall")
+if(WIN32)
+	set(CMAKE_EXE_LINKER_FLAGS "-mwindows")
+endif(WIN32)
 if(DEBUG)
 	set(CMAKE_BUILD_TYPE Debug)
 	add_definitions(-DDEBUG)
-	set(CMAKE_CXX_FLAGS_DEBUG "${BUILD_FLAGS} -g")
+	set(CMAKE_CXX_FLAGS_DEBUG "${CXX_FLAGS} -g")
 else(DEBUG)
 	set(CMAKE_BUILD_TYPE Release)
 	#set(CMAKE_CXX_FLAGS_RELEASE "-O3 -mfpmath=sse -msse -m3dnow -msse2 -msse3")
-	set(CMAKE_CXX_FLAGS_RELEASE "${BUILD_FLAGS} -O2")
+	set(CMAKE_CXX_FLAGS_RELEASE "${CXX_FLAGS} -O2")
 endif(DEBUG)
 message(STATUS ":: Configuring for >${CMAKE_BUILD_TYPE}< build")
 

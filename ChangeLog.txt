@@ -1,5 +1,6 @@
-2009-12-23
+2009-12-23, version 0.5
 
 The first version which is made publicly available. It is approximately 80%
-feature complete, according to the initial idea.
+feature complete. It contains translations for german and english. For a
+summary of the key features, see http://qsldcalc.berlios.de
 

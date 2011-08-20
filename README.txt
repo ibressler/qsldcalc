@@ -9,6 +9,8 @@ Features
 - free as in freedom (GPL)
 - Written in C++ and Qt (http://qt.nokia.com/products)
 
+http://developer.berlios.de/projects/qsldcalc/
+
 Documentation
 -------------
 
@@ -49,7 +51,7 @@ Copyright
 This program is released under the GNU General Public License (GPL).
 For further information see LICENSE.txt
 
-Initially, it was written by Ingo Bressler (ingo {at} cs . tu-berlin . de) 
+Initially, it was written by Ingo Bressler (qsldcalc at ingobressler.net) 
 at the Stranski-Laboratory for Physical and Theoretical Chemistry of the 
 Technische Universität Berlin.
 Postal address:

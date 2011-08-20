@@ -21,7 +21,7 @@
  */
 /*
  * Author(s) of this file:
- * Ingo Bressler (ingo at cs.tu-berlin.de)
+ * Ingo Bressler (qsldcalc at ingobressler.net)
  */
 
 #ifndef EDB_UTILS_H

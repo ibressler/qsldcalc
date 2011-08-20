@@ -19,7 +19,7 @@
 # along with qSLDcalc. If not, see <http://www.gnu.org/licenses/>.
 
 # Author(s) of this file:
-# Ingo Bressler (ingo@cs.tu-berlin.de)
+# Ingo Bressler (qsldcalc at ingobressler.net)
 
 project(qsldcalc)
 
@@ -34,11 +34,13 @@ find_path(libcfp_INCLUDE_DIR cfp/cfp.h
 	PATHS
 	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/include
 	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/trunk/include
+	${qsldcalc_SOURCE_DIR}/../../libcfp/include
 )
 find_library(libcfp_LIBRARY libcfp_static${CMAKE_STATIC_LIBRARY_SUFFIX}
 	PATHS
 	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/lib/
 	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/trunk/lib/
+	${qsldcalc_SOURCE_DIR}/../../libcfp/lib
 )
 
 set(qsldcalc_version 0.6)
