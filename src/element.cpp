@@ -158,6 +158,7 @@ void
 Element::addXrayCoefficient(double energy, double fp, double fpp)
 {
 	size_t num = mXrayCoefficients.erase(energy);
+#ifdef DEBUG
 	if (num > 0) {
 		std::cerr << "Element::addXrayCoefficient: "
 			<< "Found duplicate: " << symbol() 
@@ -165,6 +166,7 @@ Element::addXrayCoefficient(double energy, double fp, double fpp)
 			<< " -> overwritten !"
 			<< std::endl;
 	}
+#endif
 	mXrayCoefficients.insert(std::make_pair(energy,
 	                         std::make_pair(fp, fpp)));
 }

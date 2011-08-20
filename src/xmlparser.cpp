@@ -221,10 +221,12 @@ void XmlParser::handleDTD(void)
 
 const XmlParser::ElementPtrList& XmlParser::read(const QString& filename)
 {
+#ifdef DEBUG
 	if (!QFile::exists(filename)) 
 		std::cerr << "XmlParser::read, Internal Error, "
 			<< "Supplied filename does not exist! (" 
 			<< STD(filename) <<")"<< std::endl;
+#endif
 
 	QFile xmlFile(filename);
 	if ( !xmlFile.open(QIODevice::ReadOnly) ) {
@@ -245,6 +247,7 @@ const XmlParser::ElementPtrList& XmlParser::read(const QString& filename)
 		mXml.raiseError("Invalid Element at end of file!");
 	}
 	if (mXml.error()) {
+#ifdef DEBUG
 		std::cerr << "XmlParser::read, Internal Error, ";
 		std::cerr << "A XML parse error occured: '";
 		std::cerr << STD(mXml.errorString()) << "'" << std::endl;
@@ -252,6 +255,7 @@ const XmlParser::ElementPtrList& XmlParser::read(const QString& filename)
 		std::cerr << ", line: " << mXml.lineNumber()-1;
 		std::cerr << ", position: " << mXml.columnNumber();
 		std::cerr << std::endl;
+#endif
 		// delete dangling memory
 		delete mElement;
 		foreach(Element::Ptr ep, mResultList) {

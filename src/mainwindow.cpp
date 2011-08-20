@@ -45,8 +45,10 @@ MainWindow::MainWindow(QApplication &app, ElementDatabase& db)
 	  mDataVisualizer(this, db)
 {
 	mApp->installTranslator(&mTranslator);
+#ifdef DEBUG
 	if ( ! mLangPath.exists() ) 
 		std::cerr << "Unable to determine language directory !" << std::endl;
+#endif
 
 	setupUi(this);
 
@@ -124,12 +126,14 @@ void MainWindow::selectDefaultLang()
 void MainWindow::loadLanguage(const QString& filename)
 {
 	QString absFilePath(mLangPath.absoluteFilePath(filename));
+#if DEBUG
 	if ( !QFile::exists(absFilePath) ||
 	     !mTranslator.load(filename, mLangPath.canonicalPath()) )
 	{
 		std::cerr << "Could not load translation file '"
 			<< filename.toStdString() << "' !";
 	}
+#endif
 	mLangFile = filename;
 	retranslateUi();
 }
@@ -293,7 +297,6 @@ void MainWindow::doCalc()
 {
 	saveInput();
 	ntrFormula->setPalette(mFormulaDefaultPalette);
-//	std::cerr << "InputData: \n" << mInputData << std::endl;
 	try {
 		mInputData.interpretFormula(ntrFormula->objectName());
 	} catch(const cfp::Error& e) {
@@ -598,7 +601,6 @@ QString MainWindow::toString(const Element::PropertyVariant& var) const
 
 void MainWindow::showElementData(const QString& key)
 {
-//	std::cerr << "key: " << key.toStdString() << std::endl;
 	clearResultTable();
 	Element::Ptr ep = mDB->getElement(key);
 	if (ep.isNull()) {
@@ -607,9 +609,11 @@ void MainWindow::showElementData(const QString& key)
 			ntrFormula->setEditText(QString::fromStdString(cfp::toString(comp)));
 			doCalc();
 		} else {
+#ifdef DEBUG
 			std::cerr << "MainWindow::showElementData: '"
 				  << key.toStdString()
 				  <<"' not found in Database !" << std::endl;
+#endif
 		}
 		return;
 	}
@@ -643,9 +647,11 @@ void MainWindow::showElementData(const QString& key)
 		ep = mDB->getElement(ElementDatabase::KeyType(ep->symbol().c_str()));
 		if (ep.isNull()) 
 		{
+#ifdef DEBUG
 			std::cerr << "MainWindow::showElementData: '"
 				<< ep->symbol().c_str()
 				<<"' not found in Database !" << std::endl;
+#endif
 			return;
 		}
 	}

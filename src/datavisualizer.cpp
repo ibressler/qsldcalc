@@ -143,7 +143,6 @@ public:
 		return QPointF(qreal(d)*mScale, 0.0);
 	}
 	QPointF operator()(const complex& c) const {
-		static const qreal scale = 10.0;
 		return QPointF(qreal(c.real())*mScale, 
 			       qreal(c.imag())*mScale*-1.0);
 	}
@@ -229,7 +228,7 @@ DataVisualizer::setItemPos(QGraphicsItem * item, QPointF pos)
 	// check for collisions with other items
 	QList<QGraphicsItem *> collides = scene->collidingItems(item);
 	if (collides.size() == 0) return;
-	QGraphicsItem * cItem;
+	QGraphicsItem * cItem = 0;
 	QGraphicsItemList::const_iterator it = collides.constBegin();
 	while(it != collides.constEnd()) {
 		cItem = *it;

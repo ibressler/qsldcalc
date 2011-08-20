@@ -71,9 +71,11 @@ void
 InputData::interpretFormula(const QString& formulaKey)
 {
 	QVariant var(mData.value(formulaKey));
+#ifdef DEBUG
 	if (!var.isValid() || !var.canConvert(QVariant::ByteArray)) {
 		std::cerr << "InputData: Can't retrieve formula !" << std::endl;
 	}
+#endif
 	QByteArray formula(var.toByteArray());
 	// may throw an exception
 	mFormulaParser.process(formula.data(), formula.length());
@@ -286,26 +288,32 @@ InputData::calcXrayEnergies(const CompleteList& cl,
 			ep = mDB->getElement(ElementDatabase::KeyType(ep->symbol().c_str()));
 			if (ep.isNull())
 			{
+#ifdef DEBUG
 				std::cerr << "InputData::calcXrayEnergies: '"
 					<< ep->symbol().c_str()
 					<<"' not found in Database !" << std::endl;
+#endif
 				return; // avoid invalid value output
 			}
 		}
 		if (ep->xrayCoefficients().size() < 2)
 		{
+#ifdef DEBUG
 			std::cerr << "InputData::calcXrayEnergies: "
 				<< "Not enough X-ray energies found !"
 				<< std::endl;
+#endif
 			continue;
 		}
 		double fp = 0.0, fpp = 0.0;
 		bool ok = calcXrayCoefficients(fp, fpp, ep, 
 		                        elemIt->first.coefficient(), energy);
 		if (!ok) {
+#ifdef DEBUG
 			std::cerr << "InputData::calcXrayEnergies, "
 				<< "Specified energy is out of bounds!"
 				<< std::endl;
+#endif
 			return;
 		}
 
@@ -325,7 +333,9 @@ InputData::calcXrayEnergies(const CompleteList& cl,
 			complex sld = sldXray(electrons, fp, fpp, volume);
 			addComplex2Map(partialSLD, nameStd.c_str(), sld);
 		} else {
+#ifdef DEBUG
 			std::cerr << "partialVolumes empty!" << std::endl;
+#endif
 		}
 
 	} // end for each element in list

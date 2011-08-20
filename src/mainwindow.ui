@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,149 +10,138 @@
     <height>600</height>
    </rect>
   </property>
-  <widget class="QWidget" name="centralwidget" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>34</y>
-     <width>450</width>
-     <height>539</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout" >
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QFrame" name="frmInput" >
-      <property name="frameShape" >
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow" >
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout" >
-       <item row="0" column="0" >
-        <widget class="QLabel" name="lblFormula" >
-         <property name="text" >
+     <widget class="QWidget" name="frmInput" native="true">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblFormula">
+         <property name="text">
           <string>Formula</string>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
-       <item row="1" column="0" >
-        <widget class="QLabel" name="lblDensity" >
-         <property name="text" >
+       <item row="1" column="0">
+        <widget class="QLabel" name="lblDensity">
+         <property name="text">
           <string>Density</string>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
-       <item row="2" column="0" >
-        <widget class="QLabel" name="lblXrayEn" >
-         <property name="text" >
+       <item row="2" column="0">
+        <widget class="QLabel" name="lblXrayEn">
+         <property name="text">
           <string>X-Ray Energy</string>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
-       <item row="3" column="0" >
-        <widget class="QLabel" name="lblNeutronWl" >
-         <property name="text" >
+       <item row="3" column="0">
+        <widget class="QLabel" name="lblNeutronWl">
+         <property name="text">
           <string>Neutron Wavelength</string>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
         </widget>
        </item>
-       <item row="0" column="2" >
-        <widget class="QComboBox" name="ntrFormula" >
-         <property name="editable" >
+       <item row="0" column="2">
+        <widget class="QComboBox" name="ntrFormula">
+         <property name="editable">
           <bool>true</bool>
          </property>
-         <property name="insertPolicy" >
+         <property name="insertPolicy">
           <enum>QComboBox::InsertAtTop</enum>
          </property>
-         <property name="duplicatesEnabled" >
+         <property name="duplicatesEnabled">
           <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item row="1" column="2" >
-        <widget class="QDoubleSpinBox" name="ntrDensity" >
-         <property name="alignment" >
+       <item row="1" column="2">
+        <widget class="QDoubleSpinBox" name="ntrDensity">
+         <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
-         <property name="accelerated" >
+         <property name="accelerated">
           <bool>true</bool>
          </property>
-         <property name="suffix" >
+         <property name="suffix">
           <string> g/cm³</string>
          </property>
-         <property name="decimals" >
+         <property name="decimals">
           <number>6</number>
          </property>
-         <property name="maximum" >
+         <property name="maximum">
           <double>1000000.000000000000000</double>
          </property>
-         <property name="singleStep" >
+         <property name="singleStep">
           <double>0.100000000000000</double>
          </property>
-         <property name="value" >
+         <property name="value">
           <double>1.100000000000000</double>
          </property>
         </widget>
        </item>
-       <item row="2" column="2" >
-        <widget class="QDoubleSpinBox" name="ntrXrayEn" >
-         <property name="alignment" >
+       <item row="2" column="2">
+        <widget class="QDoubleSpinBox" name="ntrXrayEn">
+         <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
-         <property name="suffix" >
+         <property name="suffix">
           <string> keV</string>
          </property>
-         <property name="decimals" >
+         <property name="decimals">
           <number>3</number>
          </property>
-         <property name="minimum" >
+         <property name="minimum">
           <double>1.000000000000000</double>
          </property>
-         <property name="maximum" >
+         <property name="maximum">
           <double>24.899999999999999</double>
          </property>
-         <property name="value" >
+         <property name="value">
           <double>10.000000000000000</double>
          </property>
         </widget>
        </item>
-       <item row="3" column="2" >
-        <widget class="QDoubleSpinBox" name="ntrNeutronWl" >
-         <property name="enabled" >
+       <item row="3" column="2">
+        <widget class="QDoubleSpinBox" name="ntrNeutronWl">
+         <property name="enabled">
           <bool>false</bool>
          </property>
-         <property name="toolTip" >
+         <property name="toolTip">
           <string>Not used at the moment.</string>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
          </property>
-         <property name="suffix" >
+         <property name="suffix">
           <string> nm</string>
          </property>
-         <property name="decimals" >
+         <property name="decimals">
           <number>2</number>
          </property>
-         <property name="maximum" >
+         <property name="maximum">
           <double>1000.000000000000000</double>
          </property>
-         <property name="singleStep" >
+         <property name="singleStep">
           <double>0.100000000000000</double>
          </property>
-         <property name="value" >
+         <property name="value">
           <double>0.600000000000000</double>
          </property>
         </widget>
@@ -160,45 +150,42 @@
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="frmOutput" >
-      <property name="frameShape" >
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow" >
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2" >
+     <widget class="QWidget" name="frmOutput" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="margin">
+        <number>0</number>
+       </property>
        <item>
-        <widget class="QLabel" name="lblFormattedFormula" >
-         <property name="toolTip" >
+        <widget class="QLabel" name="lblFormattedFormula">
+         <property name="toolTip">
           <string>formattedFormulaToolTip</string>
          </property>
-         <property name="text" >
+         <property name="text">
           <string/>
          </property>
-         <property name="alignment" >
+         <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
-         <property name="wordWrap" >
+         <property name="wordWrap">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTreeView" name="tblResult" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+        <widget class="QTreeView" name="tblResult">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="editTriggers" >
+         <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
          </property>
-         <property name="selectionMode" >
+         <property name="selectionMode">
           <enum>QAbstractItemView::ExtendedSelection</enum>
          </property>
-         <property name="selectionBehavior" >
+         <property name="selectionBehavior">
           <enum>QAbstractItemView::SelectItems</enum>
          </property>
         </widget>
@@ -207,31 +194,28 @@
      </widget>
     </item>
     <item>
-     <widget class="QFrame" name="frmButtons" >
-      <property name="frameShape" >
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow" >
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout" >
+     <widget class="QWidget" name="frmButtons" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="margin">
+        <number>0</number>
+       </property>
        <item>
-        <widget class="QPushButton" name="btnCalc" >
-         <property name="text" >
+        <widget class="QPushButton" name="btnCalc">
+         <property name="text">
           <string>Calculate</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnAddAlias" >
-         <property name="text" >
+        <widget class="QPushButton" name="btnAddAlias">
+         <property name="text">
           <string>Add as Alias</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnClear" >
-         <property name="text" >
+        <widget class="QPushButton" name="btnClear">
+         <property name="text">
           <string>Reset</string>
          </property>
         </widget>
@@ -241,83 +225,74 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar" >
-   <property name="geometry" >
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>450</width>
-     <height>34</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar" >
-   <property name="geometry" >
-    <rect>
-     <x>0</x>
-     <y>573</y>
-     <width>450</width>
-     <height>27</height>
-    </rect>
-   </property>
-  </widget>
-  <action name="actionQuit" >
-   <property name="text" >
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionQuit">
+   <property name="text">
     <string>&amp;Quit</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+Q</string>
    </property>
-   <property name="shortcutContext" >
+   <property name="shortcutContext">
     <enum>Qt::ApplicationShortcut</enum>
    </property>
   </action>
-  <action name="actionAbout_Qt" >
-   <property name="text" >
+  <action name="actionAbout_Qt">
+   <property name="text">
     <string>about &amp;Qt</string>
    </property>
   </action>
-  <action name="actionAbout" >
-   <property name="text" >
+  <action name="actionAbout">
+   <property name="text">
     <string>about</string>
    </property>
   </action>
-  <action name="actionCopySelection" >
-   <property name="text" >
+  <action name="actionCopySelection">
+   <property name="text">
     <string>copy selection</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+C</string>
    </property>
   </action>
-  <action name="actionSelectAll" >
-   <property name="text" >
+  <action name="actionSelectAll">
+   <property name="text">
     <string>select all</string>
    </property>
-   <property name="shortcut" >
+   <property name="shortcut">
     <string>Ctrl+A</string>
    </property>
   </action>
-  <action name="actionUseSystemLocale" >
-   <property name="checkable" >
+  <action name="actionUseSystemLocale">
+   <property name="checkable">
     <bool>true</bool>
    </property>
-   <property name="text" >
+   <property name="text">
     <string>use system decimal settings</string>
    </property>
   </action>
-  <action name="actionExpandAll" >
-   <property name="text" >
+  <action name="actionExpandAll">
+   <property name="text">
     <string>expand all</string>
    </property>
   </action>
-  <action name="actionCollapseAll" >
-   <property name="text" >
+  <action name="actionCollapseAll">
+   <property name="text">
     <string>collapse all</string>
    </property>
   </action>
-  <action name="actionVisualizeData" >
-   <property name="text" >
+  <action name="actionVisualizeData">
+   <property name="text">
     <string>visualize data</string>
    </property>
   </action>
