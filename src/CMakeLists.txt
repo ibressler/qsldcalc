@@ -36,8 +36,9 @@ include(${QT_USE_FILE}) # includes qt4 cmake module
 
 # compiler related settings
 set(CXX_FLAGS "-Wall")
+set(CMAKE_EXE_LINKER_FLAGS "-static")
 if(WIN32)
-	set(CMAKE_EXE_LINKER_FLAGS "-mwindows")
+	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -mwindows")
 endif(WIN32)
 if(DEBUG)
 	set(CMAKE_BUILD_TYPE Debug)
