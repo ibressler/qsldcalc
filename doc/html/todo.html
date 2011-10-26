@@ -26,12 +26,19 @@
 <div class="contents">
 <p><a class="anchor" id="_todo000001"></a> </p>
 <dl>
+<dt>Class <a class="el" href="classDataVisualizer.html">DataVisualizer</a>  </dt>
+<dd><p class="startdd">When sorting symbols by name, some isotopes are not displayed (are they painted on top of each other?) </p>
+<p class="enddd">Longterm: Review visualization in general, draw in PSE layout. </p>
+</dd>
+</dl>
+<p><a class="anchor" id="_todo000002"></a> </p>
+<dl>
 <dt>Class <a class="el" href="classElement.html">Element</a>  </dt>
 <dd><p class="startdd">An alternative for internal value handling is QVariant. Possible advantage: More convenient use, especially regarding value retrieval. The visitor concept of boost::variant requires to introduce funtional objects for accessing or modifying its data. That increases code complexity slightly and is more difficult to read and understand afterwards. The core motivation for boost::variant was to maintain independence from Qt to allow for outsourcing the database code into a separate library (may be useful for other programs too). </p>
 <p class="enddd">Wrap the internal data representation (<a class="el" href="classElement.html#a8e8686e4f152188d462ed9585d88725e" title="Data type of a single property value.">Element::PropertyVariant</a>) into a separate class. Eventually, the type identification code too (<a class="el" href="classElement.html#af1fef5f2cf831ab74263327747a53099" title="All properties of an Element in the database.">Element::Property</a> and <a class="el" href="classElement.html#afd29791e52655644df6a09bedf336c6b" title="The data type of a property to allow for convenient testing at runtime.">Element::PropertyType</a>). </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000002"></a> </p>
+<p><a class="anchor" id="_todo000003"></a> </p>
 <dl>
 <dt>Class <a class="el" href="classElementDatabase.html">ElementDatabase</a>  </dt>
 <dd><p class="startdd">Combine single chemical elements and aliases (cfp::Compound) into a single data type. Pro: aliases could be easily visualized in the same way as regular elements. Con: Additional (unused) data fields for ordinary chemical elements (<b>minor</b>) and all the properties of a single element have to be calculated for compounds too: At alias creation time or at access time (<b>major</b>, regarding visualization).</p>
@@ -39,22 +46,24 @@
 <p class="enddd">Save user-defined aliases to a file in the users home-directory to restore them after restart of the application. </p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000005"></a> </p>
+<p><a class="anchor" id="_todo000006"></a> </p>
 <dl>
 <dt>Class <a class="el" href="classMainWindow.html">MainWindow</a>  </dt>
-<dd>Eventually, rewrite the GUI with python to avoid the hassle with memory management. Keep the backend in C++ (<a class="el" href="classInputData.html" title="Stores GUI input data and performs compound calculations.">InputData</a>, <a class="el" href="classElementDatabase.html" title="Contains all chemical elements currently known by this program.">ElementDatabase</a>). </dd>
+<dd><p class="startdd">Eventually, rewrite the GUI with python to avoid the hassle with memory management. Keep the backend in C++ (<a class="el" href="classInputData.html" title="Stores GUI input data and performs compound calculations.">InputData</a>, <a class="el" href="classElementDatabase.html" title="Contains all chemical elements currently known by this program.">ElementDatabase</a>).</p>
+<p class="enddd">For later on, a nice feature would be to have a possibility to add several compounds at different mass or volume, and the SLD calc could deduce the mass, volume and molar fraction, and finally the transmission and incoherent background as a function of the thickness and wavelength. </p>
+</dd>
 </dl>
-<p><a class="anchor" id="_todo000006"></a> </p>
+<p><a class="anchor" id="_todo000008"></a> </p>
 <dl>
 <dt>Global <a class="el" href="classMainWindow.html#a74e07d8f7c672890d5131d45af63ca0a">MainWindow::addAlias</a> () </dt>
 <dd>Remember expand/collapse the state of all cells when raising the add-alias dialog, i.e. calculating the formula (doCalc()). </dd>
 </dl>
-<p><a class="anchor" id="_todo000008"></a> </p>
+<p><a class="anchor" id="_todo000010"></a> </p>
 <dl>
 <dt>Global <a class="el" href="classMainWindow.html#ae78a390eb24f1564b2b2eadbc1b6a18c">MainWindow::mModel</a>  </dt>
 <dd>Check if <a class="el" href="classInputData.html" title="Stores GUI input data and performs compound calculations.">InputData</a> could be used as <em>QAbstractItemModel</em>. </dd>
 </dl>
-<p><a class="anchor" id="_todo000007"></a> </p>
+<p><a class="anchor" id="_todo000009"></a> </p>
 <dl>
 <dt>Global <a class="el" href="classMainWindow.html#a5fdab89ec8eab24103e350d937e2d0f9">MainWindow::showElementData</a> (const QString &amp;key) </dt>
 <dd>Translate chemical element names when displayed. They appear as regular data entries in the database and are not processed further, atm. </dd>
@@ -67,7 +76,7 @@
 </td>
 <td>
 <address style="text-align: right;"><small>
-Generated on Wed Oct 26 2011 Wed Oct 26 2011 20:14:34 for qSLDcalc 0.6 by&nbsp;
+Generated on Wed Oct 26 2011 Wed Oct 26 2011 21:11:49 for qSLDcalc 0.6 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.1 </small></address>
 </td

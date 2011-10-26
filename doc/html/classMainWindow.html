@@ -160,9 +160,10 @@ Private Attributes</h2></td></tr>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classMainWindow.html#affc201bbbd121c46120d813be94e998f" title="Stores user-defined input data as initial settings (for reset later).">saveInitialInput()</a>, <a class="el" href="classMainWindow.html#a310f95674028d0c22fb34e8c467645cc" title="Stores user-defined input data for further processing.">saveInput()</a>, <a class="el" href="classMainWindow.html#a83ddbb3ce881412dc48b737bddeeb7da" title="Resets the GUI input fields to initial values.">resetInput()</a></dd></dl>
 <p><b>Localization issues</b>: The results can be exported in ASCII semicolon separated format. To simplify further work with this data, the user can disable the use of system settings for the decimal operator (language menu -&gt; checkbox). This makes it possible to have all text translated but keeping the dot as decimal operator. In consequence, all floating-point to character string conversion have to be handled by the respective member functions: </p>
 <dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classMainWindow.html#a1b25dcf4f6fc0e47147d171c7ccb14d8" title="Converts a QVariant to a character string.">qstringFromVariant()</a>, <a class="el" href="classMainWindow.html#a4919eaded6d05d339f1a74d700d844d7" title="Converts a complex number to a character string.">qstringFromComplex()</a>, <a class="el" href="classMainWindow.html#a449027b911176983afb9738638aafa43" title="Converts a double to a character string.">qstringFromDouble()</a></dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Eventually, rewrite the GUI with python to avoid the hassle with memory management. Keep the backend in C++ (<a class="el" href="classInputData.html" title="Stores GUI input data and performs compound calculations.">InputData</a>, <a class="el" href="classElementDatabase.html" title="Contains all chemical elements currently known by this program.">ElementDatabase</a>). </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Eventually, rewrite the GUI with python to avoid the hassle with memory management. Keep the backend in C++ (<a class="el" href="classInputData.html" title="Stores GUI input data and performs compound calculations.">InputData</a>, <a class="el" href="classElementDatabase.html" title="Contains all chemical elements currently known by this program.">ElementDatabase</a>).</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>For later on, a nice feature would be to have a possibility to add several compounds at different mass or volume, and the SLD calc could deduce the mass, volume and molar fraction, and finally the transmission and incoherent background as a function of the thickness and wavelength. </dd></dl>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00137">137</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00142">142</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1ec13eece28571d20ccc1baf7eb9eaf6"></a><!-- doxytag: member="MainWindow::MainWindow" ref="a1ec13eece28571d20ccc1baf7eb9eaf6" args="(QApplication &amp;app, ElementDatabase &amp;db)" -->
 <div class="memitem">
@@ -200,7 +201,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00037">37</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00203">about()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00244">addActions()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00321">addAlias()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00689">collapseAll()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00562">copyResultTableSelection()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00683">expandAll()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00695">expandItem()</a>, <a class="el" href="mainwindow_8h_source.html#l00303">mApp</a>, <a class="el" href="mainwindow_8h_source.html#l00304">mCompleter</a>, <a class="el" href="mainwindow_8h_source.html#l00328">mDataVisualizer</a>, <a class="el" href="mainwindow_8h_source.html#l00299">menuFile</a>, <a class="el" href="mainwindow_8h_source.html#l00302">menuHelp</a>, <a class="el" href="mainwindow_8h_source.html#l00301">menuLang</a>, <a class="el" href="mainwindow_8h_source.html#l00300">menuTools</a>, <a class="el" href="mainwindow_8h_source.html#l00344">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00308">mFormulaDefaultPalette</a>, <a class="el" href="mainwindow_8h_source.html#l00314">mLangPath</a>, <a class="el" href="mainwindow_8h_source.html#l00332">mModel</a>, <a class="el" href="mainwindow_8h_source.html#l00305">mTranslator</a>, <a class="el" href="mainwindow_8cpp_source.html#l00285">resetInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00266">saveInitialInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00109">selectDefaultLang()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00183">useSystemLocaleTriggered()</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00203">about()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00244">addActions()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00321">addAlias()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00689">collapseAll()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00562">copyResultTableSelection()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00683">expandAll()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00695">expandItem()</a>, <a class="el" href="mainwindow_8h_source.html#l00308">mApp</a>, <a class="el" href="mainwindow_8h_source.html#l00309">mCompleter</a>, <a class="el" href="mainwindow_8h_source.html#l00333">mDataVisualizer</a>, <a class="el" href="mainwindow_8h_source.html#l00304">menuFile</a>, <a class="el" href="mainwindow_8h_source.html#l00307">menuHelp</a>, <a class="el" href="mainwindow_8h_source.html#l00306">menuLang</a>, <a class="el" href="mainwindow_8h_source.html#l00305">menuTools</a>, <a class="el" href="mainwindow_8h_source.html#l00349">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00313">mFormulaDefaultPalette</a>, <a class="el" href="mainwindow_8h_source.html#l00319">mLangPath</a>, <a class="el" href="mainwindow_8h_source.html#l00337">mModel</a>, <a class="el" href="mainwindow_8h_source.html#l00310">mTranslator</a>, <a class="el" href="mainwindow_8cpp_source.html#l00285">resetInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00266">saveInitialInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00109">selectDefaultLang()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00183">useSystemLocaleTriggered()</a>.</p>
 
 </div>
 </div>
@@ -224,7 +225,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00203">203</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00319">mAboutText</a>, and <a class="el" href="mainwindow_8h_source.html#l00318">mAboutTitle</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00324">mAboutText</a>, and <a class="el" href="mainwindow_8h_source.html#l00323">mAboutTitle</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -250,7 +251,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00244">244</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00299">menuFile</a>, <a class="el" href="mainwindow_8h_source.html#l00302">menuHelp</a>, <a class="el" href="mainwindow_8h_source.html#l00301">menuLang</a>, and <a class="el" href="mainwindow_8h_source.html#l00300">menuTools</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00304">menuFile</a>, <a class="el" href="mainwindow_8h_source.html#l00307">menuHelp</a>, <a class="el" href="mainwindow_8h_source.html#l00306">menuLang</a>, and <a class="el" href="mainwindow_8h_source.html#l00305">menuTools</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -273,11 +274,11 @@ Private Attributes</h2></td></tr>
 
 <p>Adds an alias for the current compound, i.e. </p>
 <p>formula. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Remember expand/collapse the state of all cells when raising the add-alias dialog, i.e. calculating the formula (<a class="el" href="classMainWindow.html#aca2ae8e8f08abeece06eadfb1c464164" title="Calculates compound characteristics from current GUI input data.">doCalc()</a>). </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Remember expand/collapse the state of all cells when raising the add-alias dialog, i.e. calculating the formula (<a class="el" href="classMainWindow.html#aca2ae8e8f08abeece06eadfb1c464164" title="Calculates compound characteristics from current GUI input data.">doCalc()</a>). </dd></dl>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00321">321</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="inputdata_8cpp_source.html#l00062">InputData::addAlias()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00717">formulaIsEmpty()</a>, <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>, and <a class="el" href="aliasnamedialog_8cpp_source.html#l00078">AliasNameDialog::name()</a>.</p>
+<p>References <a class="el" href="inputdata_8cpp_source.html#l00062">InputData::addAlias()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00717">formulaIsEmpty()</a>, <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>, and <a class="el" href="aliasnamedialog_8cpp_source.html#l00078">AliasNameDialog::name()</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -402,7 +403,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00408">408</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00332">mModel</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00337">mModel</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00413">rebuildResultTable()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00285">resetInput()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>.</p>
 
@@ -453,7 +454,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00562">562</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00527">appendSubItems()</a>, <a class="el" href="mainwindow_8h_source.html#l00303">mApp</a>, and <a class="el" href="mainwindow_8h_source.html#l00332">mModel</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00527">appendSubItems()</a>, <a class="el" href="mainwindow_8h_source.html#l00308">mApp</a>, and <a class="el" href="mainwindow_8h_source.html#l00337">mModel</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -478,7 +479,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00296">296</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="inputdata_8cpp_source.html#l00071">InputData::interpretFormula()</a>, <a class="el" href="mainwindow_8h_source.html#l00308">mFormulaDefaultPalette</a>, <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>, <a class="el" href="mainwindow_8cpp_source.html#l00413">rebuildResultTable()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00275">saveInput()</a>.</p>
+<p>References <a class="el" href="inputdata_8cpp_source.html#l00071">InputData::interpretFormula()</a>, <a class="el" href="mainwindow_8h_source.html#l00313">mFormulaDefaultPalette</a>, <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>, <a class="el" href="mainwindow_8cpp_source.html#l00413">rebuildResultTable()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00275">saveInput()</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00321">addAlias()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>.</p>
 
@@ -558,7 +559,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00346">346</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00332">mModel</a>, <a class="el" href="mainwindow_8cpp_source.html#l00469">resultAddData()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00488">resultAddInput()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00332">setFormattedFormula()</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00337">mModel</a>, <a class="el" href="mainwindow_8cpp_source.html#l00469">resultAddData()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00488">resultAddInput()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00332">setFormattedFormula()</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00413">rebuildResultTable()</a>.</p>
 
@@ -613,7 +614,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00126">126</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00315">mLangFile</a>, <a class="el" href="mainwindow_8h_source.html#l00314">mLangPath</a>, <a class="el" href="mainwindow_8h_source.html#l00305">mTranslator</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00320">mLangFile</a>, <a class="el" href="mainwindow_8h_source.html#l00319">mLangPath</a>, <a class="el" href="mainwindow_8h_source.html#l00310">mTranslator</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00109">selectDefaultLang()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00209">updateLangActions()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00183">useSystemLocaleTriggered()</a>.</p>
 
@@ -642,7 +643,7 @@ Private Attributes</h2></td></tr>
 
 <p>References <a class="el" href="mainwindow_8cpp_source.html#l00363">qstringFromDouble()</a>.</p>
 
-<p>Referenced by <a class="el" href="mainwindow_8h_source.html#l00153">MainWindow::QStringFromBoostVariant::operator()()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00382">qstringFromVariant()</a>.</p>
+<p>Referenced by <a class="el" href="mainwindow_8h_source.html#l00158">MainWindow::QStringFromBoostVariant::operator()()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00382">qstringFromVariant()</a>.</p>
 
 </div>
 </div>
@@ -667,9 +668,9 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00363">363</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00316">mLocale</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00321">mLocale</a>.</p>
 
-<p>Referenced by <a class="el" href="mainwindow_8h_source.html#l00152">MainWindow::QStringFromBoostVariant::operator()()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00368">qstringFromComplex()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00382">qstringFromVariant()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>.</p>
+<p>Referenced by <a class="el" href="mainwindow_8h_source.html#l00157">MainWindow::QStringFromBoostVariant::operator()()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00368">qstringFromComplex()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00382">qstringFromVariant()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>.</p>
 
 </div>
 </div>
@@ -746,7 +747,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00285">285</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00408">clearResultTable()</a>, <a class="el" href="inputdata_8cpp_source.html#l00053">InputData::getInit()</a>, <a class="el" href="mainwindow_8h_source.html#l00344">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00338">MainWindow::FormEntry::propertyName</a>, <a class="el" href="mainwindow_8cpp_source.html#l00332">setFormattedFormula()</a>, and <a class="el" href="mainwindow_8h_source.html#l00337">MainWindow::FormEntry::widget</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00408">clearResultTable()</a>, <a class="el" href="inputdata_8cpp_source.html#l00053">InputData::getInit()</a>, <a class="el" href="mainwindow_8h_source.html#l00349">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00343">MainWindow::FormEntry::propertyName</a>, <a class="el" href="mainwindow_8cpp_source.html#l00332">setFormattedFormula()</a>, and <a class="el" href="mainwindow_8h_source.html#l00342">MainWindow::FormEntry::widget</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -789,7 +790,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00469">469</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00453">appendVariant()</a>, <a class="el" href="inputdata_8cpp_source.html#l00050">InputData::get()</a>, <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>, and <a class="el" href="mainwindow_8h_source.html#l00332">mModel</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00453">appendVariant()</a>, <a class="el" href="inputdata_8cpp_source.html#l00050">InputData::get()</a>, <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>, and <a class="el" href="mainwindow_8h_source.html#l00337">mModel</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00346">fillResultTable()</a>.</p>
 
@@ -815,7 +816,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00488">488</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="inputdata_8cpp_source.html#l00050">InputData::get()</a>, <a class="el" href="mainwindow_8h_source.html#l00339">MainWindow::FormEntry::label</a>, <a class="el" href="mainwindow_8h_source.html#l00344">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00332">mModel</a>, <a class="el" href="mainwindow_8cpp_source.html#l00382">qstringFromVariant()</a>, and <a class="el" href="mainwindow_8h_source.html#l00337">MainWindow::FormEntry::widget</a>.</p>
+<p>References <a class="el" href="inputdata_8cpp_source.html#l00050">InputData::get()</a>, <a class="el" href="mainwindow_8h_source.html#l00344">MainWindow::FormEntry::label</a>, <a class="el" href="mainwindow_8h_source.html#l00349">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00337">mModel</a>, <a class="el" href="mainwindow_8cpp_source.html#l00382">qstringFromVariant()</a>, and <a class="el" href="mainwindow_8h_source.html#l00342">MainWindow::FormEntry::widget</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00346">fillResultTable()</a>.</p>
 
@@ -840,7 +841,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00141">141</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00319">mAboutText</a>, <a class="el" href="mainwindow_8h_source.html#l00318">mAboutTitle</a>, <a class="el" href="mainwindow_8h_source.html#l00328">mDataVisualizer</a>, <a class="el" href="mainwindow_8h_source.html#l00299">menuFile</a>, <a class="el" href="mainwindow_8h_source.html#l00302">menuHelp</a>, <a class="el" href="mainwindow_8h_source.html#l00301">menuLang</a>, <a class="el" href="mainwindow_8h_source.html#l00300">menuTools</a>, <a class="el" href="mainwindow_8cpp_source.html#l00413">rebuildResultTable()</a>, <a class="el" href="datavisualizer_8cpp_source.html#l00282">DataVisualizer::retranslateUi()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00209">updateLangActions()</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00324">mAboutText</a>, <a class="el" href="mainwindow_8h_source.html#l00323">mAboutTitle</a>, <a class="el" href="mainwindow_8h_source.html#l00333">mDataVisualizer</a>, <a class="el" href="mainwindow_8h_source.html#l00304">menuFile</a>, <a class="el" href="mainwindow_8h_source.html#l00307">menuHelp</a>, <a class="el" href="mainwindow_8h_source.html#l00306">menuLang</a>, <a class="el" href="mainwindow_8h_source.html#l00305">menuTools</a>, <a class="el" href="mainwindow_8cpp_source.html#l00413">rebuildResultTable()</a>, <a class="el" href="datavisualizer_8cpp_source.html#l00282">DataVisualizer::retranslateUi()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00209">updateLangActions()</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>.</p>
 
@@ -865,7 +866,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00266">266</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00344">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00338">MainWindow::FormEntry::propertyName</a>, <a class="el" href="inputdata_8cpp_source.html#l00047">InputData::setInit()</a>, and <a class="el" href="mainwindow_8h_source.html#l00337">MainWindow::FormEntry::widget</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00349">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00343">MainWindow::FormEntry::propertyName</a>, <a class="el" href="inputdata_8cpp_source.html#l00047">InputData::setInit()</a>, and <a class="el" href="mainwindow_8h_source.html#l00342">MainWindow::FormEntry::widget</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -890,7 +891,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00275">275</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8h_source.html#l00344">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00338">MainWindow::FormEntry::propertyName</a>, <a class="el" href="inputdata_8cpp_source.html#l00044">InputData::set()</a>, and <a class="el" href="mainwindow_8h_source.html#l00337">MainWindow::FormEntry::widget</a>.</p>
+<p>References <a class="el" href="mainwindow_8h_source.html#l00349">mFormEntries</a>, <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>, <a class="el" href="mainwindow_8h_source.html#l00343">MainWindow::FormEntry::propertyName</a>, <a class="el" href="inputdata_8cpp_source.html#l00044">InputData::set()</a>, and <a class="el" href="mainwindow_8h_source.html#l00342">MainWindow::FormEntry::widget</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>.</p>
 
@@ -916,7 +917,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00109">109</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, and <a class="el" href="mainwindow_8h_source.html#l00314">mLangPath</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, and <a class="el" href="mainwindow_8h_source.html#l00319">mLangPath</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00209">updateLangActions()</a>.</p>
 
@@ -941,7 +942,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00332">332</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="inputdata_8cpp_source.html#l00056">InputData::empiricalFormula()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00717">formulaIsEmpty()</a>, <a class="el" href="datavisualizer_8cpp_source.html#l00270">DataVisualizer::getLinkText()</a>, and <a class="el" href="mainwindow_8h_source.html#l00322">mInputData</a>.</p>
+<p>References <a class="el" href="inputdata_8cpp_source.html#l00056">InputData::empiricalFormula()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00717">formulaIsEmpty()</a>, <a class="el" href="datavisualizer_8cpp_source.html#l00270">DataVisualizer::getLinkText()</a>, and <a class="el" href="mainwindow_8h_source.html#l00327">mInputData</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00346">fillResultTable()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00285">resetInput()</a>.</p>
 
@@ -965,7 +966,7 @@ Private Attributes</h2></td></tr>
 
 <p>Displays detailed information of a chemical element in the tabular result widget. </p>
 <p>Is connected to <em>MainWindow::lblFormattedFormula.linkActivated()</em> and <a class="el" href="classDataVisualizer.html#ac750675c1ed5e55ed2bd2254f8472d39" title="Emits a link text of the element whose detailed information should be shown in the main window and wh...">DataVisualizer::elementLinkActivated()</a>. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Translate chemical element names when displayed. They appear as regular data entries in the database and are not processed further, atm. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Translate chemical element names when displayed. They appear as regular data entries in the database and are not processed further, atm. </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"><tt>[in]</tt>&nbsp;</td><td valign="top"><em>key</em>&nbsp;</td><td>Database key for the chemical element to query. See <a class="el" href="classElementDatabase.html#a8aff7ec40a26865f996b2583207e6d52" title="Key data type by which all elements are identified within the database.">ElementDatabase::KeyType</a> for details. </td></tr>
@@ -975,7 +976,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00602">602</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00580">addModelEntry()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00408">clearResultTable()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, <a class="el" href="element_8cpp_source.html#l00087">Element::getProperty()</a>, <a class="el" href="mainwindow_8h_source.html#l00325">mDB</a>, <a class="el" href="mainwindow_8h_source.html#l00332">mModel</a>, <a class="el" href="element_8h_source.html#l00109">Element::NS_L_COHERENT_PROPERTY</a>, <a class="el" href="element_8h_source.html#l00100">Element::NUCLEONS_PROPERTY</a>, <a class="el" href="element_8cpp_source.html#l00081">Element::propertyCount()</a>, <a class="el" href="element_8cpp_source.html#l00074">Element::propertyName()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00363">qstringFromDouble()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00593">toString()</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00580">addModelEntry()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00408">clearResultTable()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, <a class="el" href="element_8cpp_source.html#l00087">Element::getProperty()</a>, <a class="el" href="mainwindow_8h_source.html#l00330">mDB</a>, <a class="el" href="mainwindow_8h_source.html#l00337">mModel</a>, <a class="el" href="element_8h_source.html#l00109">Element::NS_L_COHERENT_PROPERTY</a>, <a class="el" href="element_8h_source.html#l00100">Element::NUCLEONS_PROPERTY</a>, <a class="el" href="element_8cpp_source.html#l00081">Element::propertyCount()</a>, <a class="el" href="element_8cpp_source.html#l00074">Element::propertyName()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00363">qstringFromDouble()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00593">toString()</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -1042,7 +1043,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00209">209</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, <a class="el" href="mainwindow_8h_source.html#l00311">mLangActionList</a>, <a class="el" href="mainwindow_8h_source.html#l00314">mLangPath</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00109">selectDefaultLang()</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, <a class="el" href="mainwindow_8h_source.html#l00316">mLangActionList</a>, <a class="el" href="mainwindow_8h_source.html#l00319">mLangPath</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00109">selectDefaultLang()</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1065,7 +1066,7 @@ Private Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="mainwindow_8cpp_source.html#l00183">183</a> of file <a class="el" href="mainwindow_8cpp_source.html">mainwindow.cpp</a>.</p>
 
-<p>References <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, <a class="el" href="mainwindow_8h_source.html#l00315">mLangFile</a>, and <a class="el" href="mainwindow_8h_source.html#l00316">mLocale</a>.</p>
+<p>References <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, <a class="el" href="mainwindow_8h_source.html#l00320">mLangFile</a>, and <a class="el" href="mainwindow_8h_source.html#l00321">mLocale</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -1083,7 +1084,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00319">319</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00324">324</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00203">about()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1102,7 +1103,7 @@ Private Attributes</h2></td></tr>
 
 <p>Current locale for double -&gt; string. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00318">318</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00323">323</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00203">about()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1121,7 +1122,7 @@ Private Attributes</h2></td></tr>
 
 <p>Reference to the parent application. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00303">303</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00308">308</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00562">copyResultTableSelection()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -1140,7 +1141,7 @@ Private Attributes</h2></td></tr>
 
 <p>Formula piecewise completion feature. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00304">304</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00309">309</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -1159,7 +1160,7 @@ Private Attributes</h2></td></tr>
 
 <p>Visualizes selected characteristics of all known chemical elements. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00328">328</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00333">333</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1178,7 +1179,7 @@ Private Attributes</h2></td></tr>
 
 <p>Database of all known chemical elements. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00325">325</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00330">330</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>.</p>
 
@@ -1197,7 +1198,7 @@ Private Attributes</h2></td></tr>
 
 <p>Menubar entry <em>file</em>. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00299">299</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00304">304</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00244">addActions()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1216,7 +1217,7 @@ Private Attributes</h2></td></tr>
 
 <p>Menubar entry <em>help</em>. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00302">302</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00307">307</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00244">addActions()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1235,7 +1236,7 @@ Private Attributes</h2></td></tr>
 
 <p>Menubar entry <em>language</em>. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00301">301</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00306">306</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00244">addActions()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1254,7 +1255,7 @@ Private Attributes</h2></td></tr>
 
 <p>Menubar entry <em>tools</em>. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00300">300</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00305">305</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00244">addActions()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00141">retranslateUi()</a>.</p>
 
@@ -1273,7 +1274,7 @@ Private Attributes</h2></td></tr>
 
 <p>List of all user input fields to process. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00344">344</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00349">349</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00285">resetInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00488">resultAddInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00266">saveInitialInput()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00275">saveInput()</a>.</p>
 
@@ -1292,7 +1293,7 @@ Private Attributes</h2></td></tr>
 
 <p>To restore the original color of the input formula text. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00308">308</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00313">313</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -1311,7 +1312,7 @@ Private Attributes</h2></td></tr>
 
 <p>Stores input data and calculates compound characteristics. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00322">322</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00327">327</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00321">addAlias()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00296">doCalc()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00285">resetInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00469">resultAddData()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00488">resultAddInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00266">saveInitialInput()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00275">saveInput()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00332">setFormattedFormula()</a>.</p>
 
@@ -1330,7 +1331,7 @@ Private Attributes</h2></td></tr>
 
 <p>Actions for switching to a certain available language. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00311">311</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00316">316</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00209">updateLangActions()</a>.</p>
 
@@ -1347,7 +1348,7 @@ Private Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00315">315</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00320">320</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00183">useSystemLocaleTriggered()</a>.</p>
 
@@ -1366,7 +1367,7 @@ Private Attributes</h2></td></tr>
 
 <p>Directory path to search for translations. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00314">314</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00319">319</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00109">selectDefaultLang()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00209">updateLangActions()</a>.</p>
 
@@ -1385,7 +1386,7 @@ Private Attributes</h2></td></tr>
 
 <p>Currently loaded language file. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00316">316</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00321">321</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00363">qstringFromDouble()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00183">useSystemLocaleTriggered()</a>.</p>
 
@@ -1403,9 +1404,9 @@ Private Attributes</h2></td></tr>
 <div class="memdoc">
 
 <p>Backend model for the tabular result widget. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Check if <a class="el" href="classInputData.html" title="Stores GUI input data and performs compound calculations.">InputData</a> could be used as <em>QAbstractItemModel</em>. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Check if <a class="el" href="classInputData.html" title="Stores GUI input data and performs compound calculations.">InputData</a> could be used as <em>QAbstractItemModel</em>. </dd></dl>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00332">332</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00337">337</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00408">clearResultTable()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00562">copyResultTableSelection()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00346">fillResultTable()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00469">resultAddData()</a>, <a class="el" href="mainwindow_8cpp_source.html#l00488">resultAddInput()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00602">showElementData()</a>.</p>
 
@@ -1424,7 +1425,7 @@ Private Attributes</h2></td></tr>
 
 <p>Translates all GUI texts. </p>
 
-<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00305">305</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
+<p>Definition at line <a class="el" href="mainwindow_8h_source.html#l00310">310</a> of file <a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>.</p>
 
 <p>Referenced by <a class="el" href="mainwindow_8cpp_source.html#l00126">loadLanguage()</a>, and <a class="el" href="mainwindow_8cpp_source.html#l00037">MainWindow()</a>.</p>
 
@@ -1442,7 +1443,7 @@ Private Attributes</h2></td></tr>
 </td>
 <td>
 <address style="text-align: right;"><small>
-Generated on Wed Oct 26 2011 Wed Oct 26 2011 20:14:34 for qSLDcalc 0.6 by&nbsp;
+Generated on Wed Oct 26 2011 Wed Oct 26 2011 21:11:49 for qSLDcalc 0.6 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.1 </small></address>
 </td

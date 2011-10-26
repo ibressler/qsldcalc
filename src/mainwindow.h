@@ -133,6 +133,11 @@ typedef QList<QAction *> LangActionList;
  * 
  * \todo Eventually, rewrite the GUI with python to avoid the hassle with memory
  * management. Keep the backend in C++ (InputData, ElementDatabase).
+ *
+ * \todo For later on, a nice feature would be to have a possibility to add
+ * several compounds at different mass or volume, and the SLD calc could
+ * deduce the mass, volume and molar fraction, and finally the transmission
+ * and incoherent background as a function of the thickness and wavelength.
  */
 class MainWindow: public QMainWindow, private Ui::MainWindow
 {

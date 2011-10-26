@@ -38,6 +38,10 @@ class MainWindow;
 /**
  * Displays all known chemical elements in a two-dimensional viewport
  * organized by one of their property, selected by the user.
+ *
+ * \todo When sorting symbols by name, some isotopes are not displayed (are
+ *       they painted on top of each other?)
+ * \todo Longterm: Review visualization in general, draw in PSE layout.
  */
 class DataVisualizer: public QWidget, private Ui::DataVisualizer
 {

@@ -66,43 +66,43 @@
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036 <span class="keyword">class </span><a class="code" href="classMainWindow.html" title="Main window GUI configuration and management.">MainWindow</a>;
 <a name="l00037"></a>00037 
-<a name="l00042"></a><a class="code" href="classDataVisualizer.html">00042</a> <span class="keyword">class </span><a class="code" href="classDataVisualizer.html" title="Displays all known chemical elements in a two-dimensional viewport organized by one of their property...">DataVisualizer</a>: <span class="keyword">public</span> QWidget, <span class="keyword">private</span> Ui::<a class="code" href="classDataVisualizer.html" title="Displays all known chemical elements in a two-dimensional viewport organized by one of their property...">DataVisualizer</a>
-<a name="l00043"></a>00043 {
-<a name="l00044"></a>00044         Q_OBJECT
-<a name="l00045"></a>00045 
-<a name="l00046"></a><a class="code" href="classDataVisualizer.html#a9c5112e48e7120cbc4a1477bff5954d0">00046</a>         <span class="keyword">typedef</span> QPointer&lt;QGraphicsScene&gt; SceneType; 
-<a name="l00047"></a><a class="code" href="classDataVisualizer.html#af0e3d2aff95d65719ec8ad18568e2896">00047</a>         <span class="keyword">typedef</span> QPointer&lt;QGraphicsView&gt; ViewType;   
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 <span class="keyword">public</span>:
-<a name="l00055"></a>00055         <a class="code" href="classDataVisualizer.html#aa025e161e648dbe7e14e969d3fb16c5d" title="Constructor.">DataVisualizer</a>(<a class="code" href="classMainWindow.html" title="Main window GUI configuration and management.">MainWindow</a> * parent, <a class="code" href="classElementDatabase.html" title="Contains all chemical elements currently known by this program.">ElementDatabase</a>&amp; db);
-<a name="l00056"></a>00056 
-<a name="l00073"></a>00073         <span class="keyword">static</span> QString <a class="code" href="classDataVisualizer.html#af78d96091bb256e9f520f0d53c326d08" title="Generate a link text for the specified element to display detailed element data in the mainwindow...">getLinkText</a>(<span class="keyword">const</span> cfp::ChemicalElementInterface&amp; e);
-<a name="l00074"></a>00074 
-<a name="l00076"></a>00076         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a2af138cbb052f75ce31716509729fbb4" title="Retranslates this subwindow at runtime.">retranslateUi</a>();
-<a name="l00077"></a>00077 <span class="keyword">public</span> slots:
-<a name="l00080"></a>00080         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#ae87bb6ec5bf5631d21d292bc128baaf9" title="Shows this data visualization window to the user and selects the first property to display initially...">show</a>();
-<a name="l00081"></a>00081 signals:
-<a name="l00085"></a>00085         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#ac750675c1ed5e55ed2bd2254f8472d39" title="Emits a link text of the element whose detailed information should be shown in the main window and wh...">elementLinkActivated</a>(<span class="keyword">const</span> QString&amp; link);
-<a name="l00086"></a>00086 <span class="keyword">private</span> slots:
-<a name="l00091"></a>00091         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a7f18683bbf5955b91718f0da3475a635" title="Displays and draws all chemical elements sorted by their property specified by index.">display</a>(<span class="keywordtype">int</span> index);
-<a name="l00092"></a>00092 
-<a name="l00097"></a>00097         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a8773a0e5ff63971d202a97537b759639" title="Signal forwarder to display element details in the mainwindow.">emitElementLinkActivated</a>(<span class="keyword">const</span> QString&amp; link);
-<a name="l00098"></a>00098 <span class="keyword">private</span>:
-<a name="l00108"></a>00108         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#af64d43d58db2ed9ec6bdc3af26424267" title="Draws the selected property of an element to the scene in a way that it doesn&amp;#39;t overlap with othe...">draw</a>(<a class="code" href="classDataVisualizer.html#a9c5112e48e7120cbc4a1477bff5954d0" title="Shortcut.">SceneType</a> scene, qreal&amp; lastXPos, <a class="code" href="classElement.html#a983ee14456c5ca2ee3d11c8598a63ab1" title="A guarded Pointer to such an Element.">Element::Ptr</a> e, <span class="keywordtype">int</span> propertyIndex);
-<a name="l00109"></a>00109 
-<a name="l00115"></a>00115         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#ace8d17e7820d66dabc4e3832e48707d8" title="Sets the position of an item in a graphics scene in a way it doesn&amp;#39;t collide or overlap with othe...">setItemPos</a>(QGraphicsItem * item, QPointF pos);
-<a name="l00116"></a>00116 
-<a name="l00120"></a>00120         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#aa336a8fcd92c31c815c8de0897e8a43f" title="Selects another Element characteristic and rebuilds the graphics scene.">selectIndex</a>(<span class="keywordtype">int</span> index);
-<a name="l00121"></a>00121 
-<a name="l00124"></a>00124         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a0431b878d602379ab52f5a9e72f1db78" title="Adjusts the height of the data visualization window to show as much data elements as possible...">adjustSize</a>(<span class="keywordtype">void</span>);
-<a name="l00125"></a>00125 <span class="keyword">private</span>:
-<a name="l00127"></a><a class="code" href="classDataVisualizer.html#a2be29b2ed0ea407d54d163fe74d0a2d9">00127</a>         <a class="code" href="classElementDatabase.html#ae210b0e0cdd8b0d4d1ee011a1b41ddd8" title="Guarded pointer to this database.">ElementDatabase::Ptr</a> <a class="code" href="classDataVisualizer.html#a2be29b2ed0ea407d54d163fe74d0a2d9" title="A link to the data base with all known chemical elements.">mDB</a>;
-<a name="l00130"></a><a class="code" href="classDataVisualizer.html#ada4752493623baf287c148d004101222">00130</a>         <span class="keyword">static</span> <span class="keyword">const</span> qreal <a class="code" href="classDataVisualizer.html#ada4752493623baf287c148d004101222" title="Margin around items to not contact each other or the graphics view boundary.">itemMargin</a> = 5.0;
-<a name="l00132"></a><a class="code" href="classDataVisualizer.html#acaa27882b140daeae43e7f8ee0b606db">00132</a>         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classDataVisualizer.html#acaa27882b140daeae43e7f8ee0b606db" title="Initially selected element characteristic to show.">initialSelection</a> = 0;
-<a name="l00134"></a><a class="code" href="classDataVisualizer.html#a119c2a033ba5ecd7398841550e9ae6ad">00134</a>         <a class="code" href="classMainWindow.html" title="Main window GUI configuration and management.">MainWindow</a> * <a class="code" href="classDataVisualizer.html#a119c2a033ba5ecd7398841550e9ae6ad" title="The parent window.">mMainWindow</a>;
-<a name="l00135"></a>00135 };
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137 <span class="preprocessor">#endif</span>
+<a name="l00046"></a><a class="code" href="classDataVisualizer.html">00046</a> <span class="keyword">class </span><a class="code" href="classDataVisualizer.html" title="Displays all known chemical elements in a two-dimensional viewport organized by one of their property...">DataVisualizer</a>: <span class="keyword">public</span> QWidget, <span class="keyword">private</span> Ui::<a class="code" href="classDataVisualizer.html" title="Displays all known chemical elements in a two-dimensional viewport organized by one of their property...">DataVisualizer</a>
+<a name="l00047"></a>00047 {
+<a name="l00048"></a>00048         Q_OBJECT
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="classDataVisualizer.html#a9c5112e48e7120cbc4a1477bff5954d0">00050</a>         <span class="keyword">typedef</span> QPointer&lt;QGraphicsScene&gt; SceneType; 
+<a name="l00051"></a><a class="code" href="classDataVisualizer.html#af0e3d2aff95d65719ec8ad18568e2896">00051</a>         <span class="keyword">typedef</span> QPointer&lt;QGraphicsView&gt; ViewType;   
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="keyword">public</span>:
+<a name="l00059"></a>00059         <a class="code" href="classDataVisualizer.html#aa025e161e648dbe7e14e969d3fb16c5d" title="Constructor.">DataVisualizer</a>(<a class="code" href="classMainWindow.html" title="Main window GUI configuration and management.">MainWindow</a> * parent, <a class="code" href="classElementDatabase.html" title="Contains all chemical elements currently known by this program.">ElementDatabase</a>&amp; db);
+<a name="l00060"></a>00060 
+<a name="l00077"></a>00077         <span class="keyword">static</span> QString <a class="code" href="classDataVisualizer.html#af78d96091bb256e9f520f0d53c326d08" title="Generate a link text for the specified element to display detailed element data in the mainwindow...">getLinkText</a>(<span class="keyword">const</span> cfp::ChemicalElementInterface&amp; e);
+<a name="l00078"></a>00078 
+<a name="l00080"></a>00080         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a2af138cbb052f75ce31716509729fbb4" title="Retranslates this subwindow at runtime.">retranslateUi</a>();
+<a name="l00081"></a>00081 <span class="keyword">public</span> slots:
+<a name="l00084"></a>00084         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#ae87bb6ec5bf5631d21d292bc128baaf9" title="Shows this data visualization window to the user and selects the first property to display initially...">show</a>();
+<a name="l00085"></a>00085 signals:
+<a name="l00089"></a>00089         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#ac750675c1ed5e55ed2bd2254f8472d39" title="Emits a link text of the element whose detailed information should be shown in the main window and wh...">elementLinkActivated</a>(<span class="keyword">const</span> QString&amp; link);
+<a name="l00090"></a>00090 <span class="keyword">private</span> slots:
+<a name="l00095"></a>00095         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a7f18683bbf5955b91718f0da3475a635" title="Displays and draws all chemical elements sorted by their property specified by index.">display</a>(<span class="keywordtype">int</span> index);
+<a name="l00096"></a>00096 
+<a name="l00101"></a>00101         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a8773a0e5ff63971d202a97537b759639" title="Signal forwarder to display element details in the mainwindow.">emitElementLinkActivated</a>(<span class="keyword">const</span> QString&amp; link);
+<a name="l00102"></a>00102 <span class="keyword">private</span>:
+<a name="l00112"></a>00112         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#af64d43d58db2ed9ec6bdc3af26424267" title="Draws the selected property of an element to the scene in a way that it doesn&amp;#39;t overlap with othe...">draw</a>(<a class="code" href="classDataVisualizer.html#a9c5112e48e7120cbc4a1477bff5954d0" title="Shortcut.">SceneType</a> scene, qreal&amp; lastXPos, <a class="code" href="classElement.html#a983ee14456c5ca2ee3d11c8598a63ab1" title="A guarded Pointer to such an Element.">Element::Ptr</a> e, <span class="keywordtype">int</span> propertyIndex);
+<a name="l00113"></a>00113 
+<a name="l00119"></a>00119         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#ace8d17e7820d66dabc4e3832e48707d8" title="Sets the position of an item in a graphics scene in a way it doesn&amp;#39;t collide or overlap with othe...">setItemPos</a>(QGraphicsItem * item, QPointF pos);
+<a name="l00120"></a>00120 
+<a name="l00124"></a>00124         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#aa336a8fcd92c31c815c8de0897e8a43f" title="Selects another Element characteristic and rebuilds the graphics scene.">selectIndex</a>(<span class="keywordtype">int</span> index);
+<a name="l00125"></a>00125 
+<a name="l00128"></a>00128         <span class="keywordtype">void</span> <a class="code" href="classDataVisualizer.html#a0431b878d602379ab52f5a9e72f1db78" title="Adjusts the height of the data visualization window to show as much data elements as possible...">adjustSize</a>(<span class="keywordtype">void</span>);
+<a name="l00129"></a>00129 <span class="keyword">private</span>:
+<a name="l00131"></a><a class="code" href="classDataVisualizer.html#a2be29b2ed0ea407d54d163fe74d0a2d9">00131</a>         <a class="code" href="classElementDatabase.html#ae210b0e0cdd8b0d4d1ee011a1b41ddd8" title="Guarded pointer to this database.">ElementDatabase::Ptr</a> <a class="code" href="classDataVisualizer.html#a2be29b2ed0ea407d54d163fe74d0a2d9" title="A link to the data base with all known chemical elements.">mDB</a>;
+<a name="l00134"></a><a class="code" href="classDataVisualizer.html#ada4752493623baf287c148d004101222">00134</a>         <span class="keyword">static</span> <span class="keyword">const</span> qreal <a class="code" href="classDataVisualizer.html#ada4752493623baf287c148d004101222" title="Margin around items to not contact each other or the graphics view boundary.">itemMargin</a> = 5.0;
+<a name="l00136"></a><a class="code" href="classDataVisualizer.html#acaa27882b140daeae43e7f8ee0b606db">00136</a>         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="classDataVisualizer.html#acaa27882b140daeae43e7f8ee0b606db" title="Initially selected element characteristic to show.">initialSelection</a> = 0;
+<a name="l00138"></a><a class="code" href="classDataVisualizer.html#a119c2a033ba5ecd7398841550e9ae6ad">00138</a>         <a class="code" href="classMainWindow.html" title="Main window GUI configuration and management.">MainWindow</a> * <a class="code" href="classDataVisualizer.html#a119c2a033ba5ecd7398841550e9ae6ad" title="The parent window.">mMainWindow</a>;
+<a name="l00139"></a>00139 };
+<a name="l00140"></a>00140 
+<a name="l00141"></a>00141 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <hr size="1">
@@ -112,7 +112,7 @@
 </td>
 <td>
 <address style="text-align: right;"><small>
-Generated on Wed Oct 26 2011 Wed Oct 26 2011 20:14:34 for qSLDcalc 0.6 by&nbsp;
+Generated on Wed Oct 26 2011 Wed Oct 26 2011 21:11:48 for qSLDcalc 0.6 by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.1 </small></address>
 </td
