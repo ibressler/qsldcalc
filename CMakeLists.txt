@@ -30,17 +30,14 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${qsldcalc_SOURCE_DIR}/bin)
 ### <adjust here> ###
 
 # libcfp library related settings
+set(LIBCFP_PATH ${qsldcalc_SOURCE_DIR}/src/libcfp)
 find_path(libcfp_INCLUDE_DIR cfp/cfp.h
 	PATHS
-	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/include
-	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/trunk/include
-	${qsldcalc_SOURCE_DIR}/../../libcfp/include
+	${LIBCFP_PATH}/include
 )
 find_library(libcfp_LIBRARY libcfp_static${CMAKE_STATIC_LIBRARY_SUFFIX}
 	PATHS
-	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/lib/
-	${qsldcalc_SOURCE_DIR}/../../libcfp/berlios/trunk/lib/
-	${qsldcalc_SOURCE_DIR}/../../libcfp/lib
+	${LIBCFP_PATH}/lib
 )
 
 set(qsldcalc_version 0.6)
