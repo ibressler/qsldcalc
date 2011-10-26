@@ -220,8 +220,10 @@ private:
 	/// Helper of calcXrayEnergies()
 	/// \param[out] fp Xray scattering coefficient (first derivation)
 	/// \param[out] fpp Xray scattering coefficient (second derivation)
-	/// \param[in] elemIt Iterator to an element in a CompleteList
+	/// \param[in] ep Pointer to an element in a CompleteList
 	///            (to calculate the coefficients for).
+	/// \param[in] coeff Coefficient/weight of this Element from chemical
+	///		formula.
 	/// \param[in] energy User specified Xray energy.
 	/// \returns True, on success. False, if the given energy value is out
 	///          of range.
