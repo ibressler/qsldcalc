@@ -144,10 +144,8 @@ replace_str_in_file(${qsldcalc_SOURCE_DIR}/src/Doxyfile
 
 # windows icon&description
 set(qsldcalc_icons "")
-message("CMAKE_SOURCE_DIR: '${CMAKE_SOURCE_DIR}'")
 # qsldcalc_SOURCE_DIR
 add_app_icon(qsldcalc_icons)
-message("qsldcalc_icons: '${qsldcalc_icons}'")
 
 # create an executable file named "qsldcalc" from the source files in the
 # variable "qsldcalc_SRC".

@@ -39,6 +39,7 @@ VS_VERSION_INFO VERSIONINFO
             VALUE "FileDescription", "SLD Calculator 0.6"
             VALUE "FileVersion", "0.6"
             VALUE "InternalName", "qsldcalc-0.6_Windows32"
+            VALUE "LegalCopyright", "GNU General Public License (GPL)"
             VALUE "OriginalFilename", "qsldcalc-0.6_Windows32.exe"
             VALUE "ProductName", "qSLDcalc"
             VALUE "ProductVersion", "0.6"

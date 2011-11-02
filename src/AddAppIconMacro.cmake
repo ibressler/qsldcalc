@@ -24,14 +24,12 @@ macro (ADD_APP_ICON appsources)
 
     if (WIN32)
         find_program(WINDRES_EXECUTABLE NAMES windres)
-        message("WINDRES_EXECUTABLE: '${WINDRES_EXECUTABLE}'")
         if (NOT WINDRES_EXECUTABLE)
             message(STATUS "Unable to find windres utilities - application will not have an application icon!")
         endif (NOT WINDRES_EXECUTABLE)
     
         set(qsldcalc_icofile "${CMAKE_SOURCE_DIR}/res/img/qsldcalc.ico")
         set(qsldcalc_rcfile "${CMAKE_SOURCE_DIR}/res/qsldcalc.rc")
-        message("exec name: '${EXEC_NAME}' '${CMAKE_EXECUTABLE_SUFFIX}'")
         # solved by relative path
         # replace_str_in_file(${qsldcalc_rcfile}
         #     "IDI_ICON[0-9] +ICON +(DISCARDABLE)? +\\\"[^\\\"]+\\\""
