@@ -50,16 +50,7 @@ The selects the cmake generator for Makefiles used in a MSYS shell.
 This program is released under the GNU General Public License (GPL).
 For further information see LICENSE.txt
 
-It was written by Ingo Bressler (qsldcalc at ingobressler.net)
+It started by Ingo Bressler (qsldcalc at ingobressler.net)
 at the Stranski-Laboratory for Physical and Theoretical Chemistry of the 
-Technische Universität Berlin.
-Postal address:
-
-    TU-Berlin
-    Stranski-Laboratorium
-    Institut für Chemie
-    Fakultät II
-    Sekr. TC 7
-    Straße des 17. Juni 124
-    10623 Berlin
+Technische Universität Berlin in 2009.
 

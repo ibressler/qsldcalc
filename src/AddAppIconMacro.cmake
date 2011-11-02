@@ -7,7 +7,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file [in KDE repositories].
 #
-# Modified 2011 by Ingo Breßler <dev@ingobressler.net>
+# Copyright (c) 2011, Ingo Breßler <dev@ingobressler.net>
 
 macro(replace_str_in_file FILENAME PATTERN_STR REPLACE_STR)
     # let the documentation know about the svn revision number

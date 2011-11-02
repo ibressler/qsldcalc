@@ -21,7 +21,7 @@
  */
 /*
  * Author(s) of this file:
- * Ingo Bressler (qsldcalc at ingobressler.net)
+ *   Copyright (c) 2011, Ingo Bressler (qsldcalc at ingobressler.net)
  */
 
 #include <QFile>

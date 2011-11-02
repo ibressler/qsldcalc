@@ -19,7 +19,7 @@
 # along with qSLDcalc. If not, see <http://www.gnu.org/licenses/>.
 
 # Author(s) of this file:
-# Ingo Bressler (qsldcalc at ingobressler.net)
+#   Copyright (c) 2011, Ingo Bressler (qsldcalc at ingobressler.net)
 
 
 # the next line sets up include and link directories and defines some
