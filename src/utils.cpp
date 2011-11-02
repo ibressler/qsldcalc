@@ -1,6 +1,7 @@
 /*
  * src/utils.cpp
  *
+ * Copyright (c) 2010-2011, Ingo Bressler (qsldcalc at ingobressler.net)
  * Copyright (c) 2009 Technische Universität Berlin, 
  * Stranski-Laboratory for Physical und Theoretical Chemistry
  *
@@ -18,10 +19,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with qSLDcalc. If not, see <http://www.gnu.org/licenses/>.
- */
-/*
- * Author(s) of this file:
- *   Copyright (c) 2011, Ingo Bressler (qsldcalc at ingobressler.net)
  */
 
 #include "utils.h"

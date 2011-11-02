@@ -50,7 +50,9 @@ The selects the cmake generator for Makefiles used in a MSYS shell.
 This program is released under the GNU General Public License (GPL).
 For further information see LICENSE.txt
 
-It started by Ingo Bressler (qsldcalc at ingobressler.net)
+Copyright (c) 2010-2011 Ingo Bressler (qsldcalc at ingobressler.net)
+
+It was started by Ingo Bressler (qsldcalc at ingobressler.net)
 at the Stranski-Laboratory for Physical and Theoretical Chemistry of the 
 Technische Universität Berlin in 2009.
 
