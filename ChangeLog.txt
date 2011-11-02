@@ -1,3 +1,14 @@
+2011-10-XX, version 0.6
+
+- bug fixes
+  - correct isotope selection for x-ray SLD calculation
+  - visualization shows duplicate symbols (isotopes)
+  - number of digits for density input field increased to 6
+- moved the repository to github
+  - updated contact and copyright info
+- icon and properties for Windows
+  - static build, no additional DLLs or other files required
+
 2009-12-23, version 0.5
 
 The first version which is made publicly available. It is approximately 80%
