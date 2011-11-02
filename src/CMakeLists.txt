@@ -33,6 +33,7 @@
 ####
 
 include(${QT_USE_FILE}) # includes qt4 cmake module
+include(AddAppIconMacro.cmake) # script to set Windows icons&info
 
 # compiler related settings
 set(CXX_FLAGS "-Wall")
@@ -128,6 +129,26 @@ math(EXPR NUM_BITS "${CMAKE_SIZEOF_VOID_P}*8")
 #message("bits: ${NUM_BITS}")
 set(EXEC_NAME "qsldcalc-${qsldcalc_version}_${CMAKE_SYSTEM_NAME}${NUM_BITS}")
 
+ #
+## Version number propagation code
+ #
+
+set(PROGRAM_NAME "SLD Calculator ${qsldcalc_version}")
+add_definitions(-DPROGRAM_NAME="${PROGRAM_NAME}")
+
+# let the documentation/doxygen know about the svn revision number
+replace_str_in_file(${qsldcalc_SOURCE_DIR}/src/Doxyfile
+	"PROJECT_NUMBER         = [a-z]?[0-9]+\\\\.?[0-9]*\\\\.?([a-z]|[0-9])*\\\\.?([a-z]|[0-9])*"
+	"PROJECT_NUMBER         = ${qsldcalc_version}"
+)
+
+# windows icon&description
+set(qsldcalc_icons "")
+message("CMAKE_SOURCE_DIR: '${CMAKE_SOURCE_DIR}'")
+# qsldcalc_SOURCE_DIR
+add_app_icon(qsldcalc_icons)
+message("qsldcalc_icons: '${qsldcalc_icons}'")
+
 # create an executable file named "qsldcalc" from the source files in the
 # variable "qsldcalc_SRC".
 add_executable(${EXEC_NAME}
@@ -136,6 +157,7 @@ add_executable(${EXEC_NAME}
 	${qsldcalc_SRC} 
 	${qsldcalc_MOC_SRC} 
 	${qsldcalc_UI_H}
+	${qsldcalc_icons}
 )
 
 # link the "qsldcalc" target against the Qt libraries. which libraries
@@ -145,25 +167,5 @@ add_executable(${EXEC_NAME}
 target_link_libraries(${EXEC_NAME}
 	${QT_LIBRARIES}
 	${libcfp_LIBRARY}
-)
-
- #
-## Version number propagation code
- #
-
-add_definitions(-DPROGRAM_NAME="SLD Calculator ${qsldcalc_version}")
-
-macro(replace_str_in_file FILENAME PATTERN_STR REPLACE_STR)
-# let the documentation know about the svn revision number
-	file(READ ${FILENAME} FILE_BODY)
-	string(REGEX REPLACE "${PATTERN_STR}" "${REPLACE_STR}"
-		FILE_BODY_NEW ${FILE_BODY})
-	file(WRITE ${FILENAME} ${FILE_BODY_NEW})
-endmacro(replace_str_in_file)
-
-# let the documentation know about the svn revision number
-replace_str_in_file(${qsldcalc_SOURCE_DIR}/src/Doxyfile
-	"PROJECT_NUMBER         = [a-z]?[0-9]+\\\\.?[0-9]*\\\\.?([a-z]|[0-9])*\\\\.?([a-z]|[0-9])*"
-	"PROJECT_NUMBER         = ${qsldcalc_version}"
 )
 
