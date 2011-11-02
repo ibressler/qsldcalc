@@ -47,8 +47,8 @@ The selects the cmake generator for Makefiles used in a MSYS shell.
 
 ### Copyright
 
-This library is released under the GNU Lesser General Public License (LGPL).
-For further information see LICENSE
+This program is released under the GNU General Public License (GPL).
+For further information see LICENSE.txt
 
 It was written by Ingo Bressler (qsldcalc at ingobressler.net)
 at the Stranski-Laboratory for Physical and Theoretical Chemistry of the 
