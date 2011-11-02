@@ -98,7 +98,7 @@ QT4_ADD_TRANSLATION(qsldcalc_LANG_QM ${qsldcalc_LANG_TS})
 set(CMAKE_CURRENT_BINARY_DIR ${BIN_DIR_OLD})
 
 QT4_ADD_RESOURCES(qsldcalc_RES_CXX
-	"${qsldcalc_SOURCE_DIR}/res/sldcalc.qrc"
+	"${qsldcalc_SOURCE_DIR}/res/qsldcalc.qrc"
 	OPTIONS -no-compress
 )
 
