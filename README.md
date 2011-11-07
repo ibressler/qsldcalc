@@ -11,7 +11,7 @@ compounds given by chemical formula.
 - free as in freedom (GPL)
 - Written in C++ and [Qt](http://qt.nokia.com/products)
 
-On github: https://github.com/ibressler/qsldcalc
+On github: http://github.com/ibressler/qsldcalc
 
 ### Documentation
 
@@ -20,7 +20,8 @@ The full source documentation is
 
 ### How to build
 
-Qt and libcfp is required to build the application. Build libcfp first and
+Qt and [libcfp](http://github.com/ibressler/libcfp) is required to build the
+application. Build libcfp first and
 make sure, it's located in *src/libcfp* (either by copy or symbolic link).
 
 CMake is used for building the program on various platforms. Just run *cmake*

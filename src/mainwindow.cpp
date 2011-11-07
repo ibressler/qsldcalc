@@ -159,7 +159,7 @@ void MainWindow::retranslateUi()
 	mAboutText.append("<br><a href=\"http://www.gnu.org/licenses/gpl.html\">http://www.gnu.org/licenses/gpl.html</a>");
 	mAboutText.append("<br><br>");
 	mAboutText.append(tr("For documentation and source code see:"));
-	mAboutText.append("<br><a href=\"http://developer.berlios.de/projects/qsldcalc/\">http://developer.berlios.de/projects/qsldcalc/</a>");
+	mAboutText.append("<br><a href=\"http://github.com/ibressler/qsldcalc/\">http://github.com/ibressler/qsldcalc</a>");
 	mAboutText.append("<br><br>");
 	mAboutText.append(tr("The backend data sources are:"));
 	mAboutText.append("<br><a href=\"http://www.ncnr.nist.gov/resources/n-lengths/list.html\">http://www.ncnr.nist.gov/resources/n-lengths/list.html</a>");
